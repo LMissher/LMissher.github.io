@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="搭建所需环境首先需要 $git+node.js$ 。">
+  <meta name="description" content="搭建所需环境首先需要 $git+node.js$。">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git+hexo搭建">
 <meta property="og:url" content="http://yoursite.com/2019/03/29/git-hexo搭建/index.html">
 <meta property="og:site_name" content="LMissher_Blog">
-<meta property="og:description" content="搭建所需环境首先需要 $git+node.js$ 。">
+<meta property="og:description" content="搭建所需环境首先需要 $git+node.js$。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-28T17:06:04.908Z">
+<meta property="og:updated_time" content="2019-03-28T17:13:05.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git+hexo搭建">
-<meta name="twitter:description" content="搭建所需环境首先需要 $git+node.js$ 。">
+<meta name="twitter:description" content="搭建所需环境首先需要 $git+node.js$。">
 
 
 
@@ -417,7 +417,7 @@
                 
               
 
-              <time title="创建时间：2019-03-29 00:30:16 / 修改时间：01:06:04" itemprop="dateCreated datePublished" datetime="2019-03-29T00:30:16+08:00">2019-03-29</time>
+              <time title="创建时间：2019-03-29 00:30:16 / 修改时间：01:13:05" itemprop="dateCreated datePublished" datetime="2019-03-29T00:30:16+08:00">2019-03-29</time>
             
 
             
@@ -474,7 +474,7 @@
       
 
       
-        <h1 id="搭建所需环境"><a href="#搭建所需环境" class="headerlink" title="搭建所需环境"></a>搭建所需环境</h1><p>首先需要 $git+node.js$ 。</p>
+        <h1 id="搭建所需环境"><a href="#搭建所需环境" class="headerlink" title="搭建所需环境"></a>搭建所需环境</h1><p>首先需要 $git+node.js$。</p>
 
       
     </div>
@@ -1136,6 +1136,53 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
 
   
 
