@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[git+hexo搭建]]></title>
     <url>%2F2019%2F03%2F29%2Fgit-hexo%E6%90%AD%E5%BB%BA%2F</url>
-    <content type="text"><![CDATA[搭建所需环境首先需要$git+node.js$。]]></content>
+    <content type="text"><![CDATA[搭建所需环境首先需要 $git+node.js$ 。]]></content>
       <categories>
         <category>Web</category>
       </categories>
