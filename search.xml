@@ -5,10 +5,10 @@
     <url>%2F2019%2F03%2F29%2F2017LatinAme-F%2F</url>
     <content type="text"><![CDATA[2017LatinAme F Fundraisinghttps://vjudge.net/contest/259114#problem/F n个人有漂亮值、财富值以及钱财三个属性。当一个人的漂亮值比另一个人严格大，且财富值比那个人小的时候，这两个人会发生争吵。问怎样选择一个集合，使得集合里的人互不争吵且钱财之和最大。先将相同漂亮值财富值的人合并然后将人按照漂亮值排序。然后遍历所有的人找到财富值比它小的钱财最大的状态然后加上那个状态更新当前财富值。注意同样的漂亮值的人互不影响。最后看所有的财富值中最大的即是答案。注意离散化财富值。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798#include &lt;bits/stdc++.h&gt;#define lson l,mid,rt&lt;&lt;1#define rson mid+1,r,rt&lt;&lt;1|1#define up rt,rt&lt;&lt;1,rt&lt;&lt;1|1using namespace std;typedef long long ll;const int M = 1e5+7;struct node&#123; int b,f;ll d; node () &#123;&#125; node (int b1,int f1,ll d1)&#123; b=b1;f=f1;d=d1; &#125; bool operator &lt; (const node &amp; k)const &#123; if(b!=k.b) return b&lt;k.b; return f&lt;k.f; &#125;&#125;p[M];map&lt;node,ll&gt; mp;int n,tot,f[M];struct Seg&#123; ll mx[M&lt;&lt;2]; void pushup(int rt,int l,int r)&#123; mx[rt]=max(mx[l],mx[r]); &#125; void build(int l,int r,int rt)&#123; if(l==r)&#123; mx[rt]=0; return ; &#125; int mid=(l+r)&gt;&gt;1; build(lson); build(rson); pushup(up); &#125; void update(int pos,int l,int r,int rt,ll v)&#123; if(l==r)&#123; if(v&gt;mx[rt]) mx[rt]=v; return; &#125; int mid=(l+r)&gt;&gt;1; if(pos&lt;=mid) update(pos,lson,v); else update(pos,rson,v); pushup(up); &#125; ll query(int L,int R,int l,int r,int rt)&#123; if(L&lt;=l&amp;&amp;r&lt;=R)&#123; return mx[rt]; &#125; int mid=(l+r)&gt;&gt;1;ll res=0; if(L&lt;=mid) res=max(res,query(L,R,lson)); if(R&gt;mid) res=max(res,query(L,R,rson)); return res; &#125;&#125;seg;vector&lt;pair&lt;int,ll&gt; &gt; vec;int main()&#123; freopen("1.in","r",stdin); freopen("1.out","w",stdout); while(~scanf("%d",&amp;n))&#123; mp.clear();tot=0;vec.clear(); for(int i=1;i&lt;=n;i++)&#123; int x,y;ll z; scanf("%d%d%lld",&amp;x,&amp;y,&amp;z); mp[node(x,y,0)]+=z; &#125; for(map&lt;node,ll&gt;::iterator it=mp.begin();it!=mp.end();it++)&#123; p[++tot].b=it-&gt;first.b;p[tot].f=it-&gt;first.f;p[tot].d=it-&gt;second; f[tot]=p[tot].f; &#125; sort(p+1,p+tot+1);int pre=0; sort(f+1,f+tot+1); int sz=unique(f+1,f+tot+1)-f-1; seg.build(0,sz,1); for(int i=1;i&lt;=tot;i++)&#123; if(p[i].b!=pre)&#123; for(int i=0;i&lt;vec.size();i++)&#123; seg.update(vec[i].first,0,sz,1,vec[i].second); &#125; vec.clear(); int pos=lower_bound(f+1,f+sz+1,p[i].f)-f; vec.push_back(make_pair(pos,p[i].d+seg.query(0,pos-1,0,sz,1))); pre=p[i].b; &#125; else&#123; int pos=lower_bound(f+1,f+sz+1,p[i].f)-f; vec.push_back(make_pair(pos,p[i].d+seg.query(0,pos-1,0,sz,1))); &#125; &#125; for(int i=0;i&lt;vec.size();i++)&#123; seg.update(vec[i].first,1,sz,1,vec[i].second); &#125; printf("%lld\n",seg.mx[1]); &#125; return 0;&#125;]]></content>
       <categories>
-        <category>-[线段树]</category>
+        <category>线段树</category>
       </categories>
       <tags>
-        <tag>-[segment-tree]</tag>
+        <tag>segment-tree</tag>
       </tags>
   </entry>
   <entry>
@@ -16,10 +16,10 @@
     <url>%2F2019%2F03%2F29%2FLYOI2016-41%2F</url>
     <content type="text"><![CDATA[LYOI2016_41 一次函数https://lyoi.ac/problem/41 $n$ 个一次函数 $f_i(x) = k_i \times x + b_i$,有两个操作。第一个操作把指定一个二次函数的 $k$ 和 $b$ 改变。第二个操作给出区间 $[l,r]$ 以及 $x$ , 求 $f_r(f_{r-1}(…f_l(x)))$ 的值。根据推算得出对于一个区间的两个子区间 $l$ 与 $r$ ,$k_{rt} = k_l \times k_r$, $b_{rt} = k_r \times b_l + b_r$ 。用线段树维护 $k$ 与 $b$ ,询问的时候合并区间即可。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384#include &lt;bits/stdc++.h&gt;#define lson l,mid,rt&lt;&lt;1#define rson mid+1,r,rt&lt;&lt;1|1#define up rt,rt&lt;&lt;1,rt&lt;&lt;1|1using namespace std;const int M = 2e5+7;typedef long long ll;const ll mod = 1e9+7;int n,q;ll a[M],c[M];char s[2];int ql,qr,qpos,tot;ll qx,qk,qb;struct Seg&#123; ll k[M&lt;&lt;3],b[M&lt;&lt;3]; void pushup(int rt,int l,int r)&#123; k[rt]=k[l]*k[r]%mod; b[rt]=(b[l]*k[r]%mod+b[r])%mod; &#125; void build(int l,int r,int rt)&#123; if(l==r)&#123; k[rt]=a[l],b[rt]=c[l]; return ; &#125; int mid=(l+r)&gt;&gt;1; build(lson); build(rson); pushup(up); &#125; void update(int pos,int l,int r,int rt,ll a,ll c)&#123; if(l==r)&#123; k[rt]=a,b[rt]=c; return ; &#125; int mid=(l+r)&gt;&gt;1; if(pos&lt;=mid) update(pos,lson,a,c); else update(pos,rson,a,c); pushup(up); &#125; int query(int L,int R,int l,int r,int rt)&#123; if(L&lt;=l&amp;&amp;r&lt;=R)&#123; return rt; &#125; int mid=(l+r)&gt;&gt;1,ll,rr,res; if(L&gt;mid)&#123; res=query(L,R,rson); return res; &#125; else if(R&lt;=mid)&#123; res=query(L,R,lson); return res; &#125; else&#123; ll=query(L,R,lson),rr=query(L,R,rson); pushup(++tot,ll,rr); return tot; &#125; &#125;&#125;seg;void solve()&#123; while(q--)&#123; scanf("%s",s); if(s[0]=='Q')&#123; tot=(M&lt;&lt;2)+1; scanf("%d%d%lld",&amp;ql,&amp;qr,&amp;qx); tot=seg.query(ql,qr,1,n,1); printf("%lld\n",(seg.k[tot]*qx%mod+seg.b[tot])%mod); &#125; else&#123; scanf("%d%lld%lld",&amp;qpos,&amp;qk,&amp;qb); seg.update(qpos,1,n,1,qk,qb); &#125; &#125;&#125;int main()&#123; // freopen("1.in","r",stdin); // freopen("1.out","w",stdout); while(~scanf("%d%d",&amp;n,&amp;q))&#123; for(int i=1;i&lt;=n;i++) scanf("%lld%lld",&amp;a[i],&amp;c[i]); seg.build(1,n,1); solve(); &#125; return 0;&#125;]]></content>
       <categories>
-        <category>-[线段树]</category>
+        <category>线段树</category>
       </categories>
       <tags>
-        <tag>-[segment-tree]</tag>
+        <tag>segment-tree</tag>
       </tags>
   </entry>
   <entry>
@@ -27,10 +27,10 @@
     <url>%2F2019%2F03%2F29%2FNowcoder-practice28-B%2F</url>
     <content type="text"><![CDATA[Nowcoder_practice28_B 数据结构https://www.nowcoder.com/acm/contest/200/B $n$ 个数 $m$ 个操作。$1.$ 给出 $l$ 与 $r$ 求 $\sum_{l}^{r}a_{i}$。$2.$ 给出 $l$ 与 $r$ 求 $\sum_{l}^{r}a_{i}^{2}$。$3.$ 给出 $l 、r、x$ 对于区间 $l、r$ 中的所有数 $\times x$。$4.$ 给出 $l 、r、x$ 对于区间 $l、r$ 中的所有数 $+ x$。线段树模板题，维护一个加 $lazy$ 与一个乘 $lazy$ ,再维护两个答案即可。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394#include &lt;bits/stdc++.h&gt;#define lson l,mid,rt&lt;&lt;1#define rson mid+1,r,rt&lt;&lt;1|1#define up rt,rt&lt;&lt;1,rt&lt;&lt;1|1using namespace std;typedef long long ll;const int Nmax = 1e4+7;int n,q;ll a[Nmax];struct Seg&#123; ll sum[Nmax&lt;&lt;2],fsum[Nmax&lt;&lt;2],len[Nmax&lt;&lt;2],lazyadd[Nmax&lt;&lt;2],lazymul[Nmax&lt;&lt;2]; void pushup(int rt,int l,int r)&#123; sum[rt]=sum[l]+sum[r]; fsum[rt]=fsum[l]+fsum[r]; &#125; void pushdown(int rt,int l,int r)&#123; if(lazymul[rt]!=1)&#123; ll v=lazymul[rt]; lazymul[rt]=1; sum[l]*=v;sum[r]*=v; fsum[l]*=(v*v);fsum[r]*=(v*v); lazymul[l]*=v;lazymul[r]*=v; lazyadd[l]*=v;lazyadd[r]*=v; &#125; if(lazyadd[rt])&#123; ll v=lazyadd[rt]; lazyadd[rt]=0; fsum[r]+=(2*sum[r]*v+v*v*len[r]);fsum[l]+=(2*sum[l]*v+v*v*len[l]); sum[r]+=(v*len[r]);sum[l]+=(v*len[l]); lazyadd[r]+=v;lazyadd[l]+=v; &#125; &#125; void build(int l,int r,int rt)&#123; sum[rt]=fsum[rt]=0;len[rt]=(ll)(r-l+1);lazyadd[rt]=0;lazymul[rt]=1; if(l==r)&#123; sum[rt]=a[l];fsum[rt]=a[l]*a[l]; return ; &#125; int mid=(l+r)&gt;&gt;1; build(lson); build(rson); pushup(up); &#125; void update(int L,int R,int l,int r,int rt,ll v,int op)&#123; if(L&lt;=l&amp;&amp;r&lt;=R)&#123; if(op==2)&#123; fsum[rt]+=(2*sum[rt]*v+v*v*len[rt]); sum[rt]+=(len[rt]*v); lazyadd[rt]+=v; &#125; else&#123; sum[rt]*=v;fsum[rt]*=(v*v); lazyadd[rt]*=v;lazymul[rt]*=v; &#125; return ; &#125; pushdown(up); int mid=(l+r)&gt;&gt;1; if(L&lt;=mid) update(L,R,lson,v,op); if(R&gt;mid) update(L,R,rson,v,op); pushup(up); &#125; ll query(int L,int R,int l,int r,int rt,int op)&#123; if(L&lt;=l&amp;&amp;r&lt;=R)&#123; if(op==1) return sum[rt]; else return fsum[rt]; &#125; pushdown(up); int mid=(l+r)&gt;&gt;1;ll res=0; if(L&lt;=mid) res+=query(L,R,lson,op); if(R&gt;mid) res+=query(L,R,rson,op); return res; &#125;&#125;seg;void solve()&#123; while(q--)&#123; int op,l,r;ll v; scanf("%d",&amp;op); if(op==1||op==2)&#123; scanf("%d%d",&amp;l,&amp;r); printf("%lld\n",seg.query(l,r,1,n,1,op)); &#125; else&#123; scanf("%d%d%lld",&amp;l,&amp;r,&amp;v); seg.update(l,r,1,n,1,v,op-2); &#125; &#125;&#125;int main()&#123; scanf("%d%d",&amp;n,&amp;q); for(int i=1;i&lt;=n;i++) scanf("%lld",&amp;a[i]); seg.build(1,n,1); solve(); return 0;&#125;]]></content>
       <categories>
-        <category>-[线段树]</category>
+        <category>线段树</category>
       </categories>
       <tags>
-        <tag>-[segment-tree]</tag>
+        <tag>segment-tree</tag>
       </tags>
   </entry>
   <entry>
@@ -38,10 +38,13 @@
     <url>%2F2019%2F03%2F29%2F%E6%9C%80%E7%9F%AD%E8%B7%AF%2F</url>
     <content type="text"><![CDATA[codeforces 1051Fhttp://codeforces.com/contest/1051/problem/F 给一副图，图中的边最多比点多 $20$ 条。给 $q$ 次询问，每次询问两点的最短路。随便弄一个生成树，然后求出两点在树上的距离。把非树边的两端点保存然后求分别求一次最短路。然后以所有非树边端点的最短距离更新即可。 wannafly_day1_Jhttp://newoj.acmclub.cn/contests/1389/problem/9 改成了边比点多100条，不过所有边的距离都是1，把非树边抽出来跑一下bfs求互相的最短距离。和cf1051F差不多。 wannafly_day3_Ihttps://www.nowcoder.com/acm/contest/203/I 多源最短路。在一幅无向图中给出点集，问点集中的每个点到其他点的最短距离是多少。把点集里的点都做为源点，每个点都再增加一个祖先属性，表示这个点被哪个源点的最短路所更新。然后跑一次多源最短路即可。 2017Tsukuba_Fhttps://vjudge.net/contest/259357#problem/F 问一幅有向图中每条边如果反向会让图中点1到点2的最短距离变大变小还是不变。先求出点1到各个点的最短距离与边反向之后点2到各个点的最短距离。如果变小的话就是 $dis_{1to} + dis_{2from} + w &lt; dis$ 。变大的话就是上述等式变成大于符号，但因为最短路可能有多条，所以只有这条边还是最短路无向图里的桥时才会让最短距离变大。上述两个情况都不满足的话，最短距离不变。 codeforces 1076Dhttp://codeforces.com/contest/1076/problem/D 最短路生成树$+dfs$给 $n$ 个点 $m$ 条边，找出一个边集不超过 $k$ 条边使得距离节点 $1$ 的距离是最短距离的点最多，输出这个边集首先将 $1$ 节点跑最短路建出最短路生成树，然后再在生成树上 $dfs$ 出一个 $k$ 条边的边集 2018SEERC Chttp://codeforces.com/gym/101964/problem/C 给出一棵树，这棵树由黑白点组成。选出一个黑点点集，点集中点数小于给定的k，找出所有可能的黑点点集里直径最小的那个并输出直径。考虑枚举所有的黑点点对，求出点对的距离，当有黑点满足离点对两点距离都小于等于点对距离时就可以将点加入。数形结合，可以理解为这些点在两个圆的相交部分，所以最大距离必是点对距离。]]></content>
       <categories>
-        <category>-[最短路] -[生成树]</category>
+        <category>最短路</category>
+        <category>生成树</category>
       </categories>
       <tags>
-        <tag>-[dijkstra] -[spfa] -[bfs]</tag>
+        <tag>dijkstra</tag>
+        <tag>spfa</tag>
+        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
