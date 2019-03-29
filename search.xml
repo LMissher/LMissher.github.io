@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[最短路问题合集]]></title>
+    <url>%2F2019%2F03%2F29%2F%E6%9C%80%E7%9F%AD%E8%B7%AF%2F</url>
+    <content type="text"><![CDATA[codeforces 1051Fhttp://codeforces.com/contest/1051/problem/F 给一副图，图中的边最多比点多 $20$ 条。给 $q$ 次询问，每次询问两点的最短路。随便弄一个生成树，然后求出两点在树上的距离。把非树边的两端点保存然后求分别求一次最短路。然后以所有非树边端点的最短距离更新即可。 wannafly_day1_Jhttp://newoj.acmclub.cn/contests/1389/problem/9 改成了边比点多100条，不过所有边的距离都是1，把非树边抽出来跑一下bfs求互相的最短距离。和cf1051F差不多。 wannafly_day3_Ihttps://www.nowcoder.com/acm/contest/203/I 多源最短路。在一幅无向图中给出点集，问点集中的每个点到其他点的最短距离是多少。把点集里的点都做为源点，每个点都再增加一个祖先属性，表示这个点被哪个源点的最短路所更新。然后跑一次多源最短路即可。 2017Tsukuba_Fhttps://vjudge.net/contest/259357#problem/F 问一幅有向图中每条边如果反向会让图中点1到点2的最短距离变大变小还是不变。先求出点1到各个点的最短距离与边反向之后点2到各个点的最短距离。如果变小的话就是 $dis_{1to} + dis_{2from} + w &lt; dis$ 。变大的话就是上述等式变成大于符号，但因为最短路可能有多条，所以只有这条边还是最短路无向图里的桥时才会让最短距离变大。上述两个情况都不满足的话，最短距离不变。 codeforces 1076Dhttp://codeforces.com/contest/1076/problem/D 最短路生成树$+dfs$给 $n$ 个点 $m$ 条边，找出一个边集不超过 $k$ 条边使得距离节点 $1$ 的距离是最短距离的点最多，输出这个边集首先将 $1$ 节点跑最短路建出最短路生成树，然后再在生成树上 $dfs$ 出一个 $k$ 条边的边集 2018SEERC Chttp://codeforces.com/gym/101964/problem/C 给出一棵树，这棵树由黑白点组成。选出一个黑点点集，点集中点数小于给定的k，找出所有可能的黑点点集里直径最小的那个并输出直径。考虑枚举所有的黑点点对，求出点对的距离，当有黑点满足离点对两点距离都小于等于点对距离时就可以将点加入。数形结合，可以理解为这些点在两个圆的相交部分，所以最大距离必是点对距离。]]></content>
+      <categories>
+        <category>-最短路 -生成树</category>
+      </categories>
+      <tags>
+        <tag>-dijkstra -spfa -bfs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[git+hexo搭建]]></title>
     <url>%2F2019%2F03%2F29%2Fgit-hexo%E6%90%AD%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[搭建所需环境首先需要 $git+node.js$。]]></content>
