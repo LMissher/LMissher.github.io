@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="网络流swust P1736 飞行员配对方案问题题目链接：https://www.oj.swust.edu.cn/problem/show/1736 题意有两种飞行员，一种可以和另一种的几个飞行员配对，求最大匹配。 题解二分图最大匹配问题。 在二分图的基础上增加源$S$和汇$T$，一种飞行员为$X$集合，另一种为$Y$集合。$1$、$S$向$X$集合中每个顶点连一条容量为$1$的有向边。$2$、$">
+<meta name="keywords" content="network_flow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络流合集">
+<meta property="og:url" content="http://yoursite.com/2019/03/29/网络流合集/index.html">
+<meta property="og:site_name" content="LMissher&#39;s Blog">
+<meta property="og:description" content="网络流swust P1736 飞行员配对方案问题题目链接：https://www.oj.swust.edu.cn/problem/show/1736 题意有两种飞行员，一种可以和另一种的几个飞行员配对，求最大匹配。 题解二分图最大匹配问题。 在二分图的基础上增加源$S$和汇$T$，一种飞行员为$X$集合，另一种为$Y$集合。$1$、$S$向$X$集合中每个顶点连一条容量为$1$的有向边。$2$、$">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-29T06:12:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络流合集">
+<meta name="twitter:description" content="网络流swust P1736 飞行员配对方案问题题目链接：https://www.oj.swust.edu.cn/problem/show/1736 题意有两种飞行员，一种可以和另一种的几个飞行员配对，求最大匹配。 题解二分图最大匹配问题。 在二分图的基础上增加源$S$和汇$T$，一种飞行员为$X$集合，另一种为$Y$集合。$1$、$S$向$X$集合中每个顶点连一条容量为$1$的有向边。$2$、$">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/03/29/网络流合集/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>网络流合集 | LMissher's Blog</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-137236856-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-137236856-1');
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LMissher's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">FL</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/网络流合集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LMissher">
+      <meta itemprop="description" content="biu">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LMissher's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">网络流合集
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-29 14:12:56" itemprop="dateCreated datePublished" datetime="2019-03-29T14:12:56+08:00">2019-03-29</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法与数据结构/" itemprop="url" rel="index"><span itemprop="name">算法与数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/03/29/网络流合集/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/29/网络流合集/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">8.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">8 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="网络流"><a href="#网络流" class="headerlink" title="网络流"></a>网络流</h1><h2 id="swust-P1736-飞行员配对方案问题"><a href="#swust-P1736-飞行员配对方案问题" class="headerlink" title="swust P1736 飞行员配对方案问题"></a>swust P1736 飞行员配对方案问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1736" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1736</a></p>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有两种飞行员，一种可以和另一种的几个飞行员配对，求最大匹配。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>二分图最大匹配问题。</p>
+<p>在二分图的基础上增加源$S$和汇$T$，一种飞行员为$X$集合，另一种为$Y$集合。<br>$1$、$S$向$X$集合中每个顶点连一条容量为$1$的有向边。<br>$2$、$Y$集合中每个顶点向$T$连一条容量为$1$的有向边。<br>$3$、$XY$集合之间的边都设为从$A$集合中的点到B集合之中的点，容量为$1$的有向边。<br>求网络最大流，流量就是匹配数，所有满流边是一组可行解。(匈牙利写起来更方便)  </p>
+<h2 id="swust-P1737-太空飞行计划问题"><a href="#swust-P1737-太空飞行计划问题" class="headerlink" title="swust P1737 太空飞行计划问题"></a>swust P1737 太空飞行计划问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1737" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1737</a></p>
+<h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>有 $n$ 个实验，每个实验有收入 $x_{i}$ ，而且实验会使用 $m_i$ 个仪器。每个仪器会有 $y_i$支出。问实施哪些实验并配置哪些仪器使收入最大。</p>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>最大权闭合图问题，可以转化成最小割问题，进而用最大流解决。</p>
+<p>把每个实验看作二分图 $X$ 集合中的顶点，每个设备看作二分图 $Y$ 集合中的顶点，增加源 $S$ 和汇 $T$。<br>1、从 $S$ 向每个 $X_i$ 连接一条容量为该点收入的有向边。<br>2、从 $Y_i$ 向 $T$ 连接一条容量为该点支出的有向边。<br>3、如果一个实验 $i$ <em>需要</em>设备 $j$ ，连接一条从 $X_i$ 到 $Y_j$ 容量为<strong>无穷大</strong>的有向边。</p>
+<p>统计出所有实验的收入之和$Total$，求网络最大流$Maxflow$，最大收益就是$Total - Maxflow$。对应的解就是最小割划分出的 $S$ 集合中的点，也就是最后一次增广找到阻塞流时能从 S 访问到的顶点。<br>定义一个割划分出的$S$集合为一个解，那么割集的容量之和就是(未被选的 $A$ 集合中的顶点的权值 $+$ 被选的 $B$ 集合中的顶点的权值)，记为$Cut$。 $A$ 集合中所有顶点的权值之和记为$Total$，那么$Total - Cut$就是(被选的 $A$ 集合中的顶点的权值 $-$ 被选的 $B$ 集合中的顶点的权值)，即为我们的目标函数，记为 $A$ 。要想最大化目标函数 $A$ ，就要尽可能使$Cut$小，$Total$是固定值，所以目标函数 $A$ 取得最大值的时候，$Cut$最小，即为最小割。</p>
+<h2 id="swust-P1738-最小路径覆盖问题"><a href="#swust-P1738-最小路径覆盖问题" class="headerlink" title="swust P1738 最小路径覆盖问题"></a>swust P1738 最小路径覆盖问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1738" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1738</a></p>
+<h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>问最少多少条路径可以覆盖一个有向无环图所有的点。</p>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>有向无环图最小路径覆盖，可以转化成二分图最大匹配问题，从而用最大流解决。</p>
+<p>构造二分图，把原图每个顶点$i$拆分成二分图$X$，$Y$集合中的两个顶点$X_i$和$Y_i$。对于原图中存在的每条边$(i,j)$，在二分图中连接边$(X_i,Y_j)$。然后把二分图最大匹配模型转化为网络流模型，求网络最大流。<br>最小路径覆盖的条数，就是原图顶点数，减去二分图最大匹配数（因为路径长度可为$0$，所以最大路径覆盖数为顶点数，每多一条边则少一个路径覆盖）。沿着匹配边查找，就是一个路径上的点，输出所有路径即可。</p>
+<h2 id="swust-P1739-魔术球问题"><a href="#swust-P1739-魔术球问题" class="headerlink" title="swust P1739 魔术球问题"></a>swust P1739 魔术球问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1739" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1739</a></p>
+<h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>问 $n$ 根柱子一共可以放下多少个球。放球规则为数字从小到大依次放且每根柱子的相邻的两个球的值相加为平方数。</p>
+<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><p>有向无环图最小路径覆盖，可以转化成二分图最大匹配问题，从而用最大流解决。</p>
+<p>先从 $1$ 至无穷枚举可能放下多少个球（不能二分，因为二分得重新构图）。一旦数字 $m$ 放不下则结束枚举。<br>可以把所有的球看成有向无环图的点，柱子看成路径。所以问题就成了最小路径覆盖 $m$ 个点。<br>先拆点，枚举的时候每加一个点 $x_i$ 与源点相连， $y_i$ 与汇点相连，再连小于这个点且能与他相加能开方的点的边 $x_i -&gt; y_j$ 。一旦 $m$ 个点覆盖的路径大于 $n$ ，则结束枚举，并输出 $m - 1$ 。</p>
+<h2 id="swust-P1740-圆桌问题"><a href="#swust-P1740-圆桌问题" class="headerlink" title="swust P1740 圆桌问题"></a>swust P1740 圆桌问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1740" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1740</a></p>
+<h3 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h3><p>要把 $n$ 个单位的人安排到 $m$ 个餐桌上（同个餐桌不能有来自相同单位的人）。 </p>
+<h3 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h3><p>二分图多重匹配问题，可以用最大流解决。</p>
+<p>建立二分图，每个单位为$X$集合中的顶点，每个餐桌为$Y$集合中的顶点，增设附加源$S$和汇$T$。<br>1、从$S$向每个$X_i$顶点连接一条容量为该单位人数的有向边。<br>2、从每个$Y_i$顶点向$T$连接一条容量为该餐桌容量的有向边。<br>3、$X$集合中每个顶点向$Y$集合中每个顶点连接一条容量为$1$的有向边（每个单位只能有一个人去一个餐桌）。<br>求网络最大流，如果最大流量等于所有单位人数之和，则存在解，否则无解。对于每个单位，从$X$集合对应点出发的所有满流边指向的$Y$集合的顶点就是该单位人员的安排情况（一个可行解）。</p>
+<h2 id="swust-P1741-最长递增子序列问题"><a href="#swust-P1741-最长递增子序列问题" class="headerlink" title="swust P1741 最长递增子序列问题"></a>swust P1741 最长递增子序列问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1741" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1741</a></p>
+<h3 id="题意-5"><a href="#题意-5" class="headerlink" title="题意"></a>题意</h3><p>计算序列的最长递增子序列的长度 $s$ 。 并给出序列中最多可取出多少个长度为 $s$ 的递增子序列。<br>如果允许在取出的序列中多次使用 $x_1$ 和 $x_n$ ，则从给定序列中最多可取出多少个长度为 $s$ 的递增子序列。</p>
+<h3 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h3><p>分层图问题，可用最大流解决。</p>
+<p>先 $dp$ 出每个 $i$ 的最长递增子序列 $F[i]$ 。<br>对于规则$1$，将$n$个值拆点，拆成 $x_i$ 与 $y_i$ 。将 $x_i$ 与 $y_i$ 相连，容量为 $1$ 。<br>如果 $F[i] = s$ ,则将 $x_i$ 与源点相连，如果 $F[i] = 1$ ，则将 $y_i$ 与汇点相连。容量为 $1$ 。<br>如果 $i &lt; j$ 且 $F[i] + 1 = F[j]$ ,连接 $y_i$ 与 $x_j$ 。容量为 $1$ 。<br>对于规则$2$，将$n$个值拆点，拆成 $x_i$ 与 $y_i$ 。将 $x_i$ 与 $y_i$ 相连，容量为 $1$ 。（ $1$ 与 $n$ 点容量为无穷）。<br>如果 $F[i] = s$ ,则将 $x_i$ 与源点相连，如果 $F[i] = 1$ ，则将 $y_i$ 与汇点相连。容量为 $1$ 。<br>如果 $i &lt; j$ 且 $F[i] + 1 = F[j]$ ,连接 $y_i$ 与 $x_j$ 。容量为 $1$ 。<br>求最大流。</p>
+<h2 id="swust-P1742-试题库问题"><a href="#swust-P1742-试题库问题" class="headerlink" title="swust P1742 试题库问题"></a>swust P1742 试题库问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1742" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1742</a></p>
+<h3 id="题意-6"><a href="#题意-6" class="headerlink" title="题意"></a>题意</h3><p>试题库中有 $n$ 道题（每道题各有几种属性，共有 $k$ 种属性），现在每种类型各需要 $m_i$ 道题共 $m$ 道题组成一套试卷，问是否能组成，能的话输出选择的题目。</p>
+<h3 id="题解-6"><a href="#题解-6" class="headerlink" title="题解"></a>题解</h3><p>二分图多重匹配问题，用最大流解决。</p>
+<p>建立二分图，每个类别为$X$集合中的顶点，每个题为$Y$集合中的顶点，增设附加源$S$和汇$T$。<br>1、从$S$向每个$X_i$连接一条容量为该类别所需数量的有向边。<br>2、从每个$Yi$向$T$连接一条容量为$1$的有向边。<br>3、如果一个题$i$属于一个类别$j$，连接一条从$X_j$到$Y_i$容量为$1$的有向边。<br>求网络最大流，如果最大流量等于所有类别所需之和，则存在解，否则无解。对于每个类别，从$X$集合对应点出发的所有满流边，指向的$B$集合中的顶点就是该类别的所选的题（一个可行解）。</p>
+<h2 id="swust-P1744-方格取数"><a href="#swust-P1744-方格取数" class="headerlink" title="swust P1744 方格取数"></a>swust P1744 方格取数</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1744" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1744</a></p>
+<h3 id="题意-7"><a href="#题意-7" class="headerlink" title="题意"></a>题意</h3><p>一个方格取出一些数（所有的数都不想邻）的和最大。</p>
+<h3 id="题解-7"><a href="#题解-7" class="headerlink" title="题解"></a>题解</h3><p>选出的点满足任意两个都不相邻，这是点独立集的概念。<br>使选出的总和最大:最大点权独立集。<br>最大点权独立集 = 总点权 - 最小点权覆盖集 = 总点权 - 最小割 = 总点权 - 最大流。<br>取得数总和最大转化为不取的损失最小。<br>所以问题即可以转化为割掉最小的边，使原图不连通（即找不出方格中相邻且二分图中有边相连的点）。  </p>
+<p>把棋盘黑白染色。<br>对于黑色的，连接源点，容量为格子中的数。<br>对于白色的，连接汇点，容量为格子中的数。<br>然后把所有黑点和<strong>相邻</strong>的白点连边，容量<strong>无穷大</strong>。<br>于是我们构造出了一个<strong>二分图</strong>。<br>题目说不能取相邻的格子，那么对于这张二分图来说，就不能让他有一条边有流经过（否则就取了两个相邻的格子了）。<br>于是求最小割即可。等于求最大流。<br>最后用总和减去最小割即可。</p>
+<h2 id="swust-P1745-餐巾计划问题"><a href="#swust-P1745-餐巾计划问题" class="headerlink" title="swust P1745 餐巾计划问题"></a>swust P1745 餐巾计划问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1745" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1745</a></p>
+<h3 id="题意-8"><a href="#题意-8" class="headerlink" title="题意"></a>题意</h3><p>一个餐厅 $n$ 天里每天都需要 $x$ 餐巾，可以选择花费 $p$ 元购买新的，也可以选择将已有的花 $s$ 元送去慢洗 $m$ 天，或者花 $f$ 元送去快洗 $k$ 天，或者延期洗。要花费最小。</p>
+<h3 id="题解-8"><a href="#题解-8" class="headerlink" title="题解"></a>题解</h3><p>最小费用最大流问题。</p>
+<p>将 $n$ 天拆点，拆成 $x_i$ 与 $y_i$。<br>将 $x_i$ 与源点相连，容量为 $x$，花费为 $0$。将 $y_i$ 与汇点相连，容量为 $x$，花费为 $0$。<br>将 $x_i$ 与 $y_i + m$ 相连，容量无穷，费用为 $s$ 。将 $x_i$ 与 $y_i + k$ 相连，容量无穷，费用为 $f$ 。<br>将 $x_i$ 与 $x_i + 1$ 相连，容量无穷，费用为 $0$ 。<br>将源点与 $y_i$ 相连，容量为无穷，费用为 $p$。<br>求最小费用最大流。</p>
+<h2 id="swust-P1746-航空路线问题"><a href="#swust-P1746-航空路线问题" class="headerlink" title="swust P1746 航空路线问题"></a>swust P1746 航空路线问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1746" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1746</a></p>
+<h3 id="题意-9"><a href="#题意-9" class="headerlink" title="题意"></a>题意</h3><p>给一幅图，求从最西边到最东边再回到最西边经过的城市最多。（除了起点其他城市只能走一次）</p>
+<h3 id="题解-9"><a href="#题解-9" class="headerlink" title="题解"></a>题解</h3><p>最大费用最大流问题。</p>
+<p>将 $n$ 个城市拆点，拆成 $x_i$ 与 $y_i$。<br>将 $x_i$ 与 $y_i$ 相连，容量为 $1$ ，费用为 $1$ 。起点与终点容量为 $2$ 。（如果这个点流量为 $1$ ，表示这个点被使用。）<br>如果两城市相连则连接 $x_i$ 与 $y_j$ ，容量为 $1$ ，费用为 $0$ 。<br>从起点到终点跑最小费用最大流。</p>
+<h2 id="swust-P1748-星际转移问题"><a href="#swust-P1748-星际转移问题" class="headerlink" title="swust P1748 星际转移问题"></a>swust P1748 星际转移问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1748" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1748</a></p>
+<h3 id="题意-10"><a href="#题意-10" class="headerlink" title="题意"></a>题意</h3><p>人得借助 $m$ 艘太空船（容量限定）与 $n$ 个空间站从地球转移到月球，每艘太空船每天有规律的停靠在某个空间站，问最少多少天转移所有人。 </p>
+<h3 id="题解-10"><a href="#题解-10" class="headerlink" title="题解"></a>题解</h3><p>分层图网络流问题，枚举答案。</p>
+<p>我们把网络优化问题转化为枚举答案+可行性判定问题。枚举天数，按天数把图分层，因为乘船每坐一站天数都要增加一，把太空船航线抽象成图中的一条边，跨图的两层。由于太空船容量有限，边上也要加上容量限制。除了坐船以外，人还可以在某个空间站等待下一班太空船的到来，所以每个点要与下一层同一点连接一条容量为无穷的边。</p>
+<p>从源点向每一天的地球链接一条容量无穷的边。<br>从每一天的月亮向汇点链接一条容量无穷的边。<br>从上一天的每一个节点向当天的对应节点链接一条容量无穷的边（因为人们可以留在中转站等一等）。<br>针对每一艘飞船，获取其上一天的位置，再获取这一天的位置，在这两个点之间连一条容量为飞船满载人数的流。<br>每次新加一天然后跑到最大流超过$k$即可。<br>至于无解的情况只要当$ans$达到一个很大的值的时候跳出来即可。</p>
+<h2 id="swust-P1751-数字梯形问题"><a href="#swust-P1751-数字梯形问题" class="headerlink" title="swust P1751 数字梯形问题"></a>swust P1751 数字梯形问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1751" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1751</a></p>
+<h3 id="题意-11"><a href="#题意-11" class="headerlink" title="题意"></a>题意</h3><p>梯形的第一行有 $m$ 个数字。<br>从梯形的顶部的 $m$ 个数字开始，在每个数字处可以沿左下或右下方向移动，形成一条从梯形的顶至底的路径。<br>规则1：从梯形的顶至底的 $m$ 条路径互不相交。<br>规则2：从梯形的顶至底的 $m$ 条路径仅在数字结点处相交。<br>规则3：从梯形的顶至底的 $m$ 条路径允许在数字结点相交或边相交。</p>
+<h3 id="题解-11"><a href="#题解-11" class="headerlink" title="题解"></a>题解</h3><p>求图的最大权不相交路径及其变种，用最大费用最大流解决。</p>
+<p>把梯形每个位置拆点为 $x_i$ 与 $y_i$ 。（因为要保证每个点只能用一次）<br>$x_i$ 与 $y_i$ 相连容量为 $1$ ，费用为点值。<br>从一点向它的左下或右下（ $y_i$ 与 $x_j$ ）分别连接一条容量为 $1$ ，费用为 $0$ 的边。<br>第一层的点与源点相连，容量为 $1$ ，费用为 $0$。<br>最后一层的点与汇点相连，容量为 $1$ ，费用为 $0$。</p>
+<p>对于规则 $2$ ，不用拆点，因为不限制点的使用。<br>从一点向它的左下或右下（ $x_i$ 与 $x_j$ ）分别连接一条容量为 $1$ ，费用为点值的边。<br>第一层的点与源点相连，容量为 $1$ ，费用为 $0$。<br>最后一层的点与汇点相连，容量为无穷，费用为点值。（无穷因为不限制点的使用）<br>对于规则 $3$ ，只需要把规则 $2$ 中除了第一层与源点连边之外的边容量全部改为无穷大。（因为不限制边的使用）</p>
+<h2 id="swust-P1752-运输问题"><a href="#swust-P1752-运输问题" class="headerlink" title="swust P1752 运输问题"></a>swust P1752 运输问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1752" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1752</a></p>
+<h3 id="题意-12"><a href="#题意-12" class="headerlink" title="题意"></a>题意</h3><p>把 $m$ 个仓库的 $a_i$ 货物运送到 $n$ 个需求为 $b_i$ 的商店去，第 $i$ 个仓库运到第 $j$ 个商店的费用为 $c_{ij}$ 。求最小与最大费用。</p>
+<h3 id="题解-12"><a href="#题解-12" class="headerlink" title="题解"></a>题解</h3><p>费用流问题。</p>
+<p>把所有仓库看做二分图中顶点$X_i$，所有零售商店看做二分图中顶点$Y_i$，建立附加源$S$汇$T$。<br>从$S$向每个$X_i$连一条容量为仓库中货物数量$a_i$，费用为$0$的有向边。<br>从每个$Y_i$向$T$连一条容量为商店所需货物数量$b_i$，费用为$0$的有向边。<br>从每个Xi向每个$Y_j$连接一条容量为无穷大，费用为$c_{ij}$的有向边。<br>求最小费用最大流，最小费用流值就是最少运费，求最大费用最大流，最大费用流值就是最多运费。</p>
+<h2 id="swust-P1753-分配问题"><a href="#swust-P1753-分配问题" class="headerlink" title="swust P1753 分配问题"></a>swust P1753 分配问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1753" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1753</a></p>
+<h3 id="题意-13"><a href="#题意-13" class="headerlink" title="题意"></a>题意</h3><p>$n$ 个人需要工作，第 $i$ 个人需要第 $j$ 个工作的工资为 $c_{ij}$。求最小与最大费用。</p>
+<h3 id="题解-13"><a href="#题解-13" class="headerlink" title="题解"></a>题解</h3><p>费用流问题。</p>
+<p>把所有人看做二分图中顶点$X_i$，所有工作看做二分图中顶点$Y_i$，建立附加源$S$汇$T$。<br>从$S$向每个$X_i$连一条容量为$1$，费用为$0$的有向边。<br>从每个$Y_i$向$T$连一条容量为$1$，费用为$0$的有向边。<br>从每个$X_i$向每个$Y_j$连接一条容量为无穷大，费用为$C_{ij}$的有向边。<br>求最小费用最大流，最小费用流值就是最少工资，求最大费用最大流，最大费用流值就是最多工资。</p>
+<h2 id="swust-P1754-负载平衡问题"><a href="#swust-P1754-负载平衡问题" class="headerlink" title="swust P1754 负载平衡问题"></a>swust P1754 负载平衡问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1754" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1754</a></p>
+<h3 id="题意-14"><a href="#题意-14" class="headerlink" title="题意"></a>题意</h3><p>有 $n$ 个环形仓库存着不同的货物，求最小步数使得所有仓库货物相等。</p>
+<h3 id="题解-14"><a href="#题解-14" class="headerlink" title="题解"></a>题解</h3><p>费用流问题。</p>
+<p>首先求出所有仓库存货量平均值，设第$i$个仓库的盈余量为$A[i]$，$A[i] = $第$i$个仓库原有存货量 $-$   平均存货量。建立二分图，把每个仓库抽象为两个节点$X_i$和$Y_i$。增设附加源$S$汇$T$。<br>如果$A[i]&gt;0$，从$S$向$X_i$连一条容量为$A[i]$，费用为$0$的有向边。（有盈余）<br>如果$A[i]&lt;0$，从$Y_i$向$T$连一条容量为$-A[i]$，费用为$0$的有向边。（需添加）<br>每个$X_i$向两个相邻顶点$j$，从$X_i$到$X_j$连接一条容量为无穷大，费用为$1$的有向边，从$X_i$到$Y_j$连接一条容量为无穷大，费用为$1$的有向边。（旁边可能是终点，也可能是中转站）<br>求最小费用最大流，最小费用流值就是最少搬运量。</p>
+<h2 id="swust-P1755-深海机器人问题"><a href="#swust-P1755-深海机器人问题" class="headerlink" title="swust P1755 深海机器人问题"></a>swust P1755 深海机器人问题</h2><p>题目链接：<a href="https://www.oj.swust.edu.cn/problem/show/1755" target="_blank" rel="noopener">https://www.oj.swust.edu.cn/problem/show/1755</a></p>
+<h3 id="题意-15"><a href="#题意-15" class="headerlink" title="题意"></a>题意</h3><p>深海资源考察探险队的潜艇将到达深海的海底进行科学考察。潜艇内有多个深海机器人。潜艇到达深海海底后，深海机器人将离开潜艇向预定目标移动。深海机器人在移动中还必须沿途采集海底生物标本。沿途生物标本由最先遇到它的深海机器人完成采集。每条预定路径上的生物标本的价值是已知的，而且生物的标本只能采集一次。本题限定深海机器人只能从其出发的位置沿着向北或者向东方向移动，而且多个深海机器人可以在同一时间占据同一位置。</p>
+<h3 id="题解-15"><a href="#题解-15" class="headerlink" title="题解"></a>题解</h3><p>费用流问题。</p>
+<p>把网格中每个位置抽象成网络中一个节点，建立附加源$S$汇$T$。<br>对于每个顶点$i$，$j$为$i$东边或南边相邻的一个节点，连接节点$i$与节点$j$一条容量为$1$  ，费用为该边价值的有向边。（每个点的价值只能使用一次）<br>对于每个顶点$i$，$j$为$i$东边或南边相邻的一个节点，连接节点$i$与节点$j$一条容量为无穷大，费用为$0$  的有向边。（多个机器人可同时在同点，不限制点的使用）<br>从$S$到每个出发点$i$连接一条容量为该点出发的机器人数量，费用为$0$的有向边。<br>从每个目标点$i$到$T$连接一条容量为可以到达该点的机器人数量，费用为$0$的有向边。<br>求最大费用最大流，最大费用流值就采集到的生物标本的最高总价值。</p>
+<h2 id="poj-P1149-PIGS"><a href="#poj-P1149-PIGS" class="headerlink" title="poj P1149 PIGS"></a>poj P1149 PIGS</h2><p>题目链接：<a href="http://poj.org/problem?id=1149" target="_blank" rel="noopener">http://poj.org/problem?id=1149</a></p>
+<h3 id="题意-16"><a href="#题意-16" class="headerlink" title="题意"></a>题意</h3><p>有 $m$ 个猪圈与 $n$ 个客人，每个客人可以到 $k$ 个猪圈买猪，最多可以买 $x$ 头猪，（每个顾客走后他所打开的猪圈里的猪可以任意交换）求所有顾客最多可以买多少猪。</p>
+<h3 id="题解-16"><a href="#题解-16" class="headerlink" title="题解"></a>题解</h3><p>最大流</p>
+<p><br>可以想到每个猪圈都有第一个顾客，后面的顾客可以拿的数量取决于前面的顾客所拿的数量，所以就单个猪圈而言，当前顾客可拿量取决于上一个顾客。所以可以拿同一个猪圈的顾客 $i$ 与 $i + 1$ 连边，边权为无穷。<br><br><br>这样除每个猪圈第一顾客后的所有顾客都有了猪的来源，再将每个猪圈的第一个顾客与源点连边，边权为猪圈中猪数量，这样第一个顾客也有了猪的来源。<br><br><br>再将每个顾客与汇点连边，边权为其最多可买的猪的数量。<br><br><br>跑一次最大流即为答案。<br> </p>
+<h2 id="poj-P2391-Ombrophobic-Bovines"><a href="#poj-P2391-Ombrophobic-Bovines" class="headerlink" title="poj P2391 Ombrophobic Bovines"></a>poj P2391 Ombrophobic Bovines</h2><p>题目链接：<a href="http://poj.org/problem?id=2391" target="_blank" rel="noopener">http://poj.org/problem?id=2391</a></p>
+<h3 id="题意-17"><a href="#题意-17" class="headerlink" title="题意"></a>题意</h3><p>有 $n$ 个牛棚，每个牛棚有其牛的数量与其容量，现在下雨了，求最少的时间把所有的牛放到牛棚里。</p>
+<h3 id="题解-17"><a href="#题解-17" class="headerlink" title="题解"></a>题解</h3><p>最大流</p>
+<p><br>先用 $floyd$ 求出每个点之间的最短路，那么时间限制了点对之间是否可以连边。<br><br><br>二分时间，拆点与源汇连边，如果两点间的距离小于等于时间则连边。如果跑出满流证明时间可满足。<br><br><br>最后通过二分求出答案。<br></p>
+<h2 id="2017urumuqi-j"><a href="#2017urumuqi-j" class="headerlink" title="2017urumuqi j"></a>2017urumuqi j</h2><p>题目链接：</p>
+<h3 id="题意-18"><a href="#题意-18" class="headerlink" title="题意"></a>题意</h3><p>从一个点经过另一个点到一个点的最小费用（每个点只能经过一次）。</p>
+<h3 id="题解-18"><a href="#题解-18" class="headerlink" title="题解"></a>题解</h3><p>费用流</p>
+<p><br>相当于求从起点和终点到中转点的最小费用和。<br><br><br>因为限制点只能使用一次，所以拆点，$i$ 和 $i + 1$ 点的费用都为 $0$ ，容量除中转点外都为 $1$ ，中转点容量为 $2$ 。<br><br><br>再把图上有的边连上，费用为边权，容量为无穷。<br><br><br>源点与起点终点连接，容量为 $1$ ，费用为 $0$ ；汇点与中转点连接，容量为 $2$ ，费用为 $0$ 。<br><br><br>如果流量为 $2$ ，则答案为费用，否则输出 $-1$ 。<br></p>
+<h2 id="2017qingdao-k"><a href="#2017qingdao-k" class="headerlink" title="2017qingdao k"></a>2017qingdao k</h2><p>题目链接：</p>
+<h3 id="题意-19"><a href="#题意-19" class="headerlink" title="题意"></a>题意</h3><p>上一题的复杂版，从西安到上海后再从上海到青岛，最后从青岛返回上海。上海有两个机场，其中从西安到是到浦东机场到虹桥机场到青岛，青岛回上海是回虹桥机场。</p>
+<h3 id="题解-19"><a href="#题解-19" class="headerlink" title="题解"></a>题解</h3><p>费用流</p>
+<p><br>相当于求从起点和终点到中转点的最小费用和。<br><br><br>因为限制点只能使用一次，所以拆点，$i$ 和 $i + 1$ 点的费用都为 $0$ ，容量青岛及虹桥容量为 $2$ ，其余点容量都为 $1$ 。<br><br><br>再把图上有的无向边连上，费用为边权，容量为无穷。<br><br><br>源点与西安、青岛连接，西安容量为 $1$ ，青岛容量为 $2$ ，费用为 $0$ ；汇点与虹桥及浦东连接，虹桥容量为 $2$ ，浦东容量为 $1$ ，费用为 $0$ 。<br><br><br>如果流量为 $3$ ，则答案为费用，否则输出 $-1$ 。<br></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/network-flow/" rel="tag"># network_flow</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/29/2017LatinAmeIImperialroads/" rel="next" title="2017 Latin America I Imperial roads">
+                <i class="fa fa-chevron-left"></i> 2017 Latin America I Imperial roads
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------END------</div>
+    
+</div>
+    
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="LMissher">
+            
+              <p class="site-author-name" itemprop="name">LMissher</p>
+              <div class="site-description motion-element" itemprop="description">biu</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络流"><span class="nav-number">1.</span> <span class="nav-text">网络流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1736-飞行员配对方案问题"><span class="nav-number">1.1.</span> <span class="nav-text">swust P1736 飞行员配对方案问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">1.1.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1737-太空飞行计划问题"><span class="nav-number">1.2.</span> <span class="nav-text">swust P1737 太空飞行计划问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1738-最小路径覆盖问题"><span class="nav-number">1.3.</span> <span class="nav-text">swust P1738 最小路径覆盖问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1739-魔术球问题"><span class="nav-number">1.4.</span> <span class="nav-text">swust P1739 魔术球问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1740-圆桌问题"><span class="nav-number">1.5.</span> <span class="nav-text">swust P1740 圆桌问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-4"><span class="nav-number">1.5.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1741-最长递增子序列问题"><span class="nav-number">1.6.</span> <span class="nav-text">swust P1741 最长递增子序列问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-5"><span class="nav-number">1.6.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-5"><span class="nav-number">1.6.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1742-试题库问题"><span class="nav-number">1.7.</span> <span class="nav-text">swust P1742 试题库问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-6"><span class="nav-number">1.7.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-6"><span class="nav-number">1.7.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1744-方格取数"><span class="nav-number">1.8.</span> <span class="nav-text">swust P1744 方格取数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-7"><span class="nav-number">1.8.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-7"><span class="nav-number">1.8.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1745-餐巾计划问题"><span class="nav-number">1.9.</span> <span class="nav-text">swust P1745 餐巾计划问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-8"><span class="nav-number">1.9.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-8"><span class="nav-number">1.9.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1746-航空路线问题"><span class="nav-number">1.10.</span> <span class="nav-text">swust P1746 航空路线问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-9"><span class="nav-number">1.10.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-9"><span class="nav-number">1.10.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1748-星际转移问题"><span class="nav-number">1.11.</span> <span class="nav-text">swust P1748 星际转移问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-10"><span class="nav-number">1.11.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-10"><span class="nav-number">1.11.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1751-数字梯形问题"><span class="nav-number">1.12.</span> <span class="nav-text">swust P1751 数字梯形问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-11"><span class="nav-number">1.12.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-11"><span class="nav-number">1.12.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1752-运输问题"><span class="nav-number">1.13.</span> <span class="nav-text">swust P1752 运输问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-12"><span class="nav-number">1.13.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-12"><span class="nav-number">1.13.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1753-分配问题"><span class="nav-number">1.14.</span> <span class="nav-text">swust P1753 分配问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-13"><span class="nav-number">1.14.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-13"><span class="nav-number">1.14.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1754-负载平衡问题"><span class="nav-number">1.15.</span> <span class="nav-text">swust P1754 负载平衡问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-14"><span class="nav-number">1.15.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-14"><span class="nav-number">1.15.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swust-P1755-深海机器人问题"><span class="nav-number">1.16.</span> <span class="nav-text">swust P1755 深海机器人问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-15"><span class="nav-number">1.16.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-15"><span class="nav-number">1.16.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#poj-P1149-PIGS"><span class="nav-number">1.17.</span> <span class="nav-text">poj P1149 PIGS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-16"><span class="nav-number">1.17.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-16"><span class="nav-number">1.17.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#poj-P2391-Ombrophobic-Bovines"><span class="nav-number">1.18.</span> <span class="nav-text">poj P2391 Ombrophobic Bovines</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-17"><span class="nav-number">1.18.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-17"><span class="nav-number">1.18.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2017urumuqi-j"><span class="nav-number">1.19.</span> <span class="nav-text">2017urumuqi j</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-18"><span class="nav-number">1.19.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-18"><span class="nav-number">1.19.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2017qingdao-k"><span class="nav-number">1.20.</span> <span class="nav-text">2017qingdao k</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-19"><span class="nav-number">1.20.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-19"><span class="nav-number">1.20.2.</span> <span class="nav-text">题解</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LMissher</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">45k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">41 分钟</span>
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://LMissher.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2019/03/29/网络流合集/";
+    this.page.identifier = "2019/03/29/网络流合集/";
+    this.page.title = '网络流合集';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://LMissher.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
