@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2019-2050-1006]]></title>
+    <url>%2F2019%2F04%2F27%2F2019-2050-1006%2F</url>
+    <content type="text"><![CDATA[冰水挑战描述现在，我们要依次面对 $n$ 个冰水挑战，每个挑战你都可以选择接受或不接受。接受第 $i$ 个挑战会让你丧失 $a_i$点体力，因为每个挑战所处的环境不同，如果你要挑战它，在挑战它之前你的体力 $x$ 会变成 $min(x,b_i)$，当你完成这个挑战的时候，你的体力会变成 $x−a_i$，体力任何时候不允许小于等于 $0$，无论你是否接受第 $i$ 个挑战，在这个挑战结束以后你的体力都会增加 $c_i$。现在我们想知道最多可以完成多少个挑战。 输入格式第一行一个正整数 $T (T \leq 50)$ 表示数据组数。接下来 $T$ 组数据，每组第一行两个正整数 $n,c (1 \leq n \leq 10^3, 1 \leq c \leq 10^9)$，表示挑战的数量和初始体力，接下来 $n$ 行，每行三个非负整数 $a_i,b_i,c_i(0 \leq a_i, b_i, c_i \leq 10^9)$。 输出格式对于每组数据输出一行一个数，表示你最多能完成几个挑战。 样例输入23 101 2 04 8 36 10 12 11 1 11 1 1 样例输出20 Solve这是一道01背包的改版题，$dp[i][j]$表示前$i$个冰桶挑战挑战$j$个的最大值，每到一个挑战要判断是否满足条件，满足的话进行状态转移，因为不管是否挑战都要加上$c_i$所以一定要有加上$c_i$的状态转移。 12345678910111213141516171819202122232425262728293031323334353637383940414243#include &lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;const int N = 1e3+7;ll dp[N][N],st;ll a[N],b[N],c[N];int _,n;int main()&#123; scanf("%d",&amp;_); while(_--)&#123; scanf("%d%lld",&amp;n,&amp;st);memset(dp,0,sizeof(dp)); for(int i=1;i&lt;=n;++i)&#123; scanf("%lld%lld%lld",&amp;a[i],&amp;b[i],&amp;c[i]); &#125; dp[0][0]=st; for(int i=1;i&lt;=n;++i)&#123; for(int j=0;j&lt;i;++j)&#123; if(dp[i-1][j])&#123; dp[i][j]=max(dp[i][j],dp[i-1][j]+c[i]); if(min(dp[i-1][j],b[i])&gt;a[i]) dp[i][j+1]=max(dp[i][j+1],min(dp[i-1][j],b[i])-a[i]+c[i]); &#125; &#125; &#125; /*dp[0]=st; for(int i=1;i&lt;=n;++i)&#123; dp[0]+=c[i]; for(int j=i;j&gt;0;--j)&#123; if(dp[j-1])&#123; ll tmp=min(dp[j-1],b[i]); if(tmp&gt;a[i]) dp[j]=max(dp[j],tmp-a[i]+c[i]); if(j-1) dp[j-1]+=c[i]; &#125; &#125; &#125;*/ for(int i=n;i&gt;=0;--i)&#123; if(dp[n][i])&#123; printf("%d\n",i); break; &#125; &#125; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>算法与数据结构</category>
+      </categories>
+      <tags>
+        <tag>dp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2019-2050-1005]]></title>
+    <url>%2F2019%2F04%2F27%2F2019-2050-1005%2F</url>
+    <content type="text"><![CDATA[球赛描述Alice和Bob在进行乒乓球比赛，比赛一共打了 $n$ 个球，对于每一球，如果Alice赢了，那么裁判员会在计分板上记下’$A$’，如果Bob赢了则会记下’$B$’。时间转眼间到了2050年，计分板上某些信息因为时间流逝丢失了，但我们想要复现当年的激烈局面。丢失的位置用’$?$’表示，我们想知道，计分板上对应的乒乓球球赛，最多进行了多少局（最后一局可以没打完，但是如果没打完的话就不计入答案）？在一局比赛中，先得$11$分的一方为胜方，$10$平后，先多得$2$分的一方为胜方。 输入格式对于每组数据输出一行一个数，表示乒乓球球赛最多进行的局数。 输出格式每行输出一个整数表示最小花费。 样例输入1AAAAAAAAAA?BBBBBBBBBB? 样例输出2 Solve设$dp[i][j][k]$表示前 $i$ 场对局比分为 $j:k$ 的最多局数。由于$10:10$的比分与$9:9$的比分是等价的，所有如果有$10:10$的比分出现就把它变成$9:9$。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374#include &lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;const int maxn = 10000 + 5;int dp[maxn][12][12];//表示前i场对局比分为j:k的最多局数char s[maxn];struct node&#123; int x, y, z;&#125;;node cal(int i, int j)&#123; node tmp; if (i == 11 || j == 11) &#123; tmp.x = tmp.y = 0; tmp.z = 1; &#125; else &#123; tmp.z = 0; if (i == 10 &amp;&amp; j == 10) &#123; tmp.x = tmp.y = 9; &#125; else &#123; tmp.x = i; tmp.y = j; &#125; &#125; return tmp;&#125;int main()&#123;#ifdef LOCAL freopen("1005.in", "r", stdin); freopen("1005.out", "w", stdout);#endif int _; scanf("%d", &amp;_); while (_--) &#123; scanf("%s", s); int len = strlen(s); memset(dp, 128, sizeof(dp)); dp[0][0][0] = 0; for (int i = 1; i &lt;= len; ++i) &#123; for (int j = 0; j &lt;= 10; ++j) &#123; for (int k = 0; k &lt;= 10; ++k) &#123; if (s[i - 1] == 'A' || s[i - 1] == '?') &#123; node tmp = cal(j + 1, k); dp[i][tmp.x][tmp.y] = max(dp[i][tmp.x][tmp.y], dp[i - 1][j][k] + tmp.z); &#125; if (s[i - 1] == 'B' || s[i - 1] == '?') &#123; node tmp = cal(j, k + 1); dp[i][tmp.x][tmp.y] = max(dp[i][tmp.x][tmp.y], dp[i - 1][j][k] + tmp.z); &#125; &#125; &#125; &#125; int ans = 0; for (int i = 0; i &lt;= 10; ++i) for (int j = 0; j &lt;= 10; ++j) ans = max(ans, dp[len][i][j]); printf("%d\n", ans); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>算法与数据结构</category>
+      </categories>
+      <tags>
+        <tag>dp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[bzoj 1935]]></title>
     <url>%2F2019%2F04%2F23%2Fbzoj1935%2F</url>
     <content type="text"><![CDATA[Tree 园丁的烦恼问题很久很久以前，在遥远的大陆上有一个美丽的国家。统治着这个美丽国家的国王是一个园艺爱好者，在他的皇家花园里种植着各种奇花异草。有一天国王漫步在花园里，若有所思，他问一个园丁道： “最近我在思索一个问题，如果我们把花坛摆成六个六角形，那么……” “那么本质上它是一个深度优先搜索，陛下”，园丁深深地向国王鞠了一躬。 “嗯……我听说有一种怪物叫九头蛇，它非常贪吃苹果树……” “是的，显然这是一道经典的动态规划题，早在N元4002年我们就已经发现了其中的奥秘了，陛下”。 “该死的，你究竟是什么来头？” “陛下息怒，干我们的这行经常莫名其妙地被问到和OI有关的题目，我也是为了预防万一啊！” 王者的尊严受到了伤害，这是不可容忍的。看来一般的难题是难不倒这位园丁的，国王最后打算用车轮战来消耗他的实力： “年轻人，在我的花园里的每一棵树可以用一个整数坐标来表示，一会儿，我的骑士们会来轮番询问你某一个矩阵内有多少树，如果你不能立即答对，你就准备走人吧！”说完，国王气呼呼地先走了。 这下轮到园丁傻眼了，他没有准备过这样的问题。所幸的是，作为“全国园丁保护联盟”的会长——你，可以成为他的最后一根救命稻草。 Input第一行有两个整数$n$，$m$（$0 \leq n \leq 500000$，$1 \leq m \leq 500000$）。$n$代表皇家花园的树木的总数，$m$代表骑士们询问的次数。 文件接下来的$n$行，每行都有两个整数$x_i$，$y_i$，代表第$i$棵树的坐标（$0 \leq x_i$，$y_i \leq 10000000$）。 文件的最后$m$行，每行都有四个整数$a_j$，$b_j$，$c_j$，$d_j$，表示第$j$次询问，其中所问的矩形以（$a_j$，$b_j$）为左下坐标，以（$c_j$，$d_j$）为右上坐标。 Output共输出$m$行，每行一个整数，即回答国王以（$a_j$，$b_j$）和（$c_j$，$d_j$）为界的矩形里有多少棵树。 Sample Input3 10 00 11 00 0 1 1 Sample Output3 Solve给$n$($n \leq 10^5$)个点，$0 \leq x_i,y_i \leq 10^7$。随后m次询问子矩形中有多少个点。二维偏序问题，先把询问的矩形拆成四个以原点为左下角的子矩形，然后把点与询问按$x$轴排序。for所有的询问，每到一个询问把$x$轴坐标小于他的点的$y$轴坐标加入到bit中，然后再询问得到的就是$x$与$y$都小于他的点。 Note如果点的范围再扩大得话使用离散化即可，因为点的个数始终是很小的。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051#include &lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;const int maxn = 500000 + 5;const int N = 1e7+1;int c[N+1],x1,yy,x2,y2,n,m,ans[maxn];struct Point&#123; int x,y,flag,pos; bool operator &lt; (const Point &amp; k)const&#123; if(x!=k.x) return x&lt;k.x; return y&lt;k.y; &#125;&#125;p[maxn],q[maxn&lt;&lt;2];void add(int x,int y)&#123; for(;x&lt;=N;x+=x&amp;(-x))&#123; c[x]+=y; &#125;&#125;int query(int x)&#123; int ans=0; for(;x;x-=x&amp;(-x)) ans+=c[x]; return ans;&#125;int main() &#123; #ifdef LOCAL freopen("bzoj1935.in", "r", stdin); freopen("bzoj1935.out", "w", stdout); #endif scanf("%d%d",&amp;n,&amp;m); for(int i=1;i&lt;=n;++i)&#123; scanf("%d%d",&amp;p[i].x,&amp;p[i].y);p[i].x+=1;p[i].y+=1; &#125; for(int i=1;i&lt;=m;++i)&#123; scanf("%d%d%d%d",&amp;x2,&amp;y2,&amp;x1,&amp;yy);x2+=1;x1+=1;y2+=1;yy+=1; int t=4*(i-1)+1; q[t].x=x1,q[t].y=yy,q[t].flag=1,q[t].pos=q[t+1].pos=q[t+2].pos=q[t+3].pos=i; if(x2-1&amp;&amp;y2-1) q[t+1].x=x2-1,q[t+1].y=y2-1,q[t+1].flag=1; if(x2-1) q[t+2].x=x2-1,q[t+2].y=yy,q[t+2].flag=-1; if(y2-1) q[t+3].x=x1,q[t+3].y=y2-1,q[t+3].flag=-1; &#125; sort(p+1,p+n+1); sort(q+1,q+4*m+1); for(int i=1,j=1;i&lt;=4*m;++i)&#123; while(p[j].x&lt;=q[i].x&amp;&amp;j&lt;=n)&#123; add(p[j].y,1);++j; &#125; ans[q[i].pos]+=(q[i].flag*query(q[i].y)); &#125; for(int i=1;i&lt;=m;++i) printf("%d\n",ans[i]); return 0;&#125;]]></content>
@@ -42,9 +64,8 @@
         <category>算法与数据结构</category>
       </categories>
       <tags>
-        <tag>trie</tag>
         <tag>dp</tag>
-        <tag>GCJ</tag>
+        <tag>trie</tag>
       </tags>
   </entry>
   <entry>
@@ -78,7 +99,6 @@
         <category>算法与数据结构</category>
       </categories>
       <tags>
-        <tag>GCJ</tag>
         <tag>water</tag>
       </tags>
   </entry>
@@ -90,7 +110,6 @@
         <category>算法与数据结构</category>
       </categories>
       <tags>
-        <tag>GCJ</tag>
         <tag>water</tag>
       </tags>
   </entry>
@@ -268,10 +287,10 @@
         <category>算法与数据结构</category>
       </categories>
       <tags>
+        <tag>MST</tag>
         <tag>dijkstra</tag>
         <tag>spfa</tag>
         <tag>bfs</tag>
-        <tag>Spanning Tree</tag>
       </tags>
   </entry>
   <entry>

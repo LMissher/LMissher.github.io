@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="wannafly_day1_I.cpphttp://newoj.acmclub.cn/contests/1389/problem/8 给一棵树，给出 $m$ 次染色，问每个点的第 $k$ 次染色是什么颜色。倒着做，用线段树维护区间染色的最大次数，如果有 $k - 1$次的区间存在，就找到那个点把它的颜色更新，并把它的染色次数变为 $-inf$。复杂度 $O(nlog(n)^2)$，注意下 $upd">
-<meta name="keywords" content="Heavy_Light_Decomposition">
+  <meta name="description" content="冰水挑战描述现在，我们要依次面对 $n$ 个冰水挑战，每个挑战你都可以选择接受或不接受。接受第 $i$ 个挑战会让你丧失 $a_i$点体力，因为每个挑战所处的环境不同，如果你要挑战它，在挑战它之前你的体力 $x$ 会变成 $min(x,b_i)$，当你完成这个挑战的时候，你的体力会变成 $x−a_i$，体力任何时候不允许小于等于 $0$，无论你是否接受第 $i$ 个挑战，在这个挑战结束以后你的体力">
+<meta name="keywords" content="dp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wannafly day1 I">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/wannafly-day1-I/index.html">
+<meta property="og:title" content="2019-2050-1006">
+<meta property="og:url" content="http://yoursite.com/2019/04/27/2019-2050-1006/index.html">
 <meta property="og:site_name" content="LMissher&#39;s Blog">
-<meta property="og:description" content="wannafly_day1_I.cpphttp://newoj.acmclub.cn/contests/1389/problem/8 给一棵树，给出 $m$ 次染色，问每个点的第 $k$ 次染色是什么颜色。倒着做，用线段树维护区间染色的最大次数，如果有 $k - 1$次的区间存在，就找到那个点把它的颜色更新，并把它的染色次数变为 $-inf$。复杂度 $O(nlog(n)^2)$，注意下 $upd">
+<meta property="og:description" content="冰水挑战描述现在，我们要依次面对 $n$ 个冰水挑战，每个挑战你都可以选择接受或不接受。接受第 $i$ 个挑战会让你丧失 $a_i$点体力，因为每个挑战所处的环境不同，如果你要挑战它，在挑战它之前你的体力 $x$ 会变成 $min(x,b_i)$，当你完成这个挑战的时候，你的体力会变成 $x−a_i$，体力任何时候不允许小于等于 $0$，无论你是否接受第 $i$ 个挑战，在这个挑战结束以后你的体力">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-29T05:59:25.000Z">
+<meta property="og:updated_time" content="2019-04-27T14:40:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wannafly day1 I">
-<meta name="twitter:description" content="wannafly_day1_I.cpphttp://newoj.acmclub.cn/contests/1389/problem/8 给一棵树，给出 $m$ 次染色，问每个点的第 $k$ 次染色是什么颜色。倒着做，用线段树维护区间染色的最大次数，如果有 $k - 1$次的区间存在，就找到那个点把它的颜色更新，并把它的染色次数变为 $-inf$。复杂度 $O(nlog(n)^2)$，注意下 $upd">
+<meta name="twitter:title" content="2019-2050-1006">
+<meta name="twitter:description" content="冰水挑战描述现在，我们要依次面对 $n$ 个冰水挑战，每个挑战你都可以选择接受或不接受。接受第 $i$ 个挑战会让你丧失 $a_i$点体力，因为每个挑战所处的环境不同，如果你要挑战它，在挑战它之前你的体力 $x$ 会变成 $min(x,b_i)$，当你完成这个挑战的时候，你的体力会变成 $x−a_i$，体力任何时候不允许小于等于 $0$，无论你是否接受第 $i$ 个挑战，在这个挑战结束以后你的体力">
 
 
 
@@ -122,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/03/29/wannafly-day1-I/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/27/2019-2050-1006/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>wannafly day1 I | LMissher's Blog</title>
+  <title>2019-2050-1006 | LMissher's Blog</title>
   
 
 
@@ -392,7 +392,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/wannafly-day1-I/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/27/2019-2050-1006/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LMissher">
@@ -409,7 +409,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">wannafly day1 I
+          <h1 class="post-title" itemprop="name headline">2019-2050-1006
 
               
             
@@ -435,7 +435,7 @@
                 
               
 
-              <time title="创建时间：2019-03-29 13:59:25" itemprop="dateCreated datePublished" datetime="2019-03-29T13:59:25+08:00">2019-03-29</time>
+              <time title="创建时间：2019-04-27 22:40:27" itemprop="dateCreated datePublished" datetime="2019-04-27T22:40:27+08:00">2019-04-27</time>
             
 
             
@@ -472,8 +472,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/29/wannafly-day1-I/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/29/wannafly-day1-I/" itemprop="commentCount"></span>
+                <a href="/2019/04/27/2019-2050-1006/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/27/2019-2050-1006/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -502,7 +502,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.8k</span>
+                <span title="本文字数">2k</span>
               
 
               
@@ -516,7 +516,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">3 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -536,9 +536,13 @@
       
 
       
-        <h1 id="wannafly-day1-I-cpp"><a href="#wannafly-day1-I-cpp" class="headerlink" title="wannafly_day1_I.cpp"></a>wannafly_day1_I.cpp</h1><p><a href="http://newoj.acmclub.cn/contests/1389/problem/8" target="_blank" rel="noopener">http://newoj.acmclub.cn/contests/1389/problem/8</a></p>
-<p>给一棵树，给出 $m$ 次染色，问每个点的第 $k$ 次染色是什么颜色。<br>倒着做，用线段树维护区间染色的最大次数，如果有 $k - 1$次的区间存在，就找到那个点把它的颜色更新，并把它的染色次数变为 $-inf$。<br>复杂度 $O(nlog(n)^2)$，注意下 $update$ 的写法。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson l,mid,rt&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson mid+1,r,rt&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> up rt,rt&lt;&lt;1,rt&lt;&lt;1|1</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1e5</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">2147483647</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,k;</span><br><span class="line"><span class="keyword">int</span> tot,cnt,head[M];</span><br><span class="line"><span class="keyword">int</span> sz[M],f[M],son[M],dep[M],rnk[M],top[M],id[M];</span><br><span class="line"><span class="keyword">int</span> lazy[M&lt;&lt;<span class="number">2</span>],mx[M&lt;&lt;<span class="number">2</span>],ans[M];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,nex;</span><br><span class="line">&#125;e[M&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    tot=cnt=<span class="number">0</span>;<span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));<span class="built_in">memset</span>(ans,<span class="number">0</span>,<span class="keyword">sizeof</span>(ans));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    e[++cnt].v=v;e[cnt].nex=head[u];</span><br><span class="line">    head[u]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> fa,<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    sz[u]=<span class="number">1</span>,f[u]=fa,son[u]=<span class="number">-1</span>,dep[u]=d;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=e[i].nex)&#123;</span><br><span class="line">        <span class="keyword">int</span> v=e[i].v;</span><br><span class="line">        <span class="keyword">if</span>(v==fa) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(v,u,d+<span class="number">1</span>);</span><br><span class="line">        sz[u]+=sz[v];</span><br><span class="line">        <span class="keyword">if</span>(son[u]==<span class="number">-1</span>||sz[v]&gt;sz[son[u]]) son[u]=v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">    id[u]=++tot;</span><br><span class="line">    rnk[tot]=u;</span><br><span class="line">    top[u]=t;</span><br><span class="line">    <span class="keyword">if</span>(son[u]==<span class="number">-1</span>) <span class="keyword">return</span> ;</span><br><span class="line">    dfs1(son[u],t);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=e[i].nex)&#123;</span><br><span class="line">        <span class="keyword">int</span> v=e[i].v;</span><br><span class="line">        <span class="keyword">if</span>(v==f[u]||v==son[u]) <span class="keyword">continue</span>;</span><br><span class="line">        dfs1(v,v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span> rt,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    mx[rt]=max(mx[l],mx[r]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> rt,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(lazy[rt]&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> v=lazy[rt];</span><br><span class="line">        lazy[rt]=<span class="number">0</span>;</span><br><span class="line">        mx[r]+=v;lazy[r]+=v;</span><br><span class="line">        mx[l]+=v;lazy[l]+=v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> rt)</span></span>&#123;</span><br><span class="line">    mx[rt]=<span class="number">0</span>;lazy[rt]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(l==r) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    build(lson);</span><br><span class="line">    build(rson);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> rt,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L&lt;=l&amp;&amp;r&lt;=R)&#123;</span><br><span class="line">        <span class="keyword">if</span>(mx[rt]==k<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">                mx[rt]=-inf,ans[rnk[l]]=v,lazy[rt]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                pushdown(up);</span><br><span class="line">                <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(mx[rt&lt;&lt;<span class="number">1</span>]&gt;=<span class="number">0</span>) update(L,R,lson,v);</span><br><span class="line">                <span class="keyword">if</span>(mx[rt&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]&gt;=<span class="number">0</span>) update(L,R,rson,v);</span><br><span class="line">                pushup(up);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> mx[rt]++,lazy[rt]++;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    pushdown(up);</span><br><span class="line">    <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(L&lt;=mid&amp;&amp;mx[rt&lt;&lt;<span class="number">1</span>]&gt;=<span class="number">0</span>) update(L,R,lson,v);</span><br><span class="line">    <span class="keyword">if</span>(R&gt;mid&amp;&amp;mx[rt&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]&gt;=<span class="number">0</span>) update(L,R,rson,v);</span><br><span class="line">    pushup(up);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fx=top[x],fy=top[y];</span><br><span class="line">    <span class="keyword">while</span>(fx!=fy)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dep[fx]&gt;dep[fy])&#123;</span><br><span class="line">            update(id[fx],id[x],<span class="number">1</span>,n,<span class="number">1</span>,v);</span><br><span class="line">            x=f[fx],fx=top[x];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            update(id[fy],id[y],<span class="number">1</span>,n,<span class="number">1</span>,v);</span><br><span class="line">            y=f[fy],fy=top[y];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(dep[x]&gt;dep[y])</span><br><span class="line">        update(id[y],id[x],<span class="number">1</span>,n,<span class="number">1</span>,v);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        update(id[x],id[y],<span class="number">1</span>,n,<span class="number">1</span>,v);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> qu[M],qv[M],qc[M];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//freopen("1.in","r",stdin);</span></span><br><span class="line">    <span class="comment">//freopen("1.out","w",stdout);</span></span><br><span class="line">    init();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">    build(<span class="number">1</span>,n,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> u,v;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;u,&amp;v);</span><br><span class="line">        add(u,v);add(v,u);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>);</span><br><span class="line">    dfs1(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;qu[i],&amp;qv[i],&amp;qc[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=m;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">        query(qu[i],qv[i],qc[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">printf</span>(<span class="string">"%d%c"</span>,ans[i],i==n?<span class="string">'\n'</span>:<span class="string">' '</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <h1 id="冰水挑战"><a href="#冰水挑战" class="headerlink" title="冰水挑战"></a>冰水挑战</h1><p><strong>描述</strong><br>现在，我们要依次面对 $n$ 个冰水挑战，每个挑战你都可以选择接受或不接受。接受第 $i$ 个挑战会让你丧失 $a_i$点体力，因为每个挑战所处的环境不同，如果你要挑战它，在挑战它之前你的体力 $x$ 会变成 $min(x,b_i)$，当你完成这个挑战的时候，你的体力会变成 $x−a_i$，体力任何时候不允许小于等于 $0$，无论你是否接受第 $i$ 个挑战，在这个挑战结束以后你的体力都会增加 $c_i$。<br>现在我们想知道最多可以完成多少个挑战。  </p>
+<p><strong>输入格式</strong><br>第一行一个正整数 $T (T \leq 50)$ 表示数据组数。<br>接下来 $T$ 组数据，每组第一行两个正整数 $n,c (1 \leq n \leq 10^3, 1 \leq c \leq 10^9)$，表示挑战的数量和初始体力，接下来 $n$ 行，每行三个非负整数 $a_i,b_i,c_i(0 \leq a_i, b_i, c_i \leq 10^9)$。  </p>
+<p><strong>输出格式</strong><br>对于每组数据输出一行一个数，表示你最多能完成几个挑战。  </p>
+<p><strong>样例输入</strong><br>2<br>3 10<br>1 2 0<br>4 8 3<br>6 10 1<br>2 1<br>1 1 1<br>1 1 1  </p>
+<p><strong>样例输出</strong><br>2<br>0  </p>
+<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><p>这是一道01背包的改版题，$dp[i][j]$表示前$i$个冰桶挑战挑战$j$个的最大值，每到一个挑战要判断是否满足条件，满足的话进行状态转移，因为不管是否挑战都要加上$c_i$所以一定要有加上$c_i$的状态转移。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e3</span>+<span class="number">7</span>;</span><br><span class="line">ll dp[N][N],st;</span><br><span class="line">ll a[N],b[N],c[N];</span><br><span class="line"><span class="keyword">int</span> _,n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;_);</span><br><span class="line">    <span class="keyword">while</span>(_--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%lld"</span>,&amp;n,&amp;st);<span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld"</span>,&amp;a[i],&amp;b[i],&amp;c[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>]=st;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(dp[i<span class="number">-1</span>][j])&#123;</span><br><span class="line">                    dp[i][j]=max(dp[i][j],dp[i<span class="number">-1</span>][j]+c[i]);</span><br><span class="line">                    <span class="keyword">if</span>(min(dp[i<span class="number">-1</span>][j],b[i])&gt;a[i]) dp[i][j+<span class="number">1</span>]=max(dp[i][j+<span class="number">1</span>],min(dp[i<span class="number">-1</span>][j],b[i])-a[i]+c[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*dp[0]=st;</span></span><br><span class="line"><span class="comment">        for(int i=1;i&lt;=n;++i)&#123;</span></span><br><span class="line"><span class="comment">            dp[0]+=c[i];</span></span><br><span class="line"><span class="comment">            for(int j=i;j&gt;0;--j)&#123;</span></span><br><span class="line"><span class="comment">                if(dp[j-1])&#123;</span></span><br><span class="line"><span class="comment">                    ll tmp=min(dp[j-1],b[i]);</span></span><br><span class="line"><span class="comment">                    if(tmp&gt;a[i]) dp[j]=max(dp[j],tmp-a[i]+c[i]);</span></span><br><span class="line"><span class="comment">                    if(j-1) dp[j-1]+=c[i];</span></span><br><span class="line"><span class="comment">                &#125;</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dp[n][i])&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -569,12 +573,12 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>wannafly day1 I</p>
+  <p><span>本文标题:</span>2019-2050-1006</p>
   <p><span>文章作者:</span>LMissher</p>
-  <p><span>发布时间:</span>2019年03月29日 - 13:59:25</p>
-  <p><span>最后更新:</span>2019年03月29日 - 13:59:25</p>
-  <p><span>原始链接:</span><a href="/2019/03/29/wannafly-day1-I/" title="wannafly day1 I">https://lmissher.github.io/2019/03/29/wannafly-day1-I/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2019/03/29/wannafly-day1-I/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年04月27日 - 22:40:27</p>
+  <p><span>最后更新:</span>2019年04月27日 - 22:40:27</p>
+  <p><span>原始链接:</span><a href="/2019/04/27/2019-2050-1006/" title="2019-2050-1006">https://lmissher.github.io/2019/04/27/2019-2050-1006/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2019/04/27/2019-2050-1006/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -609,7 +613,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Heavy-Light-Decomposition/" rel="tag"><i class="fa fa-tag"></i> Heavy_Light_Decomposition</a>
+            <a href="/tags/dp/" rel="tag"><i class="fa fa-tag"></i> dp</a>
           
         </div>
       
@@ -622,8 +626,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/2017LatinAme-IImperialroads/" rel="next" title="2017 Latin Ame I Imperial roads">
-                <i class="fa fa-chevron-left"></i> 2017 Latin Ame I Imperial roads
+              <a href="/2019/04/27/2019-2050-1005/" rel="next" title="2019-2050-1005">
+                <i class="fa fa-chevron-left"></i> 2019-2050-1005
               </a>
             
           </div>
@@ -631,10 +635,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/29/hdu-5242/" rel="prev" title="hdu 5242">
-                hdu 5242 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -875,7 +875,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#wannafly-day1-I-cpp"><span class="nav-number">1.</span> <span class="nav-text">wannafly_day1_I.cpp</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#冰水挑战"><span class="nav-number">1.</span> <span class="nav-text">冰水挑战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solve"><span class="nav-number">2.</span> <span class="nav-text">Solve</span></a></li></ol></div>
             
 
           </div>
