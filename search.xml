@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[tasks.jsoninvscode]]></title>
+    <title><![CDATA[tasks.json in vscode]]></title>
     <url>%2F2019%2F04%2F28%2Ftasks-jsoninvscode%2F</url>
-    <content type="text"><![CDATA[tasks配置##简介##tasks的任务就是帮我们快捷的在命令行中输出命令。按ctrl+shift+b可以选择配置的所有任务。也可以为任务设置快捷键。 ##Python配置12345678910111213&#123; "label": "python", //任务名称 "type": "shell", "group": &#123; //所在分组 "kind": "build", //类型编译 "isDefault": true &#125;, "command": "D:/Anaconda3/python.exe", //编译命令 "args": [ "$&#123;file&#125;" //参数，表示文件路径 ], "problemMatcher": []&#125; ##dot配置12345678910111213141516171819202122&#123; "label": "dot", "type": "shell", "group": &#123; "kind": "build", "isDefault": true &#125;, "presentation": &#123; "reveal": "silent",//只在出错时弹出命令行 "echo": true, "showReuseMessage": false, "panel": "shared" &#125;, "command": "dot", "args": [ "-Tpdf", "$&#123;file&#125;", "-o", "$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.pdf" ], "problemMatcher": []&#125;]]></content>
+    <content type="text"><![CDATA[tasks配置##简介##tasks的任务就是帮我们快捷的在命令行中(VSC内置的PS，期待哪天能配合cmder)输出命令。按ctrl+shift+b可以在所有编译任务中选择一个编译任务。也可以为任务设置快捷键。 ##Python配置12345678910111213&#123; "label": "python", //任务名称 "type": "shell", "group": &#123; //所在分组 "kind": "build", //类型编译 "isDefault": true //添加到默认编译类型 &#125;, "command": "D:/Anaconda3/python.exe", //编译命令 "args": [ "$&#123;file&#125;" //参数，表示文件路径 ], "problemMatcher": [] //遇到错误提示&#125; ##dot配置12345678910111213141516171819202122&#123; "label": "dot", "type": "shell", "group": &#123; "kind": "build", "isDefault": true &#125;, "presentation": &#123; "reveal": "silent",//只在出错时弹出命令行 "echo": true, "showReuseMessage": false, "panel": "shared" &#125;, "command": "dot", "args": [ "-Tpdf", "$&#123;file&#125;", "-o", "$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.pdf" ], "problemMatcher": []&#125;]]></content>
       <categories>
         <category>IDE</category>
       </categories>
@@ -311,9 +311,9 @@
       </categories>
       <tags>
         <tag>MST</tag>
+        <tag>bfs</tag>
         <tag>dijkstra</tag>
         <tag>spfa</tag>
-        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
