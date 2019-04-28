@@ -552,7 +552,7 @@
       
 
       
-        <h1 id="tasks配置"><a href="#tasks配置" class="headerlink" title="tasks配置"></a>tasks配置</h1><p>##简介##<br>tasks的任务就是帮我们快捷的在命令行中(VSC内置的PS，期待哪天能配合cmder)输出命令。按ctrl+shift+b可以在所有编译任务中选择一个编译任务。也可以为任务设置快捷键。</p>
+        <h1 id="tasks配置"><a href="#tasks配置" class="headerlink" title="tasks配置"></a>tasks配置</h1><p>##简介##<br>tasks的任务就是帮我们快捷的在命令行中(VSC内置的PS，<del>期待哪天能配合cmder</del>)输出命令。按ctrl+shift+b可以在所有编译任务中选择一个编译任务。也可以为任务设置快捷键。</p>
 <p>##Python配置<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "label": "python", //任务名称</span><br><span class="line">    "type": "shell",</span><br><span class="line">    "group": &#123; //所在分组</span><br><span class="line">        "kind": "build", //类型编译</span><br><span class="line">        "isDefault": true //添加到默认编译类型</span><br><span class="line">    &#125;,</span><br><span class="line">    "command": "D:/Anaconda3/python.exe", //编译命令</span><br><span class="line">    "args": [</span><br><span class="line">        "$&#123;file&#125;" //参数，表示文件路径</span><br><span class="line">    ],</span><br><span class="line">    "problemMatcher": [] //遇到错误提示</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>##dot配置<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"label"</span>: <span class="string">"dot"</span>,</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">    <span class="attr">"group"</span>: &#123;</span><br><span class="line">        <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">        <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"presentation"</span>: &#123;</span><br><span class="line">        "reveal": "silent",//只在出错时弹出命令行</span><br><span class="line">        "echo": true,</span><br><span class="line">        "showReuseMessage": false,</span><br><span class="line">        "panel": "shared"</span><br><span class="line">    &#125;,</span><br><span class="line">    "command": "dot",</span><br><span class="line">    "args": [</span><br><span class="line">        "-Tpdf",</span><br><span class="line">        "$&#123;file&#125;",</span><br><span class="line">        "-o",</span><br><span class="line">        <span class="string">"$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.pdf"</span></span><br><span class="line">    ],</span><br><span class="line">    "problemMatcher": []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
@@ -649,6 +649,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/04/28/vscode-cmder/" rel="prev" title="vscode+cmder">
+                vscode+cmder <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -722,7 +726,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
