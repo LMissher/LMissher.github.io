@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nginx+uwsgi+django原理]]></title>
+    <url>%2F2019%2F04%2F28%2Fnginxuwsgidjango%2F</url>
+    <content type="text"><![CDATA[nginx+uwsgi+django介绍 Nginx是一个网页服务器，它能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接，以及一个负载均衡器和一个HTTP缓存。 uWSGI是一个web服务器，它同时实现了uwsgi协议和WSGI协议。 概念说明 APP（我们的网站），例如django，bottle这些。记录怎么处理客户端发来的请求的逻辑部分。 uWSGI，是一个程序，充当Web服务器或中间件。 如果架构是Nginx+uWSGI+APP，uWSGI是一个中间件 如果架构是uWSGI+APP，uWSGI是一个服务器 Web协议 WSGI，是一个协议，Python用于Web开发的协议。 uwsgi，是uWSGI程序实现的一个自有的协议。 Web协议出现顺序：CGI -&gt; FCGI -&gt; WSGI -&gt; uwsgi CGI，最早的协议 FCGI，比CGI快 WSGI，Python专用的协议 uwsgi，比FCGI和WSGI都快，是uWSGI项目自有的协议，主要特征是采用二进制来存储数据，之前的协议都是使用字符串，所以在存储空间和解析速度上，都优于字符串型协议。 Nginx(反向代理服务器) 什么是反向代理？ 正向代理，翻墙用的代理服务器就是正向代理，浏览器主动请求代理服务器，代理服务器转发请求到对应的目标服务器 反向代理，部署在Web服务器上，代理所有外部网络对内部网络的访问。浏览器访问服务器，必须经过这个代理，是被动的。 正向代理的主动方是客户端，反向代理的主动方是Web服务器。 反向代理的作用： 安全。客户端对Web服务器的访问需要先经过反向代理服务器。这样可以防止外部程序对Web服务器的直接攻击。 负载均衡。反向代理服务器可以根据Web服务器的负载情况，动态地把HTTP请求交给不同的Web服务器来处理，前提是要有多个Web服务器。（这个和我们的网站没啥关系） 提升Web服务器的IO性能。一个HTTP请求的数据，从客户端传输给服务器，是需要时间的，例如N秒，如果直接传给Web服务器，Web服务器就需要让一个进程阻塞N秒，来接收IO，这样会降低Web服务器的性能。如果使用反向代理服务器，先让反向代理服务器接收完整的HTTP请求，再把请求发给Web服务器，就能提升Web服务器的性能。还有一些静态文件的请求，可以直接交给反向代理来处理，不需要经过Web服务器。 优点 uWSGI+Django比单独使用Django的好处： 支持的并发量更高 方便管理多进程，发挥多核的优势 提升性能，因为uwsgi协议比WSGI协议有优势 Nginx+uWSGI+Django比uWSGI+Django好处（参考反向代理的作用1与作用3）]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+        <tag>django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vscode+cmder]]></title>
     <url>%2F2019%2F04%2F28%2Fvscode-cmder%2F</url>
     <content type="text"><![CDATA[更换内置终端在settings.json加上下面的代码,将其中路径更换就可以了。123"terminal.integrated.shell.windows": "cmd.exe","terminal.integrated.env.windows": &#123;"CMDER_ROOT": "D:\\cmder"&#125;,"terminal.integrated.shellArgs.windows": ["/k", "D:\\cmder\\vendor\\init.bat"],]]></content>
