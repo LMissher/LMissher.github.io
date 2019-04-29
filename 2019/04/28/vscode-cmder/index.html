@@ -518,7 +518,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">243</span>
+                <span title="本文字数">697</span>
               
 
               
@@ -552,7 +552,8 @@
       
 
       
-        <h1 id="更换内置终端"><a href="#更换内置终端" class="headerlink" title="更换内置终端"></a>更换内置终端</h1><p>在settings.json加上下面的代码,将其中路径更换就可以了。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"terminal.integrated.shell.windows": "cmd.exe",</span><br><span class="line">"terminal.integrated.env.windows": &#123;"CMDER_ROOT": "D:\\cmder"&#125;,</span><br><span class="line">"terminal.integrated.shellArgs.windows": ["/k", "D:\\cmder\\vendor\\init.bat"],</span><br></pre></td></tr></table></figure></p>
+        <h2 id="更换内置终端"><a href="#更换内置终端" class="headerlink" title="更换内置终端"></a>更换内置终端</h2><p>在settings.json加上下面的代码,将其中路径更换就可以了。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"terminal.integrated.shell.windows": "cmd.exe",</span><br><span class="line">"terminal.integrated.env.windows": &#123;"CMDER_ROOT": "D:\\cmder"&#125;,</span><br><span class="line">"terminal.integrated.shellArgs.windows": ["/k", "D:\\cmder\\vendor\\init.bat"],</span><br></pre></td></tr></table></figure></p>
+<h2 id="添加tasks配置"><a href="#添加tasks配置" class="headerlink" title="添加tasks配置"></a>添加tasks配置</h2><p>在tasks.json设置全局option如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">"version": "2.0.0",</span><br><span class="line">    "windows": &#123;</span><br><span class="line">        "options": &#123;</span><br><span class="line">            "shell": &#123; //在执行task时启动cmder，不自定义shell会报错</span><br><span class="line">                "executable": "cmd.exe", </span><br><span class="line">                "args": [</span><br><span class="line">                    "/d", "/c", "D:\\cmder\\vendor\\init.bat", "&amp;&amp;"</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            "cwd": "$&#123;fileDirname&#125;" //执行命令前切换到当前文件上一级</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    "tasks": []</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -892,7 +893,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更换内置终端"><span class="nav-number">1.</span> <span class="nav-text">更换内置终端</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更换内置终端"><span class="nav-number">1.</span> <span class="nav-text">更换内置终端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加tasks配置"><span class="nav-number">2.</span> <span class="nav-text">添加tasks配置</span></a></li></ol></div>
             
 
           </div>
@@ -925,7 +926,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">90k</span>
+    <span title="站点总字数">91k</span>
   
 
   
@@ -934,7 +935,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:22</span>
+    <span title="站点阅读时长">1:23</span>
   
 </div>
 

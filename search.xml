@@ -15,7 +15,7 @@
   <entry>
     <title><![CDATA[vscode+cmder]]></title>
     <url>%2F2019%2F04%2F28%2Fvscode-cmder%2F</url>
-    <content type="text"><![CDATA[更换内置终端在settings.json加上下面的代码,将其中路径更换就可以了。123"terminal.integrated.shell.windows": "cmd.exe","terminal.integrated.env.windows": &#123;"CMDER_ROOT": "D:\\cmder"&#125;,"terminal.integrated.shellArgs.windows": ["/k", "D:\\cmder\\vendor\\init.bat"],]]></content>
+    <content type="text"><![CDATA[更换内置终端在settings.json加上下面的代码,将其中路径更换就可以了。123"terminal.integrated.shell.windows": "cmd.exe","terminal.integrated.env.windows": &#123;"CMDER_ROOT": "D:\\cmder"&#125;,"terminal.integrated.shellArgs.windows": ["/k", "D:\\cmder\\vendor\\init.bat"], 添加tasks配置在tasks.json设置全局option如下：12345678910111213"version": "2.0.0", "windows": &#123; "options": &#123; "shell": &#123; //在执行task时启动cmder，不自定义shell会报错 "executable": "cmd.exe", "args": [ "/d", "/c", "D:\\cmder\\vendor\\init.bat", "&amp;&amp;" ] &#125;, "cwd": "$&#123;fileDirname&#125;" //执行命令前切换到当前文件上一级 &#125; &#125;, "tasks": []]]></content>
       <categories>
         <category>IDE</category>
       </categories>
@@ -26,7 +26,7 @@
   <entry>
     <title><![CDATA[tasks.json in vscode]]></title>
     <url>%2F2019%2F04%2F28%2Ftasks-jsoninvscode%2F</url>
-    <content type="text"><![CDATA[tasks配置##简介##tasks的任务就是帮我们快捷的在命令行中(VSC内置的PS，期待哪天能配合cmder)输出命令。按ctrl+shift+b可以在所有编译任务中选择一个编译任务。也可以为任务设置快捷键。 ##Python配置12345678910111213&#123; "label": "python", //任务名称 "type": "shell", "group": &#123; //所在分组 "kind": "build", //类型编译 "isDefault": true //添加到默认编译类型 &#125;, "command": "D:/Anaconda3/python.exe", //编译命令 "args": [ "$&#123;file&#125;" //参数，表示文件路径 ], "problemMatcher": [] //遇到错误提示&#125; ##dot配置12345678910111213141516171819202122&#123; "label": "dot", "type": "shell", "group": &#123; "kind": "build", "isDefault": true &#125;, "presentation": &#123; "reveal": "silent",//只在出错时弹出命令行 "echo": true, "showReuseMessage": false, "panel": "shared" &#125;, "command": "dot", "args": [ "-Tpdf", "$&#123;file&#125;", "-o", "$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.pdf" ], "problemMatcher": []&#125;]]></content>
+    <content type="text"><![CDATA[tasks配置简介tasks的任务就是帮我们快捷的在命令行中(VSC内置的PS，期待哪天能配合cmder)输出命令。按ctrl+shift+b可以在所有编译任务中选择一个编译任务。也可以为任务设置快捷键。 option设置在tasks.json设置全局option如下：12345678910111213"version": "2.0.0", "windows": &#123; "options": &#123; "shell": &#123; //在执行task时启动cmder，不自定义会报错(如果使用cmder才配置这个) "executable": "cmd.exe", "args": [ "/d", "/c", "D:\\cmder\\vendor\\init.bat", "&amp;&amp;" ] &#125;, "cwd": "$&#123;fileDirname&#125;" //执行命令前切换到当前文件上一级 &#125; &#125;, "tasks": [] Python配置12345678910111213&#123; "label": "python", //任务名称 "type": "shell", "group": &#123; //所在分组 "kind": "build", //类型编译 "isDefault": true //添加到默认编译类型 &#125;, "command": "D:/Anaconda3/python.exe", //编译命令 "args": [ "$&#123;fileBasename&#125;" //参数，表示文件路径 ], "problemMatcher": [] //遇到错误提示&#125; dot配置12345678910111213141516171819202122&#123; "label": "dot", "type": "shell", "group": &#123; "kind": "build", "isDefault": true &#125;, "presentation": &#123; "reveal": "silent",//只在出错时弹出命令行 "echo": true, "showReuseMessage": false, "panel": "shared" &#125;, "command": "dot", "args": [ "-Tpdf", "$&#123;fileBasename&#125;", "-o", "$&#123;fileBasenameNoExtension&#125;.pdf" ], "problemMatcher": []&#125;]]></content>
       <categories>
         <category>IDE</category>
       </categories>
