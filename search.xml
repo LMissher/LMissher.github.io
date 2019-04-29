@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[bzoj3991]]></title>
+    <url>%2F2019%2F04%2F29%2Fbzoj3991%2F</url>
+    <content type="text"><![CDATA[寻宝游戏问题小B最近正在玩一个寻宝游戏，这个游戏的地图中有$N$个村庄和$N-1$条道路，并且任何两个村庄之间有且仅有一条路径可达。游戏开始时，玩家可以任意选择一个村庄，瞬间转移到这个村庄，然后可以任意在地图的道路上行走，若走到某个村庄中有宝物，则视为找到该村庄内的宝物，直到找到所有宝物并返回到最初转移到的村庄为止。小B希望评测一下这个游戏的难度，因此他需要知道玩家找到所有宝物需要行走的最短路程。但是这个游戏中宝物经常变化，有时某个村庄中会突然出现宝物，有时某个村庄内的宝物会突然消失，因此小B需要不断地更新数据，但是小B太懒了，不愿意自己计算，因此他向你求助。为了简化问题，我们认为最开始时所有村庄内均没有宝物. Input第一行，两个整数$N$、$M$，其中$M$为宝物的变动次数。 接下来的$N-1$行，每行三个整数$x$、$y$、$z$，表示村庄$x$、$y$之间有一条长度为z的道路。接下来的$M$行，每行一个整数$t$，表示一个宝物变动的操作。若该操作前村庄$t$内没有宝物，则操作后村庄内有宝物；若该操作前村庄$t$内有宝物，则操作后村庄内没有宝物。 Output$M$行，每行一个整数，其中第$i$行的整数表示第$i$次操作之后玩家找到所有宝物需要行走的最短路程。若只有一个村庄内有宝物，或者所有村庄内都没有宝物，则输出$0$。 Sample Input4 51 2 302 3 502 4 6023421 Sample Output0100220220280 Hint$1 \leq N \leq 100000$$1 \leq M \leq 100000$对于全部的数据，$1 \leq z \leq 10^9$ Solve给定一棵树中的点集，每次操作删除或者增加点集中的一个点，询问$ 2\times \sum dis$ 是多少。$ 2\times \sum dis = \sum_2^n{dis_{i,i-1}} + dis_{1,n}$。其中下标号为各个点的dfs序。对于每次操作，只需要用set维护这个点集即可。加上一个点$ ans=ans+dis_{pre,pos}+dis_{pos,next}-dis_{pre,next} $。减去一个点$ ans=ans-dis_{pre,pos}-dis_{pos,next}+dis_{pre,next} $。最后输出$ ans+add , add=dis_{1,n} $。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485#include &lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;const int maxn = 100000 + 5;int n,m,head[maxn],cnt,flag[maxn],dfn[maxn],rnk[maxn],tot;struct edge&#123; int v,next;ll w;&#125;e[maxn&lt;&lt;1];void init()&#123; cnt=0;memset(head,-1,sizeof(head));&#125;void add(int u,int v,ll w)&#123; e[++cnt].v=v;e[cnt].w=w;e[cnt].next=head[u]; head[u]=cnt;&#125;int grade[maxn][21];ll val[maxn][21],dep[maxn];void dfs(int u,int fa,int d)&#123; dep[u]=d;dfn[u]=++tot;rnk[tot]=u; for(int i=1;i&lt;=20;++i)&#123; grade[u][i]=grade[grade[u][i-1]][i-1]; val[u][i]=val[u][i-1]+val[grade[u][i-1]][i-1]; &#125; for(int i=head[u];~i;i=e[i].next)&#123; int v=e[i].v;ll w=e[i].w; if(v==fa) continue; grade[v][0]=u;val[v][0]=w;dfs(v,u,d+1); &#125;&#125;ll lca(int x,int y)&#123; ll ans=0; if(dep[x]&gt;dep[y]) swap(x,y); for(int i=20;i&gt;=0;--i)&#123; if(dep[x]&lt;=dep[grade[y][i]])&#123; ans+=val[y][i]; y=grade[y][i]; &#125; &#125; for(int i=20;i&gt;=0;--i)&#123; if(grade[x][i]!=grade[y][i])&#123; ans+=(val[x][i]+val[y][i]); x=grade[x][i];y=grade[y][i]; &#125; &#125; if(x!=y) ans+=(val[x][0]+val[y][0]); return ans;&#125;set&lt;int&gt; st;int main() &#123; #ifdef LOCAL freopen("bzoj3991.in", "r", stdin); freopen("bzoj3991.out", "w", stdout); #endif scanf("%d%d",&amp;n,&amp;m); init(); for(int i=1;i&lt;n;++i)&#123; int f,t;ll vv; scanf("%d%d%lld",&amp;f,&amp;t,&amp;vv); add(f,t,vv);add(t,f,vv); &#125; dfs(1,-1,1); ll ans=0,add;st.insert(0),st.insert(n+1); while(m--)&#123; int pos;add=0; scanf("%d",&amp;pos); if(!flag[pos]) st.insert(dfn[pos]); int pre=*--st.find(dfn[pos]); int nxt=*++st.find(dfn[pos]); if(!flag[pos])&#123; flag[pos]=1; if(pre&gt;0) ans+=lca(pos,rnk[pre]); if(nxt&lt;n+1) ans+=lca(pos,rnk[nxt]); if(pre&gt;0&amp;&amp;nxt&lt;n+1) ans-=lca(rnk[pre],rnk[nxt]); &#125; else&#123; flag[pos]=0; st.erase(dfn[pos]); if(pre&gt;0) ans-=lca(pos,rnk[pre]); if(nxt&lt;n+1) ans-=lca(pos,rnk[nxt]); if(pre&gt;0&amp;&amp;nxt&lt;n+1) ans+=lca(rnk[pre],rnk[nxt]); &#125; if(st.size()&gt;=4) add=lca(rnk[*++st.find(0)],rnk[*--st.find(n+1)]); printf("%lld\n",ans+add); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>算法与数据结构</category>
+      </categories>
+      <tags>
+        <tag>LCA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[nginx+uwsgi+django原理]]></title>
     <url>%2F2019%2F04%2F28%2Fnginxuwsgidjango%2F</url>
     <content type="text"><![CDATA[nginx+uwsgi+django介绍 Nginx是一个网页服务器，它能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接，以及一个负载均衡器和一个HTTP缓存。 uWSGI是一个web服务器，它同时实现了uwsgi协议和WSGI协议。 概念说明 APP（我们的网站），例如django，bottle这些。记录怎么处理客户端发来的请求的逻辑部分。 uWSGI，是一个程序，充当Web服务器或中间件。 如果架构是Nginx+uWSGI+APP，uWSGI是一个中间件 如果架构是uWSGI+APP，uWSGI是一个服务器 Web协议 WSGI，是一个协议，Python用于Web开发的协议。 uwsgi，是uWSGI程序实现的一个自有的协议。 Web协议出现顺序：CGI -&gt; FCGI -&gt; WSGI -&gt; uwsgi CGI，最早的协议 FCGI，比CGI快 WSGI，Python专用的协议 uwsgi，比FCGI和WSGI都快，是uWSGI项目自有的协议，主要特征是采用二进制来存储数据，之前的协议都是使用字符串，所以在存储空间和解析速度上，都优于字符串型协议。 Nginx(反向代理服务器) 什么是反向代理？ 正向代理，翻墙用的代理服务器就是正向代理，浏览器主动请求代理服务器，代理服务器转发请求到对应的目标服务器 反向代理，部署在Web服务器上，代理所有外部网络对内部网络的访问。浏览器访问服务器，必须经过这个代理，是被动的。 正向代理的主动方是客户端，反向代理的主动方是Web服务器。 反向代理的作用： 安全。客户端对Web服务器的访问需要先经过反向代理服务器。这样可以防止外部程序对Web服务器的直接攻击。 负载均衡。反向代理服务器可以根据Web服务器的负载情况，动态地把HTTP请求交给不同的Web服务器来处理，前提是要有多个Web服务器。（这个和我们的网站没啥关系） 提升Web服务器的IO性能。一个HTTP请求的数据，从客户端传输给服务器，是需要时间的，例如N秒，如果直接传给Web服务器，Web服务器就需要让一个进程阻塞N秒，来接收IO，这样会降低Web服务器的性能。如果使用反向代理服务器，先让反向代理服务器接收完整的HTTP请求，再把请求发给Web服务器，就能提升Web服务器的性能。还有一些静态文件的请求，可以直接交给反向代理来处理，不需要经过Web服务器。 优点 uWSGI+Django比单独使用Django的好处： 支持的并发量更高 方便管理多进程，发挥多核的优势 提升性能，因为uwsgi协议比WSGI协议有优势 Nginx+uWSGI+Django比uWSGI+Django好处（参考反向代理的作用1与作用3）]]></content>
@@ -334,9 +345,9 @@
       </categories>
       <tags>
         <tag>MST</tag>
-        <tag>bfs</tag>
         <tag>dijkstra</tag>
         <tag>spfa</tag>
+        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
