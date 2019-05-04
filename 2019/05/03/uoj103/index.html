@@ -103,19 +103,19 @@
 
 
 
-  <meta name="description" content="回文自动机回文问题终极神器回文Pam，再也不用manacher+Sam写到崩溃了。   概述回文自动机也是一个DFA，简称Pam，在Pam能得到一个串中所有本质不同的所有回文串以及其出现的次数（以及其它很多东西）。是由毛子神犇MikhailRubinchik在2014年提出的一个数据结构。Pam由两棵树组成，一棵树的节点存储所有长度为奇数的回文串，另一颗的节点存储所有长度为偶数的回文串。注意树中并">
+  <meta name="description" content="回文自动机回文问题终极神器Pam，再也不用manacher+Sam写到崩溃了。   概述回文自动机是一个DFA，简称Pam，在Pam能得到一个串中所有本质不同的所有回文串以及其出现的次数（以及其它很多东西）。是由毛子神犇MikhailRubinchik在2014年提出的一个数据结构。Pam由两棵树组成，一棵树的节点存储所有长度为奇数的回文串，另一颗的节点存储所有长度为偶数的回文串。注意树中并不真正">
 <meta name="keywords" content="pam">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回文自动机">
 <meta property="og:url" content="http://yoursite.com/2019/05/03/uoj103/index.html">
 <meta property="og:site_name" content="LMissher&#39;s Blog">
-<meta property="og:description" content="回文自动机回文问题终极神器回文Pam，再也不用manacher+Sam写到崩溃了。   概述回文自动机也是一个DFA，简称Pam，在Pam能得到一个串中所有本质不同的所有回文串以及其出现的次数（以及其它很多东西）。是由毛子神犇MikhailRubinchik在2014年提出的一个数据结构。Pam由两棵树组成，一棵树的节点存储所有长度为奇数的回文串，另一颗的节点存储所有长度为偶数的回文串。注意树中并">
+<meta property="og:description" content="回文自动机回文问题终极神器Pam，再也不用manacher+Sam写到崩溃了。   概述回文自动机是一个DFA，简称Pam，在Pam能得到一个串中所有本质不同的所有回文串以及其出现的次数（以及其它很多东西）。是由毛子神犇MikhailRubinchik在2014年提出的一个数据结构。Pam由两棵树组成，一棵树的节点存储所有长度为奇数的回文串，另一颗的节点存储所有长度为偶数的回文串。注意树中并不真正">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/uoj103/pam-cons1.png">
 <meta property="og:updated_time" content="2019-05-04T01:54:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回文自动机">
-<meta name="twitter:description" content="回文自动机回文问题终极神器回文Pam，再也不用manacher+Sam写到崩溃了。   概述回文自动机也是一个DFA，简称Pam，在Pam能得到一个串中所有本质不同的所有回文串以及其出现的次数（以及其它很多东西）。是由毛子神犇MikhailRubinchik在2014年提出的一个数据结构。Pam由两棵树组成，一棵树的节点存储所有长度为奇数的回文串，另一颗的节点存储所有长度为偶数的回文串。注意树中并">
+<meta name="twitter:description" content="回文自动机回文问题终极神器Pam，再也不用manacher+Sam写到崩溃了。   概述回文自动机是一个DFA，简称Pam，在Pam能得到一个串中所有本质不同的所有回文串以及其出现的次数（以及其它很多东西）。是由毛子神犇MikhailRubinchik在2014年提出的一个数据结构。Pam由两棵树组成，一棵树的节点存储所有长度为奇数的回文串，另一颗的节点存储所有长度为偶数的回文串。注意树中并不真正">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/03/uoj103/pam-cons1.png">
 
 
@@ -554,8 +554,8 @@
       
 
       
-        <h1 id="回文自动机"><a href="#回文自动机" class="headerlink" title="回文自动机"></a>回文自动机</h1><p>回文问题终极神器回文Pam，再也不用manacher+Sam写到崩溃了。  </p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>回文自动机也是一个DFA，简称Pam，在Pam能得到一个串中所有本质不同的所有回文串以及其出现的次数（以及其它很多东西）。是由毛子神犇MikhailRubinchik在2014年提出的一个数据结构。Pam由两棵树组成，一棵树的节点存储所有长度为奇数的回文串，另一颗的节点存储所有长度为偶数的回文串。注意树中并不真正的存储回文串，而是可以通过自动机边转移时得到回文串。两棵树由fail指针相连，避免了分类讨论（Pam最绝妙之处）。在转移时如果上一个状态的回文串的左右两边字母相同表示可以由此字母转移到下一个回文状态。如果当前状态的左右两边字母不同那么就通过fail指针转移到当前串的最长回文后缀上去接着寻找，直到找到满足条件的点为止。  </p>
+        <h1 id="回文自动机"><a href="#回文自动机" class="headerlink" title="回文自动机"></a>回文自动机</h1><p>回文问题终极神器Pam，再也不用manacher+Sam写到崩溃了。  </p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>回文自动机是一个DFA，简称Pam，在Pam能得到一个串中所有本质不同的所有回文串以及其出现的次数（以及其它很多东西）。是由毛子神犇MikhailRubinchik在2014年提出的一个数据结构。Pam由两棵树组成，一棵树的节点存储所有长度为奇数的回文串，另一颗的节点存储所有长度为偶数的回文串。注意树中并不真正的存储回文串，而是可以通过自动机边转移时得到回文串。两棵树由fail指针相连，避免了分类讨论（Pam最绝妙之处）。在转移时如果上一个状态的回文串的左右两边字母相同表示可以由此字母转移到下一个回文状态。如果当前状态的左右两边字母不同那么就通过fail指针转移到当前串的最长回文后缀上去接着寻找，直到找到满足条件的点为止。  </p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
 <li>tree[maxn][26]:代表DFA由边转移得到的节点  </li>
 <li>len[maxn]:当前节点表示的回文串的长度  </li>
