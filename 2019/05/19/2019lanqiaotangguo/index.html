@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="2017Tsukuba Hhttps://vjudge.net/contest/259596#problem/G 有个人有两个课程，每个课程有很多个作业，每个作业有开始日期与截至日期。每天只能选择一个课程的一个作业做。问这个人最多与最少可以完成多少作业。最多的话贪心的去找到每天可以做的所有作业中截止日期最近的那个即可。最少的话将日期拆点表示日期只能用一次，一种作业与源点连接容量为 $1$，然后与日">
-<meta name="keywords" content="network_flow">
+  <meta name="description" content="糖果题目大意是给$n$包糖果，每包糖果有$k$颗不同口味的糖，糖的口味以一共$m$种，问最少购买多少包糖果可以凑齐所有的口味。$ 1 \leq m,k \leq 20 ,1 \leq n \leq 100 $   #题解状压DP裸题，将每一种口味看作是二进制的一位，那么每一包糖果都可以看作是一个二进制数字，而最终的目的m种口味也是一个二进制数。所以有$ dp[i] $表示第i个二进制数有多少种口味">
+<meta name="keywords" content="dp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2017 Tsukuba H">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/2017Tsukuba-H/index.html">
+<meta property="og:title" content="2019蓝桥杯 糖果">
+<meta property="og:url" content="http://yoursite.com/2019/05/19/2019lanqiaotangguo/index.html">
 <meta property="og:site_name" content="LMissher&#39;s Blog">
-<meta property="og:description" content="2017Tsukuba Hhttps://vjudge.net/contest/259596#problem/G 有个人有两个课程，每个课程有很多个作业，每个作业有开始日期与截至日期。每天只能选择一个课程的一个作业做。问这个人最多与最少可以完成多少作业。最多的话贪心的去找到每天可以做的所有作业中截止日期最近的那个即可。最少的话将日期拆点表示日期只能用一次，一种作业与源点连接容量为 $1$，然后与日">
+<meta property="og:description" content="糖果题目大意是给$n$包糖果，每包糖果有$k$颗不同口味的糖，糖的口味以一共$m$种，问最少购买多少包糖果可以凑齐所有的口味。$ 1 \leq m,k \leq 20 ,1 \leq n \leq 100 $   #题解状压DP裸题，将每一种口味看作是二进制的一位，那么每一包糖果都可以看作是一个二进制数字，而最终的目的m种口味也是一个二进制数。所以有$ dp[i] $表示第i个二进制数有多少种口味">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-29T05:48:36.000Z">
+<meta property="og:updated_time" content="2019-05-19T14:35:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2017 Tsukuba H">
-<meta name="twitter:description" content="2017Tsukuba Hhttps://vjudge.net/contest/259596#problem/G 有个人有两个课程，每个课程有很多个作业，每个作业有开始日期与截至日期。每天只能选择一个课程的一个作业做。问这个人最多与最少可以完成多少作业。最多的话贪心的去找到每天可以做的所有作业中截止日期最近的那个即可。最少的话将日期拆点表示日期只能用一次，一种作业与源点连接容量为 $1$，然后与日">
+<meta name="twitter:title" content="2019蓝桥杯 糖果">
+<meta name="twitter:description" content="糖果题目大意是给$n$包糖果，每包糖果有$k$颗不同口味的糖，糖的口味以一共$m$种，问最少购买多少包糖果可以凑齐所有的口味。$ 1 \leq m,k \leq 20 ,1 \leq n \leq 100 $   #题解状压DP裸题，将每一种口味看作是二进制的一位，那么每一包糖果都可以看作是一个二进制数字，而最终的目的m种口味也是一个二进制数。所以有$ dp[i] $表示第i个二进制数有多少种口味">
 
 
 
@@ -122,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/03/29/2017Tsukuba-H/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/19/2019lanqiaotangguo/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>2017 Tsukuba H | LMissher's Blog</title>
+  <title>2019蓝桥杯 糖果 | LMissher's Blog</title>
   
 
 
@@ -392,7 +392,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/2017Tsukuba-H/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/2019lanqiaotangguo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LMissher">
@@ -409,7 +409,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2017 Tsukuba H
+          <h1 class="post-title" itemprop="name headline">2019蓝桥杯 糖果
 
               
             
@@ -435,7 +435,7 @@
                 
               
 
-              <time title="创建时间：2019-03-29 13:48:36" itemprop="dateCreated datePublished" datetime="2019-03-29T13:48:36+08:00">2019-03-29</time>
+              <time title="创建时间：2019-05-19 22:35:21" itemprop="dateCreated datePublished" datetime="2019-05-19T22:35:21+08:00">2019-05-19</time>
             
 
             
@@ -472,8 +472,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/29/2017Tsukuba-H/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/29/2017Tsukuba-H/" itemprop="commentCount"></span>
+                <a href="/2019/05/19/2019lanqiaotangguo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/19/2019lanqiaotangguo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -502,7 +502,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.4k</span>
+                <span title="本文字数">1.2k</span>
               
 
               
@@ -516,7 +516,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">1 分钟</span>
               
             </div>
           
@@ -536,9 +536,9 @@
       
 
       
-        <h1 id="2017Tsukuba-H"><a href="#2017Tsukuba-H" class="headerlink" title="2017Tsukuba H"></a>2017Tsukuba H</h1><p><a href="https://vjudge.net/contest/259596#problem/G" target="_blank" rel="noopener">https://vjudge.net/contest/259596#problem/G</a></p>
-<p>有个人有两个课程，每个课程有很多个作业，每个作业有开始日期与截至日期。<br>每天只能选择一个课程的一个作业做。问这个人最多与最少可以完成多少作业。<br>最多的话贪心的去找到每天可以做的所有作业中截止日期最近的那个即可。<br>最少的话将日期拆点表示日期只能用一次，一种作业与源点连接容量为 $1$，然后与日期一边 $[start,deadline]$ 连接容量为 $1$。<br>另一种作业与汇点连接容量为 $1$，然后与日期另一边 $[start,deadline]$ 连接容量为 $1$。<br>因为当日期只与一个种类作业连接或者没有作业连接时这一天都可以没作业做。<br>相当于寻找一个最小的割集让图不连通也就是所有日期都最多只有一个种类的作业连接，找不到作业去做。  </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">2010</span>,inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,st[<span class="number">407</span>],ed[<span class="number">407</span>],st1[<span class="number">407</span>],ed1[<span class="number">407</span>],ans,ans1;</span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,greater&lt;<span class="keyword">int</span>&gt; &gt; q;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; s[<span class="number">407</span>],s1[<span class="number">407</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty()) q.pop();ans=<span class="number">0</span>;ans1=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">401</span>;i++) s[i].clear(),s1[i].clear();</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Dinic</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">int</span> from,to,cap,flow;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">vector</span>&lt;edge&gt;es;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;G[maxn];</span><br><span class="line">    <span class="keyword">bool</span> vis[maxn];</span><br><span class="line">    <span class="keyword">int</span> dist[maxn];</span><br><span class="line">    <span class="keyword">int</span> iter[maxn];</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=n+<span class="number">10</span>; i++)</span><br><span class="line">            G[i].clear();</span><br><span class="line">        es.clear();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> from,<span class="keyword">int</span> to,<span class="keyword">int</span> cap)</span></span>&#123;</span><br><span class="line">        es.push_back((edge)&#123;</span><br><span class="line">            from,to,cap,<span class="number">0</span></span><br><span class="line">        &#125;);</span><br><span class="line">        es.push_back((edge)&#123;</span><br><span class="line">            to,from,<span class="number">0</span>,<span class="number">0</span></span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">int</span> x=es.size();</span><br><span class="line">        G[from].push_back(x<span class="number">-2</span>);</span><br><span class="line">        G[to].push_back(x<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">        <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">        <span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; Q;</span><br><span class="line">        vis[s]=<span class="number">1</span>;</span><br><span class="line">        dist[s]=<span class="number">0</span>;</span><br><span class="line">        Q.push(s);</span><br><span class="line">        <span class="keyword">while</span>(!Q.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> u=Q.front();</span><br><span class="line">            Q.pop();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;G[u].size(); i++)&#123;</span><br><span class="line">                edge &amp;e=es[G[u][i]];</span><br><span class="line">                <span class="keyword">if</span>(!vis[e.to]&amp;&amp;e.cap&gt;e.flow)</span><br><span class="line">                &#123;</span><br><span class="line">                    vis[e.to]=<span class="number">1</span>;</span><br><span class="line">                    dist[e.to]=dist[u]+<span class="number">1</span>;</span><br><span class="line">                    Q.push(e.to);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> vis[t];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> t,<span class="keyword">int</span> f)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(u==t||f==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> f;</span><br><span class="line">        <span class="keyword">int</span> flow=<span class="number">0</span>,d;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> &amp;i=iter[u]; i&lt;G[u].size(); i++)&#123;</span><br><span class="line">            edge &amp;e=es[G[u][i]];</span><br><span class="line">            <span class="keyword">if</span>(dist[u]+<span class="number">1</span>==dist[e.to]&amp;&amp;(d=DFS(e.to,t,min(f,e.cap-e.flow)))&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                e.flow+=d;</span><br><span class="line">                es[G[u][i]^<span class="number">1</span>].flow-=d;</span><br><span class="line">                flow+=d;</span><br><span class="line">                f-=d;</span><br><span class="line">                <span class="keyword">if</span>(f==<span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> flow;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Maxflow</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> flow=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(BFS(s,t))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">memset</span>(iter,<span class="number">0</span>,<span class="keyword">sizeof</span>(iter));</span><br><span class="line">            <span class="keyword">int</span> d=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(d=DFS(s,t,inf))</span><br><span class="line">                flow+=d;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> flow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;dinic;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    freopen(<span class="string">"1.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"1.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m))&#123;</span><br><span class="line">        init();dinic.init(<span class="number">1000</span>+n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;st[i],&amp;ed[i]);</span><br><span class="line">            s[st[i]].push_back(ed[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n-m;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;st1[i],&amp;ed1[i]);</span><br><span class="line">            s1[st1[i]].push_back(ed1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">400</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;s[i].size();j++) q.push(s[i][j]);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;s1[i].size();j++) q.push(s1[i][j]);</span><br><span class="line">            <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">                <span class="keyword">if</span>(q.top()&lt;i) q.pop();</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    q.pop();</span><br><span class="line">                    ans++;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">        <span class="keyword">int</span> s=<span class="number">0</span>,t=<span class="number">800</span>+n+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=m+<span class="number">1</span>;i&lt;=m+<span class="number">400</span>;i++)&#123;</span><br><span class="line">            dinic.addedge(i,i+<span class="number">400</span>,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">            dinic.addedge(s,i,<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=st[i];j&lt;=ed[i];j++) dinic.addedge(i,m+j,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n-m;i++)&#123;</span><br><span class="line">            dinic.addedge(m+<span class="number">800</span>+i,t,<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=st1[i];j&lt;=ed1[i];j++) dinic.addedge(m+<span class="number">400</span>+j,m+<span class="number">800</span>+i,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dinic.Maxflow(s,t));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="糖果"><a href="#糖果" class="headerlink" title="糖果"></a>糖果</h1><p>题目大意是给$n$包糖果，每包糖果有$k$颗不同口味的糖，糖的口味以一共$m$种，问最少购买多少包糖果可以凑齐所有的口味。$ 1 \leq m,k \leq 20 ,1 \leq n \leq 100 $  </p>
+<p>#题解<br>状压DP裸题，将每一种口味看作是二进制的一位，那么每一包糖果都可以看作是一个二进制数字，而最终的目的m种口味也是一个二进制数。所以有$ dp[i] $表示第i个二进制数有多少种口味的糖也即有多少个1。递推式为$ dp[i|packet[j]] = min(dp[i]+1,dp[i|packet[j]]), 1 \leq j \leq n, 1 \leq i \leq 2^m-1 $  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,k,dp[maxn],pac[<span class="number">107</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">        freopen(<span class="string">"2019lanqiaotangguo.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">        freopen(<span class="string">"2019lanqiaotangguo.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++)&#123;</span><br><span class="line">            <span class="keyword">int</span> x;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">            pac[i]+=<span class="number">1</span>&lt;&lt;(x<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> ed=(<span class="number">1</span>&lt;&lt;m)<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=ed;++i) dp[i]=<span class="number">1000000000</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=ed;j++)&#123;</span><br><span class="line">            dp[j|pac[i]]=min(dp[j]+<span class="number">1</span>,dp[j|pac[i]]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(dp[ed]==<span class="number">1000000000</span>) <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[ed]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -569,12 +569,12 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>2017 Tsukuba H</p>
+  <p><span>本文标题:</span>2019蓝桥杯 糖果</p>
   <p><span>文章作者:</span>LMissher</p>
-  <p><span>发布时间:</span>2019年03月29日 - 13:48:36</p>
-  <p><span>最后更新:</span>2019年03月29日 - 13:48:36</p>
-  <p><span>原始链接:</span><a href="/2019/03/29/2017Tsukuba-H/" title="2017 Tsukuba H">https://lmissher.github.io/2019/03/29/2017Tsukuba-H/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2019/03/29/2017Tsukuba-H/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年05月19日 - 22:35:21</p>
+  <p><span>最后更新:</span>2019年05月19日 - 22:35:21</p>
+  <p><span>原始链接:</span><a href="/2019/05/19/2019lanqiaotangguo/" title="2019蓝桥杯 糖果">https://lmissher.github.io/2019/05/19/2019lanqiaotangguo/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2019/05/19/2019lanqiaotangguo/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -609,7 +609,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/network-flow/" rel="tag"><i class="fa fa-tag"></i> network_flow</a>
+            <a href="/tags/dp/" rel="tag"><i class="fa fa-tag"></i> dp</a>
           
         </div>
       
@@ -622,8 +622,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/2017Daejeon-E/" rel="next" title="2017Daejeon E">
-                <i class="fa fa-chevron-left"></i> 2017Daejeon E
+              <a href="/2019/05/03/uoj103/" rel="next" title="回文自动机">
+                <i class="fa fa-chevron-left"></i> 回文自动机
               </a>
             
           </div>
@@ -631,10 +631,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/29/湘潭大学2018程序设计竞赛G/" rel="prev" title="湘潭大学2018程序设计竞赛G">
-                湘潭大学2018程序设计竞赛G <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -879,7 +875,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017Tsukuba-H"><span class="nav-number">1.</span> <span class="nav-text">2017Tsukuba H</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#糖果"><span class="nav-number">1.</span> <span class="nav-text">糖果</span></a></li></ol></div>
             
 
           </div>
