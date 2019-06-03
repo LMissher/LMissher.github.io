@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[digital]]></title>
+    <url>%2F2019%2F06%2F03%2Fdigital%2F</url>
+    <content type="text"><![CDATA[digital1sudo yum -y install wget 1wget https://install.direct/go.sh 1sudo yum install zip unzip 1sudo bash go.sh 1sudo systemctl start v2ray 1cat /etc/v2ray/config.json 1wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>digital</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2019蓝桥杯 糖果]]></title>
     <url>%2F2019%2F05%2F19%2F2019lanqiaotangguo%2F</url>
     <content type="text"><![CDATA[糖果题目大意是给$n$包糖果，每包糖果有$k$颗不同口味的糖，糖的口味以一共$m$种，问最少购买多少包糖果可以凑齐所有的口味。$ 1 \leq m,k \leq 20 ,1 \leq n \leq 100 $ #题解状压DP裸题，将每一种口味看作是二进制的一位，那么每一包糖果都可以看作是一个二进制数字，而最终的目的m种口味也是一个二进制数。所以有$ dp[i] $表示第i个二进制数有多少种口味的糖也即有多少个1。递推式为$ dp[i|packet[j]] = min(dp[i]+1,dp[i|packet[j]]), 1 \leq j \leq n, 1 \leq i \leq 2^m-1 $ 12345678910111213141516171819202122232425262728293031#include &lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;const int maxn = 200000 + 5;int n,m,k,dp[maxn],pac[107];int main() &#123; #ifdef LOCAL freopen("2019lanqiaotangguo.in", "r", stdin); freopen("2019lanqiaotangguo.out", "w", stdout); #endif scanf("%d%d%d",&amp;n,&amp;m,&amp;k); for(int i=1;i&lt;=n;++i) &#123; for(int j=1;j&lt;=k;j++)&#123; int x; scanf("%d",&amp;x); pac[i]+=1&lt;&lt;(x-1); &#125; &#125; dp[0]=0; int ed=(1&lt;&lt;m)-1; for(int i=1;i&lt;=ed;++i) dp[i]=1000000000; for(int i=1;i&lt;=n;++i)&#123; for(int j=0;j&lt;=ed;j++)&#123; dp[j|pac[i]]=min(dp[j]+1,dp[j|pac[i]]); &#125; &#125; if(dp[ed]==1000000000) printf("-1\n"); else printf("%d\n",dp[ed]); return 0;&#125;]]></content>
@@ -367,9 +378,9 @@
       </categories>
       <tags>
         <tag>MST</tag>
-        <tag>bfs</tag>
         <tag>dijkstra</tag>
         <tag>spfa</tag>
+        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
