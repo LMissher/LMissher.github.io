@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[3b1b_structureofnn]]></title>
+    <url>%2F2019%2F10%2F29%2F3b1b-structureofnn%2F</url>
+    <content type="text"><![CDATA[Part1$activation$:激活，像素点的亮度。$Hidden layers$:隐含层，具体的处理。权重：下一层神经元的关注重点偏置：$Only activate meaningfully when weighted Sum &gt; bias$$ReLu$：线性整流函数，大于阈值则输出否则不输出。 Part2梯度：多元函数函数值上升最快的方向，沿梯度负方向可以最快达到最低点。用梯度下降使得代价函数最小梯度向量在一定意义上表示了变量的重要性 将输出的结果得到代价函数，然后根据使得代价函数最小的梯度调整权重与偏置。循环往复。 Part3反向传播每个点对前一层的影响加起来梯度下降把所有样本的反向传播求和取均值 只有标记好的训练集才能使用代价函数计算代价]]></content>
+      <categories>
+        <category>learning</category>
+      </categories>
+      <tags>
+        <tag>neural_network</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[oi9]]></title>
     <url>%2F2019%2F10%2F28%2Foi9%2F</url>
     <content type="text"><![CDATA[区间dp顾名思义是在区间上DP，它的主要思想就是先在小区间进行DP得到最优解，然后再利用小区间的最优解合并求大区间的最优解。 ##Q1 石子合并有$N$堆石子排成一排，每堆石子有一定的数量。现要将$N$堆石子并成为一堆。合并的过程只能每次将的两堆石子堆成一堆，每次合并花费的代价为这两堆石子的和，经过$N-1$次合并后成为一堆。求出总的代价最小值。 分析：贪心的每次拿最小的连个合并即可。 ##Q2 石子合并有$N$堆石子排成一排，每堆石子有一定的数量。现要将$N$堆石子并成为一堆。合并的过程只能每次将相邻的两堆石子堆成一堆，每次合并花费的代价为这两堆石子的和，经过$N-1$次合并后成为一堆。求出总的代价最小值。 分析：强行贪心？石子：$9$ $4$ $6$ $1$ $5$贪心策略：$9$ $4$ $6$ $6$ 计分$6$$9$ $10$ $6$ 计分$10$$9$ $16$ 计分$16$$25$ 计分$25$代价共计：$6+10+16+25=57$ 若如下方式合并：$13$ $6$ $1$ $5$ 计分$13$$13$ $6$ $6$ 计分$6$$13$ $12$ 计分$12$$25$ 计分$25$$13+6+12+25=56$或$9$ $4$ $6$ $6$ 计分$6$$9$ $4$ $12$ 计分$12$$13$ $12$ 计分$13$$25$ 计分$25$$6+12+13+25=56$ 显而易见?$dp[i][j]$来表示合并第$i$堆到第$j$堆石子的最小代价$dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+w[i][j]);$$w[i][j]$为此次合并的花费 先一维从小到大枚举长度，再一维枚举左右端点，第三维枚举合并点即可。 luoguP1043数字游戏题目:给出一圈数字分成$m$堆，求每堆数字和模$10$相乘的最大最小值。 分析：一堆数字分成$m$堆，不如先把$m$看作$2$，那可以看成一个圈的石子合并，不过合并代价是取模相乘。至于圈的解法就是破环为线，把$n$个数字变为$2 \times n$个数字即可枚举出圈里的所有可能性。不过相较于石子合并得多一维枚举分成多少段。 代码：12345678910111213141516171819202122232425262728293031323334353637383940414243444546#include &lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;const int maxn = 100000 + 5;int n,m,f1[110][110][110],f2[110][110][110],a[110],sum[110];int mod(int x)&#123; return (x%10+10)%10;&#125;int main()&#123; #ifdef LOCAL freopen("1.in", "r", stdin); freopen("1.out", "w", stdout); #endif cin&gt;&gt;n&gt;&gt;m; //求前缀和 for(int i=1;i&lt;=n;i++)&#123;cin&gt;&gt;a[i];sum[i]=sum[i-1]+a[i];&#125; for(int i=1;i&lt;=n;i++)&#123;a[i+n]=a[i],sum[i+n]=sum[i]+sum[n];&#125; //f2记录的是最小值 所以要初始化为极大值 memset(f2,127,sizeof(f2)); for(int i=1;i&lt;=2*n;i++)&#123; for(int j=i;j&lt;=2*n;j++)&#123; f1[i][j][1]=f2[i][j][1]=mod(sum[j]-sum[i-1]);//预处理每段的值 &#125; &#125; for(int l=1;l&lt;=n;l++)&#123;//区间长度 for(int i=1,j=i+l-1;j&lt;=2*n;i++,j++)&#123;//左右端点 for(int h=2;h&lt;=m;h++)&#123;//段数 for(int k=i+h-1;k&lt;j;k++)&#123;//短点 f1[i][j][h]=max(f1[i][j][h],f1[i][k][h-1]*mod(sum[j]-sum[k])); f2[i][j][h]=min(f2[i][j][h],f2[i][k][h-1]*mod(sum[j]-sum[k])); &#125; &#125; &#125; &#125; int maxn=0,minn=0x7fffffff; for(int i=1;i&lt;=n;i++)&#123; maxn=max(maxn,f1[i][i+n-1][m]); minn=min(minn,f2[i][i+n-1][m]); &#125; cout&lt;&lt;minn&lt;&lt;endl&lt;&lt;maxn; return 0;&#125;]]></content>
