@@ -111,10 +111,15 @@
 <meta property="og:site_name" content="LMissher&#39;s Blog">
 <meta property="og:description" content="Part1$activation$:激活，像素点的亮度。$Hidden layers$:隐含层，具体的处理。权重：下一层神经元的关注重点偏置：$Only activate meaningfully when weighted Sum &amp;gt; bias$$ReLu$：线性整流函数，大于阈值则输出否则不输出。 Part2梯度：多元函数函数值上升最快的方向，沿梯度负方向可以最快达到最低点。用梯度下降使">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/10/29/3b1b-structureofnn/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/29/3b1b-structureofnn/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/29/3b1b-structureofnn/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/29/3b1b-structureofnn/4.png">
 <meta property="og:updated_time" content="2019-10-29T06:11:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3b1b_structureofnn">
 <meta name="twitter:description" content="Part1$activation$:激活，像素点的亮度。$Hidden layers$:隐含层，具体的处理。权重：下一层神经元的关注重点偏置：$Only activate meaningfully when weighted Sum &amp;gt; bias$$ReLu$：线性整流函数，大于阈值则输出否则不输出。 Part2梯度：多元函数函数值上升最快的方向，沿梯度负方向可以最快达到最低点。用梯度下降使">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/29/3b1b-structureofnn/1.png">
 
 
 
@@ -536,7 +541,7 @@
       
 
       
-        <h1 id="Part1"><a href="#Part1" class="headerlink" title="Part1"></a>Part1</h1><p>$activation$:激活，像素点的亮度。<br>$Hidden layers$:隐含层，具体的处理。<br>权重：下一层神经元的关注重点<br>偏置：$Only activate meaningfully when weighted Sum &gt; bias$<br>$ReLu$：线性整流函数，大于阈值则输出否则不输出。</p>
+        <h1 id="Part1"><a href="#Part1" class="headerlink" title="Part1"></a>Part1</h1><p>$activation$:激活，像素点的亮度。<br>$Hidden layers$:隐含层，具体的处理。<br>权重：下一层神经元的关注重点<br>偏置：$Only activate meaningfully when weighted Sum &gt; bias$<br><img src="/2019/10/29/3b1b-structureofnn/1.png" alt><br><img src="/2019/10/29/3b1b-structureofnn/2.png" alt><br><img src="/2019/10/29/3b1b-structureofnn/3.png" alt><br>$ReLu$：线性整流函数，大于阈值则输出否则不输出。<br><img src="/2019/10/29/3b1b-structureofnn/4.png" alt></p>
 <h1 id="Part2"><a href="#Part2" class="headerlink" title="Part2"></a>Part2</h1><p>梯度：多元函数函数值上升最快的方向，沿梯度负方向可以最快达到最低点。<br>用梯度下降使得代价函数最小<br>梯度向量在一定意义上表示了变量的重要性</p>
 <p>将输出的结果得到代价函数，然后根据使得代价函数最小的梯度调整权重与偏置。循环往复。</p>
 <h1 id="Part3"><a href="#Part3" class="headerlink" title="Part3"></a>Part3</h1><p>反向传播每个点对前一层的影响加起来<br>梯度下降把所有样本的反向传播求和取均值</p>
