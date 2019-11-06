@@ -103,18 +103,17 @@
 
 
 
-  <meta name="description" content="luoguP1280题意：$n$分钟$k$个任务，每个任务给出开始与持续时间，尼克只要在闲下来时遇到任务就要做，问尼克最多休闲多久。 分析：如果这分钟没有任务的话这分钟便可以休息，那么下一分钟的答案$+1$。有任务的话任务执行结束后的那一刻的休闲时间和执行任务前的时间是一致的。 转移方程：$dp[i+1]=max(dp[i+1],dp[i]+1)$$dp[i+next]=max(dp[i+next">
-<meta name="keywords" content="pdf">
+  <meta name="description" content="后缀表达式求值后缀表达式也叫逆波兰表达式，其求值过程可以用到栈来辅助存储。假定待求值的后缀表达式为：$6  5  2  3  + 8  + 3  +  $，则其求值过程如下：  遍历表达式，遇到的数字首先放入栈中，此时栈如下所示：  接着读到“$+$”，则弹出$3$和$2$，执行$3+2$，计算结果等于$5$，并将$5$压入到栈中。  读到$8$，将其直接放入栈中。  读到“”，弹出$8$和$5$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="oi8">
-<meta property="og:url" content="http://yoursite.com/2019/10/28/oi8/index.html">
+<meta property="og:title" content="oi12">
+<meta property="og:url" content="http://yoursite.com/2019/11/05/oi12/index.html">
 <meta property="og:site_name" content="LMissher&#39;s Blog">
-<meta property="og:description" content="luoguP1280题意：$n$分钟$k$个任务，每个任务给出开始与持续时间，尼克只要在闲下来时遇到任务就要做，问尼克最多休闲多久。 分析：如果这分钟没有任务的话这分钟便可以休息，那么下一分钟的答案$+1$。有任务的话任务执行结束后的那一刻的休闲时间和执行任务前的时间是一致的。 转移方程：$dp[i+1]=max(dp[i+1],dp[i]+1)$$dp[i+next]=max(dp[i+next">
+<meta property="og:description" content="后缀表达式求值后缀表达式也叫逆波兰表达式，其求值过程可以用到栈来辅助存储。假定待求值的后缀表达式为：$6  5  2  3  + 8  + 3  +  $，则其求值过程如下：  遍历表达式，遇到的数字首先放入栈中，此时栈如下所示：  接着读到“$+$”，则弹出$3$和$2$，执行$3+2$，计算结果等于$5$，并将$5$压入到栈中。  读到$8$，将其直接放入栈中。  读到“”，弹出$8$和$5$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T08:11:18.000Z">
+<meta property="og:updated_time" content="2019-11-05T09:51:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="oi8">
-<meta name="twitter:description" content="luoguP1280题意：$n$分钟$k$个任务，每个任务给出开始与持续时间，尼克只要在闲下来时遇到任务就要做，问尼克最多休闲多久。 分析：如果这分钟没有任务的话这分钟便可以休息，那么下一分钟的答案$+1$。有任务的话任务执行结束后的那一刻的休闲时间和执行任务前的时间是一致的。 转移方程：$dp[i+1]=max(dp[i+1],dp[i]+1)$$dp[i+next]=max(dp[i+next">
+<meta name="twitter:title" content="oi12">
+<meta name="twitter:description" content="后缀表达式求值后缀表达式也叫逆波兰表达式，其求值过程可以用到栈来辅助存储。假定待求值的后缀表达式为：$6  5  2  3  + 8  + 3  +  $，则其求值过程如下：  遍历表达式，遇到的数字首先放入栈中，此时栈如下所示：  接着读到“$+$”，则弹出$3$和$2$，执行$3+2$，计算结果等于$5$，并将$5$压入到栈中。  读到$8$，将其直接放入栈中。  读到“”，弹出$8$和$5$">
 
 
 
@@ -122,7 +121,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/10/28/oi8/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/05/oi12/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>oi8 | LMissher's Blog</title>
+  <title>oi12 | LMissher's Blog</title>
   
 
 
@@ -392,7 +391,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/28/oi8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/05/oi12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LMissher">
@@ -409,7 +408,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">oi8
+          <h1 class="post-title" itemprop="name headline">oi12
 
               
             
@@ -435,30 +434,12 @@
                 
               
 
-              <time title="创建时间：2019-10-28 16:11:18" itemprop="dateCreated datePublished" datetime="2019-10-28T16:11:18+08:00">2019-10-28</time>
+              <time title="创建时间：2019-11-05 17:51:53" itemprop="dateCreated datePublished" datetime="2019-11-05T17:51:53+08:00">2019-11-05</time>
             
 
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法与数据结构/" itemprop="url" rel="index"><span itemprop="name">算法与数据结构</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -472,8 +453,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/10/28/oi8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/28/oi8/" itemprop="commentCount"></span>
+                <a href="/2019/11/05/oi12/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/05/oi12/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -502,7 +483,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5.3k</span>
+                <span title="本文字数">2.5k</span>
               
 
               
@@ -516,7 +497,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">5 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -536,25 +517,26 @@
       
 
       
-        <h1 id="luoguP1280"><a href="#luoguP1280" class="headerlink" title="luoguP1280"></a>luoguP1280</h1><p>题意：<br>$n$分钟$k$个任务，每个任务给出开始与持续时间，尼克只要在闲下来时遇到任务就要做，问尼克最多休闲多久。</p>
-<p>分析：<br>如果这分钟没有任务的话这分钟便可以休息，那么下一分钟的答案$+1$。有任务的话任务执行结束后的那一刻的休闲时间和执行任务前的时间是一致的。</p>
-<p>转移方程：<br>$dp[i+1]=max(dp[i+1],dp[i]+1)$<br>$dp[i+next]=max(dp[i+next],dp[i])$</p>
-<p>初始化：<br>注意初始时除了第一个所有时间的值都为极小值，为了避免出现任务中的递增出现。</p>
-<p>代码:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; st[maxn];</span><br><span class="line"><span class="keyword">int</span> dp[maxn],p,t,n,k;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">        freopen(<span class="string">"1.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">        freopen(<span class="string">"1.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n+<span class="number">1</span>;++i) dp[i]=<span class="number">-1e9</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;++i)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;p,&amp;t);</span><br><span class="line">        st[p].push_back(t);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!st[i].size()) dp[i+<span class="number">1</span>]=max(dp[i+<span class="number">1</span>],dp[i]+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;st[i].size();++j)&#123;</span><br><span class="line">            dp[i+st[i][j]]=max(dp[i],dp[i+st[i][j]]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[n+<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="luoguP1002"><a href="#luoguP1002" class="headerlink" title="luoguP1002"></a>luoguP1002</h1><p>题意：<br>一个$n \times m$的棋盘可以向下和向右走，棋盘上有一个马，马和它覆盖的位置不能到。问有多少种方案从左上角到右下角。</p>
-<p>分析：<br>先把不能到的点标记上，然后容易知道一个点只能从它的上面和左面走到。那么我们从左到右从上到下枚举点更新方案数即可。</p>
-<p>转移方程：<br>$dp[i][j]=max(dp[i][j],dp[i-1][j]+dp[i][j-1])$</p>
-<p>代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x[]=&#123;<span class="number">0</span>,<span class="number">-2</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">-2</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> y[]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">-2</span>,<span class="number">-2</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> n,m,mm,mn;</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line">ull dp[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">        freopen(<span class="string">"1.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">        freopen(<span class="string">"1.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;n,&amp;m,&amp;mn,&amp;mm);</span><br><span class="line">    n+=<span class="number">1</span>;m+=<span class="number">1</span>;mn+=<span class="number">1</span>;mm+=<span class="number">1</span>;</span><br><span class="line">    dp[<span class="number">1</span>][<span class="number">1</span>]=<span class="number">1</span>;vis[mn][mm]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">8</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(mn+x[i]&gt;=<span class="number">0</span>&amp;&amp;mm+y[i]&gt;=<span class="number">0</span>)</span><br><span class="line">            vis[mn+x[i]][mm+y[i]]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;++j)</span><br><span class="line">            <span class="keyword">if</span>(!vis[i][j])</span><br><span class="line">                dp[i][j]=max(dp[i][j],dp[i<span class="number">-1</span>][j]+dp[i][j<span class="number">-1</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%llu\n"</span>,dp[n][m]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="luoguP1095"><a href="#luoguP1095" class="headerlink" title="luoguP1095"></a>luoguP1095</h1><p>题意:<br>荒岛逃生，初始魔法值为$M$，需要在$T$秒内跑完$S$的距离。可以选择花费$10$魔法值进行$60$米的闪现或者跑$17$米或者停下恢复$4$点魔法值。</p>
-<p>分析：<br>可以知道闪现永远比跑步快除法魔法值还没恢复好的一两秒内使用跑步是优于停止恢复的。所以先更新闪现的$dp$，然后用跑步去更新闪现回复蓝量的中间值即可。</p>
-<p>转移方程：<br>$m&gt;=10?dp[i]=dp[i-1]+60:dp[i]=dp[i-1];$<br>$m&gt;=10?m-=10:m+=4; $<br>$dp[i]=max(dp[i],dp[i-1]+17);$</p>
-<p>代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">300000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> dp[maxn],m,s,t;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">        freopen(<span class="string">"1.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">        freopen(<span class="string">"1.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;m,&amp;s,&amp;t);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=t;++i)&#123;</span><br><span class="line">        m&gt;=<span class="number">10</span>?dp[i]=dp[i<span class="number">-1</span>]+<span class="number">60</span>:dp[i]=dp[i<span class="number">-1</span>]; </span><br><span class="line">        m&gt;=<span class="number">10</span>?m-=<span class="number">10</span>:m+=<span class="number">4</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//一段路只跑是否大于当前闪现得到的最大距离</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=t;++i)&#123;</span><br><span class="line">        dp[i]=max(dp[i],dp[i<span class="number">-1</span>]+<span class="number">17</span>);</span><br><span class="line">        <span class="keyword">if</span>(dp[i]&gt;=s)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Yes\n%d\n"</span>,i);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"No\n%d\n"</span>,dp[t]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="luoguP1233"><a href="#luoguP1233" class="headerlink" title="luoguP1233"></a>luoguP1233</h1><p>题意：<br>把$n$根棍子加工，如果前一根棍子的长与宽均大于下一根那么下一根不花时间否则花费一分钟时间。问最小加工时间。</p>
-<p>分析：<br>先把棍子按照长度从大到小排序，那么可知如果一根棍子的宽度小于前一根则必定满足条件。由此在长度相等时把宽度也按从大到小排序，相当于是寻找木棍有多少个不上升子序列。根据定理知数组的不上升子序列的最小划分等于递增子序列的大小，求递增子序列即可。</p>
-<p>代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,dp[maxn],tmp;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stick</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l,w;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> stick &amp; k)<span class="keyword">const</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l!=k.l) <span class="keyword">return</span> l&gt;k.l;</span><br><span class="line">        <span class="keyword">return</span> w&gt;k.w;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;s[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">        freopen(<span class="string">"1.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">        freopen(<span class="string">"1.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i) <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;s[i].l,&amp;s[i].w);</span><br><span class="line">    sort(s+<span class="number">1</span>,s+n+<span class="number">1</span>);</span><br><span class="line">    dp[++tmp]=s[<span class="number">1</span>].w;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i].w&gt;dp[tmp])&#123;</span><br><span class="line">            dp[++tmp]=s[i].w;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> pos=lower_bound(dp+<span class="number">1</span>,dp+tmp+<span class="number">1</span>,s[i].w)-dp;</span><br><span class="line">        dp[pos]=s[i].w;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,tmp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="luoguP1113"><a href="#luoguP1113" class="headerlink" title="luoguP1113"></a>luoguP1113</h1><p>题意：<br>一个工作有前驱工作，前驱工作做完后才能做当前工作，并且工作可并行。问做完所有工作的时间是多少。</p>
-<p>分析：<br>拓扑排序，每次把入度为$0$的工作做掉然后更新其后继工作的工作时间。</p>
-<p>代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec[maxn];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"><span class="keyword">int</span> tim[maxn],ans[maxn],n,deg[maxn],out;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">topo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> u=q.front();q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec[u].size();++i)&#123;</span><br><span class="line">            <span class="keyword">int</span> v=vec[u][i];</span><br><span class="line">            --deg[v];</span><br><span class="line">            ans[v]=max(ans[v],ans[u]+tim[v]);</span><br><span class="line">            out=max(out,ans[v]);</span><br><span class="line">            <span class="keyword">if</span>(!deg[v]) q.push(v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">        freopen(<span class="string">"1.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">        freopen(<span class="string">"1.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;id);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tim[id]);</span><br><span class="line">        <span class="keyword">int</span> x=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(x)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">            <span class="keyword">if</span>(x)&#123;</span><br><span class="line">                vec[x].push_back(id);</span><br><span class="line">                ++deg[id];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i) <span class="keyword">if</span>(!deg[i])&#123;</span><br><span class="line">        ans[i]=tim[i];</span><br><span class="line">        out=max(out,ans[i]);</span><br><span class="line">        q.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">    topo();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,out);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="后缀表达式求值"><a href="#后缀表达式求值" class="headerlink" title="后缀表达式求值"></a>后缀表达式求值</h1><p>后缀表达式也叫逆波兰表达式，其求值过程可以用到栈来辅助存储。假定待求值的后缀表达式为：$6  5  2  3  + 8 <em> + 3  +  </em>$，则其求值过程如下：</p>
+<ol>
+<li><p>遍历表达式，遇到的数字首先放入栈中，此时栈如下所示：</p>
+</li>
+<li><p>接着读到“$+$”，则弹出$3$和$2$，执行$3+2$，计算结果等于$5$，并将$5$压入到栈中。</p>
+</li>
+<li><p>读到$8$，将其直接放入栈中。</p>
+</li>
+<li><p>读到“<em>”，弹出$8$和$5$，执行$8$</em>$5$，并将结果$40$压入栈中。而后过程类似，读到“+”，将$40$和$5$弹出，将$40+5$的结果$45$压入栈…以此类推。最后求的值$288$。</p>
+</li>
+</ol>
+<h1 id="中缀表达式转后缀表达式"><a href="#中缀表达式转后缀表达式" class="headerlink" title="中缀表达式转后缀表达式"></a>中缀表达式转后缀表达式</h1><p>中缀表达式$a + b<em>c + (d </em> e + f) <em> g$，其转换成后缀表达式则为$a b c </em> + d e <em> f  + g </em> +$。<br>转换过程需要用到栈，具体过程如下：</p>
+<ol>
+<li>如果遇到操作数，我们就直接将其输出。</li>
+<li>如果遇到操作符，则我们将其放入到栈中，遇到左括号时我们也将其放入栈中。</li>
+<li>如果遇到一个右括号，则将栈元素弹出，将弹出的操作符输出直到遇到左括号为止。注意，左括号只弹出并不输出。</li>
+<li>如果遇到任何其他的操作符，如（“+”， “*”，“（”）等，从栈中弹出元素直到遇到发现更低优先级的元素(或者栈为空)为止。弹出完这些元素后，才将遇到的操作符压入到栈中。有一点需要注意，只有在遇到” ) “的情况下我们才弹出” ( “，其他情况我们都不会弹出” ( “。</li>
+<li>如果我们读到了输入的末尾，则将栈中所有元素依次弹出。</li>
+</ol>
+<h1 id="luogu1310"><a href="#luogu1310" class="headerlink" title="luogu1310"></a>luogu1310</h1><p>代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">10007</span>;</span><br><span class="line"><span class="keyword">int</span> dp[maxn][<span class="number">2</span>],n,tot;</span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; vec;</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">trans</span><span class="params">()</span></span>&#123;</span><br><span class="line">    vec.push_back(<span class="string">'n'</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">'*'</span>||s[i]==<span class="string">'('</span>) st.push(s[i]);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">')'</span>)&#123;</span><br><span class="line">            <span class="keyword">while</span>(st.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line">                vec.push_back(st.top());</span><br><span class="line">                st.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">'+'</span>)&#123;</span><br><span class="line">            <span class="keyword">while</span>(!st.empty()&amp;&amp;st.top()==<span class="string">'*'</span>)&#123;</span><br><span class="line">                vec.push_back(st.top());</span><br><span class="line">                st.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            st.push(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s[i]!=<span class="string">'('</span>&amp;&amp;s[i]!=<span class="string">')'</span>)   vec.push_back(<span class="string">'n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!st.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        vec.push_back(st.top());</span><br><span class="line">        st.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">        freopen(<span class="string">"1.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">        freopen(<span class="string">"1.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);</span><br><span class="line">    trans();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vec.size();++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(vec[i]==<span class="string">'n'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[++tot][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">            dp[tot][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(vec[i]==<span class="string">'*'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tot--;</span><br><span class="line">            dp[tot][<span class="number">0</span>]=(dp[tot+<span class="number">1</span>][<span class="number">0</span>]*dp[tot][<span class="number">1</span>]+dp[tot][<span class="number">0</span>]*dp[tot+<span class="number">1</span>][<span class="number">1</span>]+dp[tot][<span class="number">0</span>]*dp[tot+<span class="number">1</span>][<span class="number">0</span>])%mod;</span><br><span class="line">            dp[tot][<span class="number">1</span>]=(dp[tot][<span class="number">1</span>]*dp[tot+<span class="number">1</span>][<span class="number">1</span>])%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(vec[i]==<span class="string">'+'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            tot--;</span><br><span class="line">            dp[tot][<span class="number">1</span>]=(dp[tot][<span class="number">0</span>]*dp[tot+<span class="number">1</span>][<span class="number">1</span>]+dp[tot+<span class="number">1</span>][<span class="number">0</span>]*dp[tot][<span class="number">1</span>]+dp[tot][<span class="number">1</span>]*dp[tot+<span class="number">1</span>][<span class="number">1</span>])%mod;</span><br><span class="line">            dp[tot][<span class="number">0</span>]=(dp[tot][<span class="number">0</span>]*dp[tot+<span class="number">1</span>][<span class="number">0</span>])%mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[tot][<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -586,12 +568,12 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>oi8</p>
+  <p><span>本文标题:</span>oi12</p>
   <p><span>文章作者:</span>LMissher</p>
-  <p><span>发布时间:</span>2019年10月28日 - 16:11:18</p>
-  <p><span>最后更新:</span>2019年10月28日 - 16:11:18</p>
-  <p><span>原始链接:</span><a href="/2019/10/28/oi8/" title="oi8">https://lmissher.github.io/2019/10/28/oi8/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2019/10/28/oi8/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年11月05日 - 17:51:53</p>
+  <p><span>最后更新:</span>2019年11月05日 - 17:51:53</p>
+  <p><span>原始链接:</span><a href="/2019/11/05/oi12/" title="oi12">https://lmissher.github.io/2019/11/05/oi12/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2019/11/05/oi12/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -624,12 +606,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/pdf/" rel="tag"><i class="fa fa-tag"></i> pdf</a>
-          
-        </div>
-      
 
       
       
@@ -639,8 +615,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/22/oi7/" rel="next" title="oi7">
-                <i class="fa fa-chevron-left"></i> oi7
+              <a href="/2019/11/05/oi11/" rel="next" title="oi11">
+                <i class="fa fa-chevron-left"></i> oi11
               </a>
             
           </div>
@@ -648,10 +624,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/28/oi9/" rel="prev" title="oi9">
-                oi9 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -904,7 +876,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#luoguP1280"><span class="nav-number">1.</span> <span class="nav-text">luoguP1280</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#luoguP1002"><span class="nav-number">2.</span> <span class="nav-text">luoguP1002</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#luoguP1095"><span class="nav-number">3.</span> <span class="nav-text">luoguP1095</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#luoguP1233"><span class="nav-number">4.</span> <span class="nav-text">luoguP1233</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#luoguP1113"><span class="nav-number">5.</span> <span class="nav-text">luoguP1113</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#后缀表达式求值"><span class="nav-number">1.</span> <span class="nav-text">后缀表达式求值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中缀表达式转后缀表达式"><span class="nav-number">2.</span> <span class="nav-text">中缀表达式转后缀表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#luogu1310"><span class="nav-number">3.</span> <span class="nav-text">luogu1310</span></a></li></ol></div>
             
 
           </div>
