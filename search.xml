@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[folium]]></title>
+    <url>%2F2019%2F11%2F24%2Ffolium%2F</url>
+    <content type="text"><![CDATA[可以使用folium在地图上绘制点以及绘制热力图。具体使用查api即可。下面代码展示了将读取的点的数据展示在纽约市地图里。12345678910111213141516171819202122232425262728293031323334353637383940414243# 导包import foliumimport pandas as pdimport numpy as npimport webbrowserfrom tqdm import tqdm# mean -73.98983379159999 40.731011160099996all = pd.read_csv("all.csv", sep=",")# 将经纬度信息取出lati = all['start station latitude']longi = all['start station longitude']start = pd.concat([lati, longi], axis=1)lati = all['end station latitude']longi = all['end station longitude']end = pd.concat([lati, longi], axis=1)# 将start与end合并start.columns = ['latitude', 'longitude']end.columns = ['latitude', 'longitude']value = pd.concat([start, end], axis=0)# 将均值点作为地图中心m = folium.Map( location=[40.731011160099996, -73.98983379159999], zoom_start=10,)value = value.values.tolist()# 将所有点添加进地图for v in tqdm(value): folium.Circle( radius=10, location=v, color='#3388ff', fill=True, ).add_to(m)# 保存并打开，举jupyter notebook直接输出即可显示m.save("1.html")webbrowser.open("1.html")]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[bjfu vpn使用]]></title>
     <url>%2F2019%2F11%2F23%2Fbjfuvpn%2F</url>
     <content type="text"><![CDATA[在windows上使用北林得VPN需要如下步骤： 下载IE10浏览器或者将浏览器装一个IE10浏览器内核插件用来使得Xactive控件可以弹出 打开北林VPN网站 弹出Xactive控件点击安装即可 安装完毕后运行程序有一个小蓝人即可 结束使用vpn时退出小蓝人即可]]></content>
