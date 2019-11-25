@@ -43,7 +43,7 @@
     <url>%2F2019%2F11%2F20%2Fubuntuinstallwechat%2F</url>
     <content type="text"><![CDATA[今天安装微信的时候踩了点坑，兴冲冲从$git$上拉下来$deepin-wine-ubuntu$，却发现死活装不上最新版的微信，旧版的提示更新也用不了。发现因为大佬太久没更新$deepin-wine$版本了哭。在ubuntu社区找到了最新脚本：1234567891011121314151617181920212223242526#!/bin/bashmkdir /tmp/deepintempcd /tmp/deepintempwget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine_2.18-19_all.debwget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine32_2.18-19_i386.debwget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine32-preloader_2.18-19_i386.debwget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine-helper/deepin-wine-helper_1.2deepin8_i386.debwget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine-plugin/deepin-wine-plugin_1.0deepin2_amd64.debwget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine-plugin-virtual/deepin-wine-plugin-virtual_1.0deepin3_all.debwget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine-uninstaller/deepin-wine-uninstaller_0.1deepin2_i386.debwget http://mirrors.aliyun.com/deepin/pool/non-free/u/udis86/udis86_1.72-2_i386.debwget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-fonts-wine_2.18-19_all.debwget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-libwine_2.18-19_i386.debwget https://mirrors.aliyun.com/deepin/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.5.1-2_amd64.debwget https://mirrors.aliyun.com/deepin/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.5.1-2_i386.debecho &apos;准备添加32位支持&apos;sudo dpkg --add-architecture i386echo &apos;添加成功，准备刷新apt缓存信息...&apos;sudo apt updateecho &apos;即将开始安装...&apos;sudo dpkg -i *.debecho &apos;安装完成，正在自动安装依赖...&apos;sudo apt install -fyrm -vfr /tmp/deepintemp 执行脚本后就可以愉快的$dpkg$ $-i$安装微信了]]></content>
       <categories>
-        <category>-linux</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>ubuntu</tag>
@@ -53,6 +53,12 @@
     <title><![CDATA[ubuntu install hdfview]]></title>
     <url>%2F2019%2F11%2F20%2Fubuntuinstallhdf5%2F</url>
     <content type="text"><![CDATA[找了半天该如何安装HDFView一行代码搞定：1sudo apt-get install hdfview]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[oi13]]></title>
