@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="环境设置 golang hugo linuxbrew  首先安装golang1sudo apt-get install golang 接着安装linuxbrew，如果是conda的curl需要更新conda12conda update condaconda updaye anaconda 接着按照官网教程安装linuxbrew1sh -c &amp;quot;$(curl -fsSL https://ra">
+  <meta name="description" content="环境设置 golang hugo linuxbrew  首先安装golang1sudo apt-get install golang 接着安装linuxbrew，如果是conda的curl需要更新conda12conda update condaconda update anaconda 接着按照官网教程安装linuxbrew1sh -c &amp;quot;$(curl -fsSL https://ra">
 <meta name="keywords" content="hugo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用hugo的academic-kickstart搭建你的实验室主页">
 <meta property="og:url" content="http://yoursite.com/2019/11/26/用hugo的academic-kickstart搭建你的实验室主页/index.html">
 <meta property="og:site_name" content="LMissher&#39;s Blog">
-<meta property="og:description" content="环境设置 golang hugo linuxbrew  首先安装golang1sudo apt-get install golang 接着安装linuxbrew，如果是conda的curl需要更新conda12conda update condaconda updaye anaconda 接着按照官网教程安装linuxbrew1sh -c &amp;quot;$(curl -fsSL https://ra">
+<meta property="og:description" content="环境设置 golang hugo linuxbrew  首先安装golang1sudo apt-get install golang 接着安装linuxbrew，如果是conda的curl需要更新conda12conda update condaconda update anaconda 接着按照官网教程安装linuxbrew1sh -c &amp;quot;$(curl -fsSL https://ra">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-26T14:25:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hugo的academic-kickstart搭建你的实验室主页">
-<meta name="twitter:description" content="环境设置 golang hugo linuxbrew  首先安装golang1sudo apt-get install golang 接着安装linuxbrew，如果是conda的curl需要更新conda12conda update condaconda updaye anaconda 接着按照官网教程安装linuxbrew1sh -c &amp;quot;$(curl -fsSL https://ra">
+<meta name="twitter:description" content="环境设置 golang hugo linuxbrew  首先安装golang1sudo apt-get install golang 接着安装linuxbrew，如果是conda的curl需要更新conda12conda update condaconda update anaconda 接着按照官网教程安装linuxbrew1sh -c &amp;quot;$(curl -fsSL https://ra">
 
 
 
@@ -542,7 +542,7 @@
 <li>linuxbrew</li>
 </ul>
 <p>首先安装golang<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install golang</span><br></pre></td></tr></table></figure></p>
-<p>接着安装linuxbrew，如果是conda的curl需要更新conda<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda update conda</span><br><span class="line">conda updaye anaconda</span><br></pre></td></tr></table></figure></p>
+<p>接着安装linuxbrew，如果是conda的curl需要更新conda<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda update conda</span><br><span class="line">conda update anaconda</span><br></pre></td></tr></table></figure></p>
 <p>接着按照官网教程安装linuxbrew<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)&quot;</span><br></pre></td></tr></table></figure></p>
 <p>将linuxbrew添加到环境变量，注意这是添加到bash中，如果是zsh把~/.bash_profile换成~/.zshrc即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test -d ~/.linuxbrew &amp;&amp; eval $(~/.linuxbrew/bin/brew shellenv)</span><br><span class="line">test -d /home/linuxbrew/.linuxbrew &amp;&amp; eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)</span><br><span class="line">test -r ~/.bash_profile &amp;&amp; echo &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.bash_profile</span><br><span class="line">echo &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.profile</span><br></pre></td></tr></table></figure></p>
 <p>最后用brew安装hugo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install hugo</span><br></pre></td></tr></table></figure></p>
