@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[用hugo的academic-kickstart搭建你的实验室主页]]></title>
+    <url>%2F2019%2F11%2F26%2F%E7%94%A8hugo%E7%9A%84academic-kickstart%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E5%AE%9E%E9%AA%8C%E5%AE%A4%E4%B8%BB%E9%A1%B5%2F</url>
+    <content type="text"><![CDATA[环境设置 golang hugo linuxbrew 首先安装golang1sudo apt-get install golang 接着安装linuxbrew，如果是conda的curl需要更新conda12conda update condaconda updaye anaconda 接着按照官网教程安装linuxbrew1sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)&quot; 将linuxbrew添加到环境变量，注意这是添加到bash中，如果是zsh把~/.bash_profile换成~/.zshrc即可1234test -d ~/.linuxbrew &amp;&amp; eval $(~/.linuxbrew/bin/brew shellenv)test -d /home/linuxbrew/.linuxbrew &amp;&amp; eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)test -r ~/.bash_profile &amp;&amp; echo &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.bash_profileecho &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.profile 最后用brew安装hugo1brew install hugo 从git安装academic-kickstart fork下面的仓库 1https://github.com/sourcethemes/academic-kickstart#fork-destination-box clone仓库到本地 1git clone https://github.com/your_github_name/academic-kickstart.git My_Website 初始化主题 12cd My_Websitegit submodule update --init --recursive 使用hugo在my_website目录下使用如下代码即可启动服务器，在浏览器输入https://localhost:1313即可查看本地的hugo1hugo server 将hugo布置到githubpages 在web_site/config/_default/config.toml修改url为https://.github.io/ github创建一个名为your_github_username.github.io的仓库 在my_website目录下使用如下命令将空仓库拉取到本地 1git submodule add -f -b master https://github.com/&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public 在public目录下使用如下代码 123git add .git commit -m &quot;Initial commit&quot;git push -u origin master 在my_website目录下使用如下代码 123456hugocd publicgit add .git commit -m &quot;Build website&quot;git push origin mastercd .. 在浏览器输入https://your_github_name.github.io就可以在git同步的网页了 hugo同步使用hugo server进入浏览器进去localhost:1313即可看到同步更新 如要将网页更新同步到githubpages，只需要使用hugo命令然后cd到public目录gitadd， git commit， git push即可。]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>hugo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[add new ssh rsa key]]></title>
     <url>%2F2019%2F11%2F26%2Faddnewssh%2F</url>
     <content type="text"><![CDATA[如果想把一台电脑添加到多个github账号，那么需要多个ssh公钥。 先使用如下代码生成指定邮箱的rsa密钥1ssh-keygen -t rsa -b 4096 -C &quot;example@gmail.com&quot; 将私钥添加到ssh组中1ssh-add .ssh/id_rsa_three_w 最后复制公钥内容粘贴到github账号中即可1cat .ssh/example.pub]]></content>
@@ -649,9 +660,9 @@
       </categories>
       <tags>
         <tag>MST</tag>
-        <tag>bfs</tag>
         <tag>dijkstra</tag>
         <tag>spfa</tag>
+        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
