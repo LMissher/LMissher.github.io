@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hugo的acdemic-kickstart主题更换url旁边的logo]]></title>
+    <url>%2F2019%2F11%2F27%2Facdemic-kickstart-change-urllogo%2F</url>
+    <content type="text"><![CDATA[url旁边那个绿色的logo如果想换成自己的logo，先下载一张矢量图然后切换到theme中的/static/img文件夹中再把自己的图片名字更改为icon.png即可。]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>hugo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[用hugo的academic-kickstart搭建你的实验室主页]]></title>
     <url>%2F2019%2F11%2F26%2F%E7%94%A8hugo%E7%9A%84academic-kickstart%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E5%AE%9E%E9%AA%8C%E5%AE%A4%E4%B8%BB%E9%A1%B5%2F</url>
     <content type="text"><![CDATA[环境设置 golang hugo linuxbrew 首先安装golang1sudo apt-get install golang 接着安装linuxbrew，如果是conda的curl需要更新conda12conda update condaconda update anaconda 接着按照官网教程安装linuxbrew1sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)&quot; 将linuxbrew添加到环境变量，注意这是添加到bash中，如果是zsh把~/.bash_profile换成~/.zshrc即可1234test -d ~/.linuxbrew &amp;&amp; eval $(~/.linuxbrew/bin/brew shellenv)test -d /home/linuxbrew/.linuxbrew &amp;&amp; eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)test -r ~/.bash_profile &amp;&amp; echo &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.bash_profileecho &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.profile 最后用brew安装hugo1brew install hugo 从git安装academic-kickstart fork下面的仓库 1https://github.com/sourcethemes/academic-kickstart#fork-destination-box clone仓库到本地 1git clone https://github.com/your_github_name/academic-kickstart.git My_Website 初始化主题 12cd My_Websitegit submodule update --init --recursive 使用hugo在my_website目录下使用如下代码即可启动服务器，在浏览器输入https://localhost:1313即可查看本地的hugo1hugo server 将hugo布置到githubpages 在web_site/config/_default/config.toml修改url为https://.github.io/ github创建一个名为your_github_username.github.io的仓库 在my_website目录下使用如下命令将空仓库拉取到本地 1git submodule add -f -b master https://github.com/&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public 在public目录下使用如下代码 123git add .git commit -m &quot;Initial commit&quot;git push -u origin master 在my_website目录下使用如下代码 123456hugocd publicgit add .git commit -m &quot;Build website&quot;git push origin mastercd .. 在浏览器输入https://your_github_name.github.io就可以在git同步的网页了 hugo同步使用hugo server进入浏览器进去localhost:1313即可看到同步更新 如要将网页更新同步到githubpages，只需要使用hugo命令然后cd到public目录gitadd， git commit， git push即可。]]></content>
@@ -228,9 +239,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[oi3]]></title>
-    <url>%2F2019%2F10%2F15%2Foi3%2F</url>
-    <content type="text"><![CDATA[队列队列是一种先进先出$(FIFO)$的线性表。它只允许在表的一端进行插入,而在另一端删除元素。 操作：入队出队判队空 栈只能在表的一端（栈顶）进行插入和删除运算的线性表$(FILO)$。 操作：入栈出栈判栈空 拓扑排序实现： 找出图中入度为$0$的顶点； 依次在图中删除这些顶点，删除后再找出入度为$0$的顶点； 然后再删除……再找出…… 直至删除所有顶点，即完成拓扑排序 复杂度：$O(V+E)$ 用途:对于有向无环图$(DAG)$可以将图上顶点排序后转换为线性序列，对于有向有环图可以找出图中的环。也可以判断有向图是否有环。 双向链表每一个节点有一个前驱指向它的前一个节点，有一个后继指向它的后继节点。 对于一个$1$到$n$的排列$p$(即$1$到$n$中每一个数在$p$中出现了恰好一次)，令$q_i$为第$i$个位置之后第一个比$p_i$值更大的位置，如果不存在这样的位置，则$q_i =n+1$。 举例来说，如果$n=5$且$p$为$1$ $5$ $4$ $2$ $3$，则$q$为$2$ $6$ $6$ $5$ $6$。 先将$n$个输入的数按从小到大的顺序排序，这样就可以从小到大枚举数字。但是发现输入的n个数是排列，排列可以通过如下方式排序：123456第一空for(int i=1;i&lt;=n;++i)&#123; cin&gt;&gt;x; a[x]=i;&#125;//这样a数组的下标就是原来输入序列的排序 双向链表$L$数组表示当前下标$i$左边的数，$R$数组表示当前下标$i$右边的数，下标i左边的数是$i-1$，右边的数$i+1$。12345for (int i = 1; i &lt;= n; i++) &#123; R[i] = i + 1; // 第二空 L[i] = i - 1;&#125; 将排序后的序列从小到大从双向链表中删除。因为是从小到大删除数字，所以每到一个数字已经是序列中最小的数字，所以剩下的数字都比它大，所以它右边的数字就是答案。1234567891011//a[i]表示下标//删除第a[i]下标后//a[i]下标的右边的数为R[a[i]]//R[a[i]]的左边的数变为a[i]左边的数，因为a[i]已经被删除//a[i]下标的左边的数为L[a[i]]//L[a[i]]的右边的数变为a[i]右边的数，因为a[i]已经被删除for (int i = 1; i &lt;= n; i++) &#123; L[R[a[i]]] = L[a[i]]; // 第三空 R[L[a[i]]] = R[a[i]]; // 第四空&#125; 最后输出每个下标右边的数即可1234for (int i = 1; i &lt;= n; i++)&#123; cout &lt;&lt; R[i] &lt;&lt; ' ' ; // 第五空&#125;]]></content>
+    <title><![CDATA[oi2]]></title>
+    <url>%2F2019%2F10%2F15%2Foi2%2F</url>
+    <content type="text"><![CDATA[二分二分常在求让最小值最大、最大值最小的题中使用。通过每次将查找空间一分为二使得复杂度由枚举的$O(n)$下降到了$O(log_2n)$。通常由检查函数与二分代码构成。 求最大值 luoguP1577有$N$条绳子，它们的长度分别为$Li$。如果从它们中切割出$K$条长度相同的绳子，这$K$条绳子每条最长能有多长？答案保留到小数点后$2$位(直接舍掉$2$为后的小数)。 分析：先忽略实数假设给的长度都是整数求出的答案也是整数。那么可知绳子最短肯定是$1$，最长肯定是$N$条绳子的长度和。最好想的想法就是从$1$到$maxlen$枚举长度找到最长的长度即可。 检查枚举的长度是否合法的代码：12345bool check(int x)&#123; int cnt=0; for(int i=1;i&lt;=n;++i) cnt+=b[i]/x; return cnt&lt;k?false:true;&#125; 枚举的复杂度为$O(N \times maxlen)$当数据量大的时候枚举便不行了。容易想到当长度为$x$时无法满足切出$k$条绳子时那么$\geq x$的长度便都不行了。而$x$满足条件时我们便可以尝试更大的长度。发现满足二分的性质。二分的复杂度为$O(N \times log_2 maxlen)$可以通过。 特别的，这道题给出的长度为实数，不妨将实数$\times 100$转换为整数再使用二分，最后将答案转换为实数即可。 二分代码：12345678910111213141516int l=1,r=0;for(int i=1;i&lt;=n;++i)&#123; scanf("%lf",&amp;a[i]); b[i]=a[i]*100;//转换为整数 r=max(r,b[i]);//找到二分右边界&#125;while(l&lt;=r)&#123; int mid=(l+r)&gt;&gt;1;//二分中点 if(check(mid))&#123;//检查中点是否满足要求 //是的话保存当前答案并且将检查区间缩小到右边 ans=mid; l=mid+1; &#125; else r=mid-1;//不是的话将检查区间缩小到左边&#125;printf("%.2f\n",ans/100.0); 求最小的最大值 luoguP1281现在要把$m$本有顺序的书分给$k$给人复制（抄写），每一个人的抄写速度都一样，一本书不允许给两个（或以上）的人抄写，分给每一个人的书，必须是连续的，比如不能把第一、第三、第四本书给同一个人抄写。 现在请你设计一种方案，使得复制时间最短。复制时间为抄写页数最多的人用去的时间。 如果有多解，则尽可能让前面的人少抄写。 分析：因为每个人的抄写速度相同，所以可以把复制时间转化为复制的页数，也就是求复制页数最短能有多短可以将书复制完。 容易想到的是从1开始枚举最短的复制页数，但复杂度为$O(pagenum \times m)$很容易超时。 枚举检查代码：123456789101112131415161718192021bool check(int x)&#123; //因为前面的人要少做，所以从后向前让后面的人做的最多 //tot表示当前是哪个人，cnt表示这个人复制的页数 int tot=k,cnt=0; for(int i=m;i&gt;=1;--i)&#123; if(cnt+a[i]&lt;=x)&#123; //复制的页数比枚举的页数小继续下一本书 cnt+=a[i]; &#125; else&#123; //复制的页数比枚举的页数大这本书得给下个人 --tot; cnt=0; ++i; &#125; //人已经用完了还没复制完所有书则失败 if(tot==0) return false; &#125; //枚举的页数可行 return true;&#125; 当时间$x$不可行时那么$\leq x$的页数便不用考虑了都不行，当时间$x$可行时那么$x$便是当前最优的答案而且可以继续向更优的答案进行考虑报。从这两点想到二分页数寻找最短的页数(时间)。 二分代码：12345678910111213141516scanf("%d%d",&amp;m,&amp;k);for(int i=1;i&lt;=m;++i) &#123; scanf("%d",&amp;a[i]); r+=a[i];//确定右边界&#125;l=1;//最小都要为1//二分模板while(l&lt;=r)&#123; int mid=(l+r)&gt;&gt;1; if(check(mid))&#123; ans=mid; r=mid-1; &#125; else l=mid+1;&#125; 附加给定三个数组，在$O(n^2)$的时间内能否在三个数组中各找到一个数加起来的和等于一个指定的数。前两个数组长度小于等于$500$，第三个数组长度小于等于$1000$。$hdu2141$]]></content>
       <categories>
         <category>算法与数据结构</category>
       </categories>
@@ -239,9 +250,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[oi2]]></title>
-    <url>%2F2019%2F10%2F15%2Foi2%2F</url>
-    <content type="text"><![CDATA[二分二分常在求让最小值最大、最大值最小的题中使用。通过每次将查找空间一分为二使得复杂度由枚举的$O(n)$下降到了$O(log_2n)$。通常由检查函数与二分代码构成。 求最大值 luoguP1577有$N$条绳子，它们的长度分别为$Li$。如果从它们中切割出$K$条长度相同的绳子，这$K$条绳子每条最长能有多长？答案保留到小数点后$2$位(直接舍掉$2$为后的小数)。 分析：先忽略实数假设给的长度都是整数求出的答案也是整数。那么可知绳子最短肯定是$1$，最长肯定是$N$条绳子的长度和。最好想的想法就是从$1$到$maxlen$枚举长度找到最长的长度即可。 检查枚举的长度是否合法的代码：12345bool check(int x)&#123; int cnt=0; for(int i=1;i&lt;=n;++i) cnt+=b[i]/x; return cnt&lt;k?false:true;&#125; 枚举的复杂度为$O(N \times maxlen)$当数据量大的时候枚举便不行了。容易想到当长度为$x$时无法满足切出$k$条绳子时那么$\geq x$的长度便都不行了。而$x$满足条件时我们便可以尝试更大的长度。发现满足二分的性质。二分的复杂度为$O(N \times log_2 maxlen)$可以通过。 特别的，这道题给出的长度为实数，不妨将实数$\times 100$转换为整数再使用二分，最后将答案转换为实数即可。 二分代码：12345678910111213141516int l=1,r=0;for(int i=1;i&lt;=n;++i)&#123; scanf("%lf",&amp;a[i]); b[i]=a[i]*100;//转换为整数 r=max(r,b[i]);//找到二分右边界&#125;while(l&lt;=r)&#123; int mid=(l+r)&gt;&gt;1;//二分中点 if(check(mid))&#123;//检查中点是否满足要求 //是的话保存当前答案并且将检查区间缩小到右边 ans=mid; l=mid+1; &#125; else r=mid-1;//不是的话将检查区间缩小到左边&#125;printf("%.2f\n",ans/100.0); 求最小的最大值 luoguP1281现在要把$m$本有顺序的书分给$k$给人复制（抄写），每一个人的抄写速度都一样，一本书不允许给两个（或以上）的人抄写，分给每一个人的书，必须是连续的，比如不能把第一、第三、第四本书给同一个人抄写。 现在请你设计一种方案，使得复制时间最短。复制时间为抄写页数最多的人用去的时间。 如果有多解，则尽可能让前面的人少抄写。 分析：因为每个人的抄写速度相同，所以可以把复制时间转化为复制的页数，也就是求复制页数最短能有多短可以将书复制完。 容易想到的是从1开始枚举最短的复制页数，但复杂度为$O(pagenum \times m)$很容易超时。 枚举检查代码：123456789101112131415161718192021bool check(int x)&#123; //因为前面的人要少做，所以从后向前让后面的人做的最多 //tot表示当前是哪个人，cnt表示这个人复制的页数 int tot=k,cnt=0; for(int i=m;i&gt;=1;--i)&#123; if(cnt+a[i]&lt;=x)&#123; //复制的页数比枚举的页数小继续下一本书 cnt+=a[i]; &#125; else&#123; //复制的页数比枚举的页数大这本书得给下个人 --tot; cnt=0; ++i; &#125; //人已经用完了还没复制完所有书则失败 if(tot==0) return false; &#125; //枚举的页数可行 return true;&#125; 当时间$x$不可行时那么$\leq x$的页数便不用考虑了都不行，当时间$x$可行时那么$x$便是当前最优的答案而且可以继续向更优的答案进行考虑报。从这两点想到二分页数寻找最短的页数(时间)。 二分代码：12345678910111213141516scanf("%d%d",&amp;m,&amp;k);for(int i=1;i&lt;=m;++i) &#123; scanf("%d",&amp;a[i]); r+=a[i];//确定右边界&#125;l=1;//最小都要为1//二分模板while(l&lt;=r)&#123; int mid=(l+r)&gt;&gt;1; if(check(mid))&#123; ans=mid; r=mid-1; &#125; else l=mid+1;&#125; 附加给定三个数组，在$O(n^2)$的时间内能否在三个数组中各找到一个数加起来的和等于一个指定的数。前两个数组长度小于等于$500$，第三个数组长度小于等于$1000$。$hdu2141$]]></content>
+    <title><![CDATA[oi3]]></title>
+    <url>%2F2019%2F10%2F15%2Foi3%2F</url>
+    <content type="text"><![CDATA[队列队列是一种先进先出$(FIFO)$的线性表。它只允许在表的一端进行插入,而在另一端删除元素。 操作：入队出队判队空 栈只能在表的一端（栈顶）进行插入和删除运算的线性表$(FILO)$。 操作：入栈出栈判栈空 拓扑排序实现： 找出图中入度为$0$的顶点； 依次在图中删除这些顶点，删除后再找出入度为$0$的顶点； 然后再删除……再找出…… 直至删除所有顶点，即完成拓扑排序 复杂度：$O(V+E)$ 用途:对于有向无环图$(DAG)$可以将图上顶点排序后转换为线性序列，对于有向有环图可以找出图中的环。也可以判断有向图是否有环。 双向链表每一个节点有一个前驱指向它的前一个节点，有一个后继指向它的后继节点。 对于一个$1$到$n$的排列$p$(即$1$到$n$中每一个数在$p$中出现了恰好一次)，令$q_i$为第$i$个位置之后第一个比$p_i$值更大的位置，如果不存在这样的位置，则$q_i =n+1$。 举例来说，如果$n=5$且$p$为$1$ $5$ $4$ $2$ $3$，则$q$为$2$ $6$ $6$ $5$ $6$。 先将$n$个输入的数按从小到大的顺序排序，这样就可以从小到大枚举数字。但是发现输入的n个数是排列，排列可以通过如下方式排序：123456第一空for(int i=1;i&lt;=n;++i)&#123; cin&gt;&gt;x; a[x]=i;&#125;//这样a数组的下标就是原来输入序列的排序 双向链表$L$数组表示当前下标$i$左边的数，$R$数组表示当前下标$i$右边的数，下标i左边的数是$i-1$，右边的数$i+1$。12345for (int i = 1; i &lt;= n; i++) &#123; R[i] = i + 1; // 第二空 L[i] = i - 1;&#125; 将排序后的序列从小到大从双向链表中删除。因为是从小到大删除数字，所以每到一个数字已经是序列中最小的数字，所以剩下的数字都比它大，所以它右边的数字就是答案。1234567891011//a[i]表示下标//删除第a[i]下标后//a[i]下标的右边的数为R[a[i]]//R[a[i]]的左边的数变为a[i]左边的数，因为a[i]已经被删除//a[i]下标的左边的数为L[a[i]]//L[a[i]]的右边的数变为a[i]右边的数，因为a[i]已经被删除for (int i = 1; i &lt;= n; i++) &#123; L[R[a[i]]] = L[a[i]]; // 第三空 R[L[a[i]]] = R[a[i]]; // 第四空&#125; 最后输出每个下标右边的数即可1234for (int i = 1; i &lt;= n; i++)&#123; cout &lt;&lt; R[i] &lt;&lt; ' ' ; // 第五空&#125;]]></content>
       <categories>
         <category>算法与数据结构</category>
       </categories>
@@ -660,9 +671,9 @@
       </categories>
       <tags>
         <tag>MST</tag>
-        <tag>bfs</tag>
         <tag>dijkstra</tag>
         <tag>spfa</tag>
+        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
