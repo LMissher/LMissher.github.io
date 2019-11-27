@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hugo的academic-kickstart主题配置]]></title>
+    <url>%2F2019%2F11%2F27%2Fhugo-academic-kickstart-theme%2F</url>
+    <content type="text"><![CDATA[文件结构目录configparammenucontent]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>hugo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hugo的acdemic-kickstart主题更换url旁边的logo]]></title>
     <url>%2F2019%2F11%2F27%2Facdemic-kickstart-change-urllogo%2F</url>
     <content type="text"><![CDATA[url旁边那个绿色的logo如果想换成自己的logo，先下载一张矢量图然后切换到theme中的/static/img文件夹中再把自己的图片名字更改为icon.png即可。]]></content>
@@ -671,9 +682,9 @@
       </categories>
       <tags>
         <tag>MST</tag>
+        <tag>bfs</tag>
         <tag>dijkstra</tag>
         <tag>spfa</tag>
-        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
