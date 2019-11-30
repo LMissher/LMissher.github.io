@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ssl中使用rsa算法]]></title>
+    <url>%2F2019%2F11%2F30%2Fssl%E4%B8%AD%E4%BD%BF%E7%94%A8rsa%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[ssl(Secure Sockets Layer)安全套接层通常可以用来在套接层完成通话双方的身份认证以及会话密钥的协商。因为对称加密速度快于非对称加密，所以往往选择用公钥算法完成对称算法的私钥协商。 下图灰色部分是ssl的过程： 在不配合diffie hellman使用rsa的情况下只需要client认证server的证书并获得server的公钥便可以用公钥加密ks完成会话私钥的协商。公钥加密是为了达到机密性。 配合diffie hellman的使用的话server和client得互相认证并用各自的私钥加密产生的diffie hellman的用于对称加密的随机数发送给对方来完成会话密钥的协商。用私钥加密是为了认证身份。 也就是说不配合diffie hellman使用的话4、5、7条消息不用发送]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>ssl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hugo的academic-kickstart主题配置]]></title>
     <url>%2F2019%2F11%2F27%2Fhugo-academic-kickstart-theme%2F</url>
     <content type="text"><![CDATA[文件结构目录configparammenucontent]]></content>
