@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[查看gpu信息]]></title>
+    <url>%2F2019%2F12%2F01%2F%E6%9F%A5%E7%9C%8Bgpu%E4%BF%A1%E6%81%AF%2F</url>
+    <content type="text"><![CDATA[查看gpu信息： 对Linux/macOS用户：命令行输入!nvidia-smi 对win用户：将C:\Program Files\NVIDIA Corporation\NVSMI文件夹下的nvidia-smi.exe添加到环境变量中即可使用命令nvidia-smi查看gpu信息]]></content>
+      <categories>
+        <category>learning</category>
+      </categories>
+      <tags>
+        <tag>gpu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ssl中使用rsa算法]]></title>
     <url>%2F2019%2F11%2F30%2Fssl%E4%B8%AD%E4%BD%BF%E7%94%A8rsa%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[ssl(Secure Sockets Layer)安全套接层通常可以用来在套接层完成通话双方的身份认证以及会话密钥的协商。因为对称加密速度快于非对称加密，所以往往选择用公钥算法完成对称算法的私钥协商。 下图灰色部分是ssl的过程： 在不配合diffie hellman使用rsa的情况下只需要client认证server的证书并获得server的公钥便可以用公钥加密ks完成会话私钥的协商。公钥加密是为了达到机密性。 配合diffie hellman的使用的话server和client得互相认证并用各自的私钥加密产生的diffie hellman的用于对称加密的随机数发送给对方来完成会话密钥的协商。用私钥加密是为了认证身份。 也就是说不配合diffie hellman使用的话4、5、7条消息不用发送]]></content>
       <categories>
-        <category>web</category>
+        <category>Web</category>
       </categories>
       <tags>
         <tag>ssl</tag>
@@ -16,7 +27,7 @@
     <url>%2F2019%2F11%2F27%2Fhugo-academic-kickstart-theme%2F</url>
     <content type="text"><![CDATA[文件结构目录configparammenucontent]]></content>
       <categories>
-        <category>web</category>
+        <category>Web</category>
       </categories>
       <tags>
         <tag>hugo</tag>
@@ -27,7 +38,7 @@
     <url>%2F2019%2F11%2F27%2Facdemic-kickstart-change-urllogo%2F</url>
     <content type="text"><![CDATA[url旁边那个绿色的logo如果想换成自己的logo，先下载一张矢量图然后切换到theme中的/static/img文件夹中再把自己的图片名字更改为icon.png即可。]]></content>
       <categories>
-        <category>web</category>
+        <category>Web</category>
       </categories>
       <tags>
         <tag>hugo</tag>
@@ -38,7 +49,7 @@
     <url>%2F2019%2F11%2F26%2F%E7%94%A8hugo%E7%9A%84academic-kickstart%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E5%AE%9E%E9%AA%8C%E5%AE%A4%E4%B8%BB%E9%A1%B5%2F</url>
     <content type="text"><![CDATA[环境设置 golang hugo linuxbrew 首先安装golang1sudo apt-get install golang 接着安装linuxbrew，如果是conda的curl需要更新conda12conda update condaconda update anaconda 接着按照官网教程安装linuxbrew1sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)&quot; 将linuxbrew添加到环境变量，注意这是添加到bash中，如果是zsh把~/.bash_profile换成~/.zshrc即可1234test -d ~/.linuxbrew &amp;&amp; eval $(~/.linuxbrew/bin/brew shellenv)test -d /home/linuxbrew/.linuxbrew &amp;&amp; eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)test -r ~/.bash_profile &amp;&amp; echo &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.bash_profileecho &quot;eval \$($(brew --prefix)/bin/brew shellenv)&quot; &gt;&gt;~/.profile 最后用brew安装hugo1brew install hugo 从git安装academic-kickstart fork下面的仓库 1https://github.com/sourcethemes/academic-kickstart#fork-destination-box clone仓库到本地 1git clone https://github.com/your_github_name/academic-kickstart.git My_Website 初始化主题 12cd My_Websitegit submodule update --init --recursive 使用hugo在my_website目录下使用如下代码即可启动服务器，在浏览器输入https://localhost:1313即可查看本地的hugo1hugo server 将hugo布置到githubpages 在web_site/config/_default/config.toml修改url为https://.github.io/ github创建一个名为your_github_username.github.io的仓库 在my_website目录下使用如下命令将空仓库拉取到本地 1git submodule add -f -b master https://github.com/&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public 在public目录下使用如下代码 123git add .git commit -m &quot;Initial commit&quot;git push -u origin master 在my_website目录下使用如下代码 123456hugocd publicgit add .git commit -m &quot;Build website&quot;git push origin mastercd .. 在浏览器输入https://your_github_name.github.io就可以在git同步的网页了 hugo同步使用hugo server进入浏览器进去localhost:1313即可看到同步更新 如要将网页更新同步到githubpages，只需要使用hugo命令然后cd到public目录gitadd， git commit， git push即可。]]></content>
       <categories>
-        <category>web</category>
+        <category>Web</category>
       </categories>
       <tags>
         <tag>hugo</tag>
@@ -60,7 +71,7 @@
     <url>%2F2019%2F11%2F25%2Fwordpress%2F</url>
     <content type="text"><![CDATA[阿里云服务器Centos7.3安装wordpress安装Nginx123yum install nginx # 安装nginxsystemctl start nginx # 启动nginxsystemctl enable nginx.service # 设置为开机启动 完成后输入公网ip即可看到网页注意:阿里云的话要给服务器添加新的http安全规则,如下图所示: 安装mysql1234567891011rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpmyum repolist enabled | grep “mysql.-community.”yum -y install mysql-community-server # 以上安装的社区版systemctl start mysqld # 启动mysqlmysql_secure_installation # 安全设置向导，设置root用户密码，删除匿名账号，取消root用户远程登陆，删除test库和对test库的访问权限，重载授权表使修改生效mysql -uroot -p # 用上面设置的密码登陆mysqlmysql&gt;create database wordpress; # 创建wordpress数据库mysql&gt;use wordpress; #切换到wordpress数据库mysql&gt;exit # 退出mysql 安装php123yum install php-fpm php-mysql # php-fpm使php与nginx关联，php-mysql为php与mysql关联systemctl start php-fpm # 启动php-fpmsystemctl enable php-fpm # 设置开机启动 升级php到最新版本：1234567891011121314rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpmrpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpmservice php-fpm stop/usr/local/nginx/sbin/nginx -s stopyum remove php*yum install php71w php71w-cli php71w-common php71w-devel php71w-embedded php71w-fpm php71w-gd php71w-mbstring php71w-mysqlnd php71w-opcache php71w-pdo php71w-xml php71w-ldap php71w-mcryptservice php-fpm start/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.confphp -v 修改nginx配置vim /etc/nginx/nginx.conf 打开nginx主配置文件，按i进入编辑模式，修改其中的sever部分为以下内容1234567891011121314151617181920212223242526272829server &#123; listen 80 default_server; listen [::]:80 default_server; server_name binnear.com.cn; # 此处修改为你的域名或者公网IP root /usr/share/nginx/html; # 你的站点的目录 # Load configuration files for the default server block. include /etc/nginx/default.d/*.conf; location / &#123; index index.php index.html index.htm; try_files $uri $uri/ /index.php?$args; &#125; rewrite /wp-admin$ $scheme://$host$uri/ permanent; location ~* ^.+\.(ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|rss|atom|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bz2|doc|xls|exe|ppt|tar|mid|midi|wav|bmp|rtf)$ &#123; access_log off; log_not_found off; expires max; &#125; location ~ \.php$ &#123; try_files $uri =404; fastcgi_split_path_info ^(.+\.php)(/.+)$; fastcgi_pass 127.0.0.1:9000; fastcgi_index index.php; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; include fastcgi_params; &#125;&#125; 配置好后重载nginx1systemctl reload nginx 安装wordpress与配置wordpress下载的话wget下载就行，不过最近好像出了点问题，详情见下链接：http://zmingcx.com/wordpress-429-too-many-request.html 找到mysql设置的配置部分，按i进入编辑模式，将步骤2中配置的mysql信息填入以下内容中：123456789101112// ** MySQL settings - You can get this info from your web host ** ///** The name of the database for WordPress */define(&apos;DB_NAME&apos;, &apos;wordpress&apos;); # 数据库名/** MySQL database username */define(&apos;DB_USER&apos;, &apos;root&apos;); # 数据库用户名/** MySQL database password */define(&apos;DB_PASSWORD&apos;, &apos;123456&apos;); # 数据库密码/** MySQL hostname */define(&apos;DB_HOST&apos;, &apos;localhost&apos;); # 一般不修改 12rm /usr/share/nginx/html/index.html # 删除nginx中的主页文件mv * /usr/share/nginx/html/ # 将wordpress文件移动web站点的根目录 完成后，在浏览器中输入http://你的主机IP或者域名/wp-admin/install.php,进入到wordpress的配置页面，输入网站标题，用户名和密码后，就可以进入wordpress后台管理界面，到此便大功告成。]]></content>
       <categories>
-        <category>web</category>
+        <category>Web</category>
       </categories>
       <tags>
         <tag>wordpress</tag>
@@ -693,9 +704,9 @@
       </categories>
       <tags>
         <tag>MST</tag>
-        <tag>bfs</tag>
         <tag>dijkstra</tag>
         <tag>spfa</tag>
+        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
