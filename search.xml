@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[兑换零钱]]></title>
+    <url>%2F2019%2F12%2F08%2Fchangemoney%2F</url>
+    <content type="text"><![CDATA[题意：现在有$1$、$2$、$5$块的零钱若干，问有多少种方式可以把x元兑换成这些零钱。前提是三种零钱都要出现。 题解：和普通的零钱兑换不同的是要求所有零钱都得出现得方案数，考虑容斥原理用三种都出现减去两种出现加上一种零钱兑换得方案。普通得零钱兑换就是一个完全背包，零钱种类在第一重循环是为了避免方案重复（例如种类在第二重循环可能出现$1$ $2$ $1$与$1$ $1$ $2$这两种相同的情况）。 代码:1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859#include &lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;const int maxn = 100000 + 5;ll dp[maxn + 1] = &#123;0&#125;;ll dp12[maxn + 1] = &#123;0&#125;;ll dp15[maxn + 1] = &#123;0&#125;;ll dp25[maxn + 1] = &#123;0&#125;;int MON[3] = &#123;1, 2, 5&#125;;int MON12[2] = &#123;1, 2&#125;;int MON15[2] = &#123;1, 5&#125;;int MON25[2] = &#123;2, 5&#125;;int main()&#123;#ifdef LOCAL freopen("test.in", "r", stdin); freopen("test.out", "w", stdout);#endif dp[0] = dp12[0] = dp15[0] = dp25[0] = 1; for (int i = 0; i &lt; 3; ++i) &#123; for (int j = MON[i]; j &lt; maxn + 1; ++j) &#123; dp[j] += dp[j - MON[i]]; &#125; &#125; for (int i = 0; i &lt; 2; ++i) &#123; for (int j = MON12[i]; j &lt; maxn + 1; ++j) &#123; dp12[j] += dp12[j - MON12[i]]; &#125; &#125; for (int i = 0; i &lt; 2; ++i) &#123; for (int j = MON15[i]; j &lt; maxn + 1; ++j) &#123; dp15[j] += dp15[j - MON15[i]]; &#125; &#125; for (int i = 0; i &lt; 2; ++i) &#123; for (int j = MON25[i]; j &lt; maxn + 1; ++j) &#123; dp25[j] += dp25[j - MON25[i]]; &#125; &#125; int n; scanf("%d", &amp;n); dp[n] = (dp[n] - dp12[n] - dp15[n] - dp25[n] + 1); if (n % 2 == 0) dp[n] += 1; if (n % 5 == 0) dp[n] += 1; printf("%lld\n", dp[n]);&#125;]]></content>
+      <categories>
+        <category>算法与数据结构</category>
+      </categories>
+      <tags>
+        <tag>dp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[查看gpu信息]]></title>
     <url>%2F2019%2F12%2F01%2F%E6%9F%A5%E7%9C%8Bgpu%E4%BF%A1%E6%81%AF%2F</url>
     <content type="text"><![CDATA[查看gpu信息： 对Linux/macOS用户：命令行输入!nvidia-smi 对win用户：将C:\Program Files\NVIDIA Corporation\NVSMI文件夹下的nvidia-smi.exe添加到环境变量中即可使用命令nvidia-smi查看gpu信息]]></content>

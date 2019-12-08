@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="2017 Moscow Subregional C Carpethttps://vjudge.net/contest/260542#problem/C 给一个 $1000000 \times 20$ 的格子图，要求找一种方式把一颗不超过 $100000$ 个节点的树放到格子图里，并且没有边交叉。考虑把树剖分，因为不超过对数条数的链，所以依次把重链放到一列中，轻链放到下一列即可。1234567891">
-<meta name="keywords" content="Heavy_Light_Decomposition">
+  <meta name="description" content="题意：现在有$1$、$2$、$5$块的零钱若干，问有多少种方式可以把x元兑换成这些零钱。前提是三种零钱都要出现。 题解：和普通的零钱兑换不同的是要求所有零钱都得出现得方案数，考虑容斥原理用三种都出现减去两种出现加上一种零钱兑换得方案。普通得零钱兑换就是一个完全背包，零钱种类在第一重循环是为了避免方案重复（例如种类在第二重循环可能出现$1$ $2$ $1$与$1$ $1$ $2$这两种相同的情况）。">
+<meta name="keywords" content="dp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2017 Moscow Subregional C Carpet">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/2017MoscowSubregionalCCarpet/index.html">
+<meta property="og:title" content="兑换零钱">
+<meta property="og:url" content="http://yoursite.com/2019/12/08/changemoney/index.html">
 <meta property="og:site_name" content="LMissher&#39;s Blog">
-<meta property="og:description" content="2017 Moscow Subregional C Carpethttps://vjudge.net/contest/260542#problem/C 给一个 $1000000 \times 20$ 的格子图，要求找一种方式把一颗不超过 $100000$ 个节点的树放到格子图里，并且没有边交叉。考虑把树剖分，因为不超过对数条数的链，所以依次把重链放到一列中，轻链放到下一列即可。1234567891">
+<meta property="og:description" content="题意：现在有$1$、$2$、$5$块的零钱若干，问有多少种方式可以把x元兑换成这些零钱。前提是三种零钱都要出现。 题解：和普通的零钱兑换不同的是要求所有零钱都得出现得方案数，考虑容斥原理用三种都出现减去两种出现加上一种零钱兑换得方案。普通得零钱兑换就是一个完全背包，零钱种类在第一重循环是为了避免方案重复（例如种类在第二重循环可能出现$1$ $2$ $1$与$1$ $1$ $2$这两种相同的情况）。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-29T11:50:59.000Z">
+<meta property="og:updated_time" content="2019-12-08T14:19:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2017 Moscow Subregional C Carpet">
-<meta name="twitter:description" content="2017 Moscow Subregional C Carpethttps://vjudge.net/contest/260542#problem/C 给一个 $1000000 \times 20$ 的格子图，要求找一种方式把一颗不超过 $100000$ 个节点的树放到格子图里，并且没有边交叉。考虑把树剖分，因为不超过对数条数的链，所以依次把重链放到一列中，轻链放到下一列即可。1234567891">
+<meta name="twitter:title" content="兑换零钱">
+<meta name="twitter:description" content="题意：现在有$1$、$2$、$5$块的零钱若干，问有多少种方式可以把x元兑换成这些零钱。前提是三种零钱都要出现。 题解：和普通的零钱兑换不同的是要求所有零钱都得出现得方案数，考虑容斥原理用三种都出现减去两种出现加上一种零钱兑换得方案。普通得零钱兑换就是一个完全背包，零钱种类在第一重循环是为了避免方案重复（例如种类在第二重循环可能出现$1$ $2$ $1$与$1$ $1$ $2$这两种相同的情况）。">
 
 
 
@@ -122,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/03/29/2017MoscowSubregionalCCarpet/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/08/changemoney/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>2017 Moscow Subregional C Carpet | LMissher's Blog</title>
+  <title>兑换零钱 | LMissher's Blog</title>
   
 
 
@@ -392,7 +392,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/2017MoscowSubregionalCCarpet/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/08/changemoney/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LMissher">
@@ -409,7 +409,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2017 Moscow Subregional C Carpet
+          <h1 class="post-title" itemprop="name headline">兑换零钱
 
               
             
@@ -435,25 +435,9 @@
                 
               
 
-              <time title="创建时间：2019-03-29 13:59:59" itemprop="dateCreated datePublished" datetime="2019-03-29T13:59:59+08:00">2019-03-29</time>
+              <time title="创建时间：2019-12-08 22:19:18" itemprop="dateCreated datePublished" datetime="2019-12-08T22:19:18+08:00">2019-12-08</time>
             
 
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-29 19:50:59" itemprop="dateModified" datetime="2019-03-29T19:50:59+08:00">2019-03-29</time>
-              
             
           </span>
 
@@ -488,8 +472,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/29/2017MoscowSubregionalCCarpet/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/29/2017MoscowSubregionalCCarpet/" itemprop="commentCount"></span>
+                <a href="/2019/12/08/changemoney/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/08/changemoney/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -518,7 +502,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.6k</span>
+                <span title="本文字数">1.7k</span>
               
 
               
@@ -532,7 +516,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -552,8 +536,9 @@
       
 
       
-        <h1 id="2017-Moscow-Subregional-C-Carpet"><a href="#2017-Moscow-Subregional-C-Carpet" class="headerlink" title="2017 Moscow Subregional C Carpet"></a>2017 Moscow Subregional C Carpet</h1><p><a href="https://vjudge.net/contest/260542#problem/C" target="_blank" rel="noopener">https://vjudge.net/contest/260542#problem/C</a></p>
-<p>给一个 $1000000 \times 20$ 的格子图，要求找一种方式把一颗不超过 $100000$ 个节点的树放到格子图里，并且没有边交叉。<br>考虑把树剖分，因为不超过对数条数的链，所以依次把重链放到一列中，轻链放到下一列即可。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1e5</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> cnt,head[M];</span><br><span class="line"><span class="keyword">int</span> sz[M],f[M],son[M],x[M],y[M],tmp[M];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v,next;</span><br><span class="line">&#125;e[M&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cnt=<span class="number">0</span>;<span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));<span class="built_in">memset</span>(tmp,<span class="number">0</span>,<span class="keyword">sizeof</span>(tmp));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    e[++cnt].v=v;e[cnt].next=head[u];</span><br><span class="line">    head[u]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> fa)</span></span>&#123;</span><br><span class="line">    sz[u]=<span class="number">1</span>,f[u]=fa,son[u]=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=e[i].next)&#123;</span><br><span class="line">        <span class="keyword">int</span> v=e[i].v;</span><br><span class="line">        <span class="keyword">if</span>(v==fa) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(v,u);</span><br><span class="line">        sz[u]+=sz[v];</span><br><span class="line">        <span class="keyword">if</span>(son[u]==<span class="number">-1</span>||sz[v]&gt;sz[son[u]]) son[u]=v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> z)</span></span>&#123;</span><br><span class="line">    y[u]=z;x[u]=++tmp[z];</span><br><span class="line">    <span class="keyword">if</span>(son[u]==<span class="number">-1</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];~i;i=e[i].next)&#123;</span><br><span class="line">        <span class="keyword">int</span> v=e[i].v;</span><br><span class="line">        <span class="keyword">if</span>(v==f[u]||v==son[u]) <span class="keyword">continue</span>;</span><br><span class="line">        dfs1(v,z+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs1(son[u],z);</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    freopen(<span class="string">"1.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"1.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n))&#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> u,v;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;u,&amp;v);</span><br><span class="line">            add(u,v);add(v,u);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(<span class="number">1</span>,<span class="number">-1</span>);dfs1(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, x[i],y[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>题意：现在有$1$、$2$、$5$块的零钱若干，问有多少种方式可以把x元兑换成这些零钱。前提是三种零钱都要出现。</p>
+<p>题解：和普通的零钱兑换不同的是要求所有零钱都得出现得方案数，考虑容斥原理用三种都出现减去两种出现加上一种零钱兑换得方案。普通得零钱兑换就是一个完全背包，<strong>零钱种类在第一重循环是为了避免方案重复</strong>（例如种类在第二重循环可能出现$1$ $2$ $1$与$1$ $1$ $2$这两种相同的情况）。</p>
+<p>代码:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100000</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">ll dp[maxn + <span class="number">1</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">ll dp12[maxn + <span class="number">1</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">ll dp15[maxn + <span class="number">1</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">ll dp25[maxn + <span class="number">1</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> MON[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> MON12[<span class="number">2</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> MON15[<span class="number">2</span>] = &#123;<span class="number">1</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> MON25[<span class="number">2</span>] = &#123;<span class="number">2</span>, <span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">    freopen(<span class="string">"test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    dp[<span class="number">0</span>] = dp12[<span class="number">0</span>] = dp15[<span class="number">0</span>] = dp25[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = MON[i]; j &lt; maxn + <span class="number">1</span>; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[j] += dp[j - MON[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = MON12[i]; j &lt; maxn + <span class="number">1</span>; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            dp12[j] += dp12[j - MON12[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = MON15[i]; j &lt; maxn + <span class="number">1</span>; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            dp15[j] += dp15[j - MON15[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = MON25[i]; j &lt; maxn + <span class="number">1</span>; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            dp25[j] += dp25[j - MON25[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    dp[n] = (dp[n] - dp12[n] - dp15[n] - dp25[n] + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">        dp[n] += <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">5</span> == <span class="number">0</span>)</span><br><span class="line">        dp[n] += <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, dp[n]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -585,12 +570,12 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>2017 Moscow Subregional C Carpet</p>
+  <p><span>本文标题:</span>兑换零钱</p>
   <p><span>文章作者:</span>LMissher</p>
-  <p><span>发布时间:</span>2019年03月29日 - 13:59:59</p>
-  <p><span>最后更新:</span>2019年03月29日 - 19:50:59</p>
-  <p><span>原始链接:</span><a href="/2019/03/29/2017MoscowSubregionalCCarpet/" title="2017 Moscow Subregional C Carpet">https://lmissher.github.io/2019/03/29/2017MoscowSubregionalCCarpet/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2019/03/29/2017MoscowSubregionalCCarpet/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年12月08日 - 22:19:18</p>
+  <p><span>最后更新:</span>2019年12月08日 - 22:19:18</p>
+  <p><span>原始链接:</span><a href="/2019/12/08/changemoney/" title="兑换零钱">https://lmissher.github.io/2019/12/08/changemoney/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2019/12/08/changemoney/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -625,7 +610,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Heavy-Light-Decomposition/" rel="tag"><i class="fa fa-tag"></i> Heavy_Light_Decomposition</a>
+            <a href="/tags/dp/" rel="tag"><i class="fa fa-tag"></i> dp</a>
           
         </div>
       
@@ -638,8 +623,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/hdu-5242/" rel="next" title="hdu 5242">
-                <i class="fa fa-chevron-left"></i> hdu 5242
+              <a href="/2019/12/01/查看gpu信息/" rel="next" title="查看gpu信息">
+                <i class="fa fa-chevron-left"></i> 查看gpu信息
               </a>
             
           </div>
@@ -647,10 +632,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/29/2017LatinAmeIImperialroads/" rel="prev" title="2017 Latin America I Imperial roads">
-                2017 Latin America I Imperial roads <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -698,17 +679,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -918,23 +890,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017-Moscow-Subregional-C-Carpet"><span class="nav-number">1.</span> <span class="nav-text">2017 Moscow Subregional C Carpet</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
