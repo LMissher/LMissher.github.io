@@ -502,7 +502,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">921</span>
+                <span title="本文字数">1.1k</span>
               
 
               
@@ -569,11 +569,14 @@
 </li>
 <li>层间游走，设当前处于第k层<ul>
 <li>$p_k(u_k,u_{k+1})=\frac{w(u_k,u_{k+1})}{w(u_k,u_{k+1})+w(u_k,u_{k-1})}$</li>
-<li>$p_k(u_k,u_{k-1})=\frac{w(u_k,u_{k-1})}{w(u_k,u_{k+1})+w(u_k,u_{k-1})}$</li>
+<li>$p_k(u_k,u_{k-1})=\frac{w(u_k,u_{k-1})}{w(u_k,u_{k+1})+w(u_k,u_{k-1})}$<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2></li>
 </ul>
 </li>
 </ol>
 </li>
+<li>有序度序列长度优化。将度序列的存储改为(度数，出现次数)这样的二元组。</li>
+<li>相似度计算个数优化。有些点对可能在$k=0$时距离已经很大导致无法游走到，那么每次计算相似度时只取当前层度序列的二分查找元素即可。</li>
+<li>带权图层数优化。当$k$接近于图的直径时可能使得度序列过长导致两层之间点对的距离相似，控制$k$小于图直径。</li>
 </ul>
 
       
@@ -950,7 +953,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#struc2vec"><span class="nav-number">1.</span> <span class="nav-text">struc2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法原理"><span class="nav-number">1.2.</span> <span class="nav-text">算法原理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#struc2vec"><span class="nav-number">1.</span> <span class="nav-text">struc2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法原理"><span class="nav-number">1.2.</span> <span class="nav-text">算法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">1.3.</span> <span class="nav-text">优化</span></a></li></ol></li></ol></div>
             
 
           </div>
