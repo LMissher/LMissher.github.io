@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="struc2vec优点事实上，在一些场景中，两个不是近邻的顶点也可能拥有很高的相似性，对于这类相似性，上述方法是无法捕捉到而struc2vec可以。 算法原理 $R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。 $s(S)$表示顶点集合$S$d的有序度序列 $f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。 $f_k(u,v)$=$f_{k-1}(u,v">
+  <meta name="description" content="struc2vec优点事实上，在一些场景中，两个不是近邻的顶点也可能拥有很高的相似性，对于这类相似性，上述方法是无法捕捉到而struc2vec可以。 算法原理 $R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。 $s(S)$表示顶点集合$S$的有序度序列 $f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。 $f_k(u,v)$=$f_{k-1}(u,v)">
 <meta name="keywords" content="embedding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="struc2vec">
 <meta property="og:url" content="http://yoursite.com/2020/03/04/struc2vec/index.html">
 <meta property="og:site_name" content="LMissher&#39;s Blog">
-<meta property="og:description" content="struc2vec优点事实上，在一些场景中，两个不是近邻的顶点也可能拥有很高的相似性，对于这类相似性，上述方法是无法捕捉到而struc2vec可以。 算法原理 $R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。 $s(S)$表示顶点集合$S$d的有序度序列 $f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。 $f_k(u,v)$=$f_{k-1}(u,v">
+<meta property="og:description" content="struc2vec优点事实上，在一些场景中，两个不是近邻的顶点也可能拥有很高的相似性，对于这类相似性，上述方法是无法捕捉到而struc2vec可以。 算法原理 $R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。 $s(S)$表示顶点集合$S$的有序度序列 $f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。 $f_k(u,v)$=$f_{k-1}(u,v)">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-03-04T09:47:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="struc2vec">
-<meta name="twitter:description" content="struc2vec优点事实上，在一些场景中，两个不是近邻的顶点也可能拥有很高的相似性，对于这类相似性，上述方法是无法捕捉到而struc2vec可以。 算法原理 $R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。 $s(S)$表示顶点集合$S$d的有序度序列 $f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。 $f_k(u,v)$=$f_{k-1}(u,v">
+<meta name="twitter:description" content="struc2vec优点事实上，在一些场景中，两个不是近邻的顶点也可能拥有很高的相似性，对于这类相似性，上述方法是无法捕捉到而struc2vec可以。 算法原理 $R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。 $s(S)$表示顶点集合$S$的有序度序列 $f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。 $f_k(u,v)$=$f_{k-1}(u,v)">
 
 
 
@@ -539,10 +539,10 @@
         <h1 id="struc2vec"><a href="#struc2vec" class="headerlink" title="struc2vec"></a>struc2vec</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>事实上，在一些场景中，两个不是近邻的顶点也可能拥有很高的相似性，对于这类相似性，上述方法是无法捕捉到而struc2vec可以。</p>
 <h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><ul>
 <li>$R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。</li>
-<li>$s(S)$表示顶点集合$S$d的有序<strong>度序列</strong></li>
+<li>$s(S)$表示顶点集合$S$的有序<strong>度序列</strong></li>
 <li>$f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。<ol>
 <li>$f_k(u,v)$=$f_{k-1}(u,v)$+$g(s(R_k(u)),s(R_k(v)))$，$k\ge0$， $|R_k(u)|&gt;0$， $|R_k(v)|&gt;0$</li>
-<li>$g(D_1,D_2)\ge0$是衡量序列距离的函数。</li>
+<li>$g(D_1,D_2)\ge0$是衡量序列距离的函数，在struc2vec中使用DTW函数。</li>
 <li>$f_{-1}(u,v)=0$</li>
 </ol>
 </li>
@@ -552,7 +552,7 @@
 </ol>
 </li>
 <li>层次带权图<ol>
-<li>$f_k(u,v)$可有迭代得到，那么从$0$到$k$均有$f_i(u,v)$。所以每对顶点有$k$个距离。</li>
+<li>$f_k(u,v)$可由迭代得到，那么从$0$到$k$均有$f_i(u,v)$。所以每对顶点有$k$个距离。</li>
 <li>定义在第i层中两个顶点的边权为$w_k(u,v)=e^{-f_k(u,v)}\le 1$，$0\le i\le k$</li>
 <li>定义$\Gamma_k(i)$编号为$i$的顶点在第$k$层相连边的边权有多少条大于平均边权。</li>
 <li>将不同层次的同一个顶点连边<ul>
