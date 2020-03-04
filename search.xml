@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[struc2vec]]></title>
     <url>%2F2020%2F03%2F04%2Fstruc2vec%2F</url>
-    <content type="text"><![CDATA[struc2vec优点事实上，在一些场景中，两个不是近邻的顶点也可能拥有很高的相似性，对于这类相似性，上述方法是无法捕捉到而struc2vec可以。 算法原理 $R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。 $s(S)$表示顶点集合$S$的有序度序列 $f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。 $f_k(u,v)$=$f_{k-1}(u,v)$+$g(s(R_k(u)),s(R_k(v)))$，$k\ge0$， $|R_k(u)|&gt;0$， $|R_k(v)|&gt;0$ $g(D_1,D_2)\ge0$是衡量序列距离的函数，在struc2vec中使用DTW函数。 $f_{-1}(u,v)=0$ Dynamic Time Warping(DTW) DTW可以用来衡量两个不同长度且含有重复元素的的序列的距离。 $d(a,b)=\frac{max(a,b)}{min(a,b)}-1$ 层次带权图 $f_k(u,v)$可由迭代得到，那么从$0$到$k$均有$f_i(u,v)$。所以每对顶点有$k$个距离。 定义在第i层中两个顶点的边权为$w_k(u,v)=e^{-f_k(u,v)}\le 1$，$0\le i\le k$ 定义$\Gamma_k(i)$编号为$i$的顶点在第$k$层相连边的边权有多少条大于平均边权。 将不同层次的同一个顶点连边 $w(u_k,u_{k+1})=log(\Gamma_k(u)+e)$ $w(u_k,u_{k-1})=1$ 采样获取顶点序列 层内游走，设当前处于第$k$层，则从点$u$到点$v$的概率为 $p_k(u,v)=\frac{w_k(u,v)}{\sum_{v\epsilon V,v\ne u}w_k(u,v)}$ 层间游走，设当前处于第k层 $p_k(u_k,u_{k+1})=\frac{w(u_k,u_{k+1})}{w(u_k,u_{k+1})+w(u_k,u_{k-1})}$ $p_k(u_k,u_{k-1})=\frac{w(u_k,u_{k-1})}{w(u_k,u_{k+1})+w(u_k,u_{k-1})}$优化 有序度序列长度优化。将度序列的存储改为(度数，出现次数)这样的二元组。 相似度计算个数优化。有些点对可能在$k=0$时距离已经很大导致无法游走到，那么每次计算相似度时只取当前层度序列的二分查找元素即可。 带权图层数优化。当$k$接近于图的直径时可能使得度序列过长导致两层之间点对的距离相似，控制$k$小于图直径。]]></content>
+    <content type="text"><![CDATA[struc2vec优点类似树一类的层级结构可能两节点相距较远但更相似，比如都为叶子节点。struc2vec能更好捕捉结构上的相似性。 算法原理 $R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。 $s(S)$表示顶点集合$S$的有序度序列 $f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。 $f_k(u,v)$=$f_{k-1}(u,v)$+$g(s(R_k(u)),s(R_k(v)))$，$k\ge0$， $|R_k(u)|&gt;0$， $|R_k(v)|&gt;0$ $g(D_1,D_2)\ge0$是衡量序列距离的函数，在struc2vec中使用DTW函数。 $f_{-1}(u,v)=0$ Dynamic Time Warping(DTW) DTW可以用来衡量两个不同长度且含有重复元素的的序列的距离。 $d(a,b)=\frac{max(a,b)}{min(a,b)}-1$ 层次带权图 $f_k(u,v)$可由迭代得到，那么从$0$到$k$均有$f_i(u,v)$。所以每对顶点有$k$个距离。 定义在第i层中两个顶点的边权为$w_k(u,v)=e^{-f_k(u,v)}\le 1$，$0\le i\le k$ 定义$\Gamma_k(i)$编号为$i$的顶点在第$k$层相连边的边权有多少条大于平均边权。 将不同层次的同一个顶点连边 $w(u_k,u_{k+1})=log(\Gamma_k(u)+e)$ $w(u_k,u_{k-1})=1$ 采样获取顶点序列 层内游走，设当前处于第$k$层，则从点$u$到点$v$的概率为 $p_k(u,v)=\frac{w_k(u,v)}{\sum_{v\epsilon V,v\ne u}w_k(u,v)}$ 层间游走，设当前处于第k层 $p_k(u_k,u_{k+1})=\frac{w(u_k,u_{k+1})}{w(u_k,u_{k+1})+w(u_k,u_{k-1})}$ $p_k(u_k,u_{k-1})=\frac{w(u_k,u_{k-1})}{w(u_k,u_{k+1})+w(u_k,u_{k-1})}$优化 有序度序列长度优化。将度序列的存储改为(度数，出现次数)这样的二元组。 相似度计算个数优化。有些点对可能在$k=0$时距离已经很大导致无法游走到，那么每次计算相似度时只取当前层度序列的二分查找元素即可。 带权图层数优化。当$k$接近于图的直径时可能使得度序列过长导致两层之间点对的距离相似，控制$k$小于图直径。]]></content>
       <categories>
         <category>learning</category>
       </categories>
@@ -737,9 +737,9 @@
       </categories>
       <tags>
         <tag>MST</tag>
-        <tag>bfs</tag>
         <tag>dijkstra</tag>
         <tag>spfa</tag>
+        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
