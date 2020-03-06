@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[geomgcn]]></title>
+    <url>%2F2020%2F03%2F06%2Fgeomgcn%2F</url>
+    <content type="text"><![CDATA[geom-gcn 将图结构embedding，得到每个顶点的特征向量。 $N_g(v)$表示原始图结构中$v$节点的邻居节点集合。 $N_s(v)$表示所有顶点中embedding向量与$v$节点的相似度小于$\rho$的节点集合。 $\tau$表示一种几何关系，使得每对节点都有唯一的对应关系。 $N(v)=({N_g(v),N_s(v)},\tau)$表示使用$v$节点的embedding向量与集合g与s中的所有顶点embedding向量转换为关系$\tau$。 low level aggregation: $e_{i,r}^{v,l+1}=\sum_{u\epsilon N_i(v)}\delta(\tau(z_v,z_u),r)(deg(v)deg(u))^{\frac{1}{2}}h_u^l$ $\forall i\epsilon { g,s}$ $\forall r\epsilon R$ 对于节点v的更新，先枚举$N(v)$中的点再枚举所有的几何关系。对于每一对$(i,r)$都有$e_{i,r}^{v,l+1}$，是枚举节点$i$的$N(v)$并将枚举的节点称为$u$，如果$u$和$v$满足关系$r$则进行卷积运算并加和。对于所有这样的$u$，它们都有相同的邻居$i$并且和$v$满足同一种关系$r$。 high level aggregation: $h_v^{l+1}=\sigma(W_l \bullet \lVert_{i\epsilon{g,p}}\lVert_{r\epsilon R}e_{i,r}^{v,l+1})$ 将所有的$e_{i,r}^{v,l+1}$拼接在一起全连接后接非线性激活函数ReLU。]]></content>
+      <categories>
+        <category>learning</category>
+      </categories>
+      <tags>
+        <tag>gcn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[struc2vec]]></title>
     <url>%2F2020%2F03%2F04%2Fstruc2vec%2F</url>
     <content type="text"><![CDATA[struc2vec优点类似树一类的层级结构可能两节点相距较远但更相似，比如都为叶子节点。struc2vec能更好捕捉结构上的相似性。 算法原理 $R_k(u)$表示距离节点$u$距离为$k$内的所有节点的集合。 $s(S)$表示顶点集合$S$的有序度序列 $f_k(u,v)$表示节点$u$，$v$在距离在$k$内的环路上的结构距离。 $f_k(u,v)$=$f_{k-1}(u,v)$+$g(s(R_k(u)),s(R_k(v)))$，$k\ge0$， $|R_k(u)|&gt;0$， $|R_k(v)|&gt;0$ $g(D_1,D_2)\ge0$是衡量序列距离的函数，在struc2vec中使用DTW函数。 $f_{-1}(u,v)=0$ Dynamic Time Warping(DTW) DTW可以用来衡量两个不同长度且含有重复元素的的序列的距离。 $d(a,b)=\frac{max(a,b)}{min(a,b)}-1$ 层次带权图 $f_k(u,v)$可由迭代得到，那么从$0$到$k$均有$f_i(u,v)$。所以每对顶点有$k$个距离。 定义在第i层中两个顶点的边权为$w_k(u,v)=e^{-f_k(u,v)}\le 1$，$0\le i\le k$ 定义$\Gamma_k(i)$编号为$i$的顶点在第$k$层相连边的边权有多少条大于平均边权。 将不同层次的同一个顶点连边 $w(u_k,u_{k+1})=log(\Gamma_k(u)+e)$ $w(u_k,u_{k-1})=1$ 采样获取顶点序列 层内游走，设当前处于第$k$层，则从点$u$到点$v$的概率为 $p_k(u,v)=\frac{w_k(u,v)}{\sum_{v\epsilon V,v\ne u}w_k(u,v)}$ 层间游走，设当前处于第k层 $p_k(u_k,u_{k+1})=\frac{w(u_k,u_{k+1})}{w(u_k,u_{k+1})+w(u_k,u_{k-1})}$ $p_k(u_k,u_{k-1})=\frac{w(u_k,u_{k-1})}{w(u_k,u_{k+1})+w(u_k,u_{k-1})}$优化 有序度序列长度优化。将度序列的存储改为(度数，出现次数)这样的二元组。 相似度计算个数优化。有些点对可能在$k=0$时距离已经很大导致无法游走到，那么每次计算相似度时只取当前层度序列的二分查找元素即可。 带权图层数优化。当$k$接近于图的直径时可能使得度序列过长导致两层之间点对的距离相似，控制$k$小于图直径。]]></content>

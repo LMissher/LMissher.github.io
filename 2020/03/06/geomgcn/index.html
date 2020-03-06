@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="糖果题目大意是给$n$包糖果，每包糖果有$k$颗不同口味的糖，糖的口味以一共$m$种，问最少购买多少包糖果可以凑齐所有的口味。$ 1 \leq m,k \leq 20 ,1 \leq n \leq 100 $   #题解状压DP裸题，将每一种口味看作是二进制的一位，那么每一包糖果都可以看作是一个二进制数字，而最终的目的m种口味也是一个二进制数。所以有$ dp[i] $表示第i个二进制数有多少种口味">
-<meta name="keywords" content="dp">
+  <meta name="description" content="geom-gcn 将图结构embedding，得到每个顶点的特征向量。 $N_g(v)$表示原始图结构中$v$节点的邻居节点集合。 $N_s(v)$表示所有顶点中embedding向量与$v$节点的相似度小于$\rho$的节点集合。 $\tau$表示一种几何关系，使得每对节点都有唯一的对应关系。 $N(v)=({N_g(v),N_s(v)},\tau)$表示使用$v$节点的embedding向量与">
+<meta name="keywords" content="gcn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2019蓝桥杯 糖果">
-<meta property="og:url" content="http://yoursite.com/2019/05/19/2019lanqiaotangguo/index.html">
+<meta property="og:title" content="geomgcn">
+<meta property="og:url" content="http://yoursite.com/2020/03/06/geomgcn/index.html">
 <meta property="og:site_name" content="LMissher&#39;s Blog">
-<meta property="og:description" content="糖果题目大意是给$n$包糖果，每包糖果有$k$颗不同口味的糖，糖的口味以一共$m$种，问最少购买多少包糖果可以凑齐所有的口味。$ 1 \leq m,k \leq 20 ,1 \leq n \leq 100 $   #题解状压DP裸题，将每一种口味看作是二进制的一位，那么每一包糖果都可以看作是一个二进制数字，而最终的目的m种口味也是一个二进制数。所以有$ dp[i] $表示第i个二进制数有多少种口味">
+<meta property="og:description" content="geom-gcn 将图结构embedding，得到每个顶点的特征向量。 $N_g(v)$表示原始图结构中$v$节点的邻居节点集合。 $N_s(v)$表示所有顶点中embedding向量与$v$节点的相似度小于$\rho$的节点集合。 $\tau$表示一种几何关系，使得每对节点都有唯一的对应关系。 $N(v)=({N_g(v),N_s(v)},\tau)$表示使用$v$节点的embedding向量与">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-19T14:35:21.000Z">
+<meta property="og:updated_time" content="2020-03-06T05:23:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2019蓝桥杯 糖果">
-<meta name="twitter:description" content="糖果题目大意是给$n$包糖果，每包糖果有$k$颗不同口味的糖，糖的口味以一共$m$种，问最少购买多少包糖果可以凑齐所有的口味。$ 1 \leq m,k \leq 20 ,1 \leq n \leq 100 $   #题解状压DP裸题，将每一种口味看作是二进制的一位，那么每一包糖果都可以看作是一个二进制数字，而最终的目的m种口味也是一个二进制数。所以有$ dp[i] $表示第i个二进制数有多少种口味">
+<meta name="twitter:title" content="geomgcn">
+<meta name="twitter:description" content="geom-gcn 将图结构embedding，得到每个顶点的特征向量。 $N_g(v)$表示原始图结构中$v$节点的邻居节点集合。 $N_s(v)$表示所有顶点中embedding向量与$v$节点的相似度小于$\rho$的节点集合。 $\tau$表示一种几何关系，使得每对节点都有唯一的对应关系。 $N(v)=({N_g(v),N_s(v)},\tau)$表示使用$v$节点的embedding向量与">
 
 
 
@@ -122,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/19/2019lanqiaotangguo/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/06/geomgcn/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>2019蓝桥杯 糖果 | LMissher's Blog</title>
+  <title>geomgcn | LMissher's Blog</title>
   
 
 
@@ -392,7 +392,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/2019lanqiaotangguo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/geomgcn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LMissher">
@@ -409,7 +409,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2019蓝桥杯 糖果
+          <h1 class="post-title" itemprop="name headline">geomgcn
 
               
             
@@ -435,7 +435,7 @@
                 
               
 
-              <time title="创建时间：2019-05-19 22:35:21" itemprop="dateCreated datePublished" datetime="2019-05-19T22:35:21+08:00">2019-05-19</time>
+              <time title="创建时间：2020-03-06 13:23:44" itemprop="dateCreated datePublished" datetime="2020-03-06T13:23:44+08:00">2020-03-06</time>
             
 
             
@@ -453,7 +453,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法与数据结构/" itemprop="url" rel="index"><span itemprop="name">算法与数据结构</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/learning/" itemprop="url" rel="index"><span itemprop="name">learning</span></a></span>
 
                 
                 
@@ -472,8 +472,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/19/2019lanqiaotangguo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/19/2019lanqiaotangguo/" itemprop="commentCount"></span>
+                <a href="/2020/03/06/geomgcn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/06/geomgcn/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -502,7 +502,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.2k</span>
+                <span title="本文字数">729</span>
               
 
               
@@ -536,9 +536,26 @@
       
 
       
-        <h1 id="糖果"><a href="#糖果" class="headerlink" title="糖果"></a>糖果</h1><p>题目大意是给$n$包糖果，每包糖果有$k$颗不同口味的糖，糖的口味以一共$m$种，问最少购买多少包糖果可以凑齐所有的口味。$ 1 \leq m,k \leq 20 ,1 \leq n \leq 100 $  </p>
-<p>#题解<br>状压DP裸题，将每一种口味看作是二进制的一位，那么每一包糖果都可以看作是一个二进制数字，而最终的目的m种口味也是一个二进制数。所以有$ dp[i] $表示第i个二进制数有多少种口味的糖也即有多少个1。递推式为$ dp[i|packet[j]] = min(dp[i]+1,dp[i|packet[j]]), 1 \leq j \leq n, 1 \leq i \leq 2^m-1 $  </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200000</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,k,dp[maxn],pac[<span class="number">107</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">        freopen(<span class="string">"2019lanqiaotangguo.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">        freopen(<span class="string">"2019lanqiaotangguo.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++)&#123;</span><br><span class="line">            <span class="keyword">int</span> x;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">            pac[i]+=<span class="number">1</span>&lt;&lt;(x<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> ed=(<span class="number">1</span>&lt;&lt;m)<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=ed;++i) dp[i]=<span class="number">1000000000</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=ed;j++)&#123;</span><br><span class="line">            dp[j|pac[i]]=min(dp[j]+<span class="number">1</span>,dp[j|pac[i]]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(dp[ed]==<span class="number">1000000000</span>) <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[ed]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="geom-gcn"><a href="#geom-gcn" class="headerlink" title="geom-gcn"></a>geom-gcn</h2><ul>
+<li>将图结构embedding，得到每个顶点的特征向量。</li>
+<li>$N_g(v)$表示原始图结构中$v$节点的邻居节点集合。</li>
+<li>$N_s(v)$表示所有顶点中embedding向量与$v$节点的相似度小于$\rho$的节点集合。</li>
+<li>$\tau$表示一种几何关系，使得每对节点都有唯一的对应关系。</li>
+<li>$N(v)=({N_g(v),N_s(v)},\tau)$表示使用$v$节点的embedding向量与集合g与s中的所有顶点embedding向量转换为关系$\tau$。</li>
+<li>low level aggregation:<ul>
+<li>$e_{i,r}^{v,l+1}=\sum_{u\epsilon N_i(v)}\delta(\tau(z_v,z_u),r)(deg(v)deg(u))^{\frac{1}{2}}h_u^l$</li>
+<li>$\forall i\epsilon { g,s}$</li>
+<li>$\forall r\epsilon R$</li>
+<li>对于节点v的更新，先枚举$N(v)$中的点再枚举所有的几何关系。对于每一对$(i,r)$都有$e_{i,r}^{v,l+1}$，是枚举节点$i$的$N(v)$并将枚举的节点称为$u$，如果$u$和$v$满足关系$r$则进行卷积运算并加和。对于所有这样的$u$，它们都有相同的邻居$i$并且和$v$满足同一种关系$r$。</li>
+</ul>
+</li>
+<li>high level aggregation:<ul>
+<li>$h_v^{l+1}=\sigma(W_l \bullet \lVert_{i\epsilon{g,p}}\lVert_{r\epsilon R}e_{i,r}^{v,l+1})$</li>
+<li>将所有的$e_{i,r}^{v,l+1}$拼接在一起全连接后接非线性激活函数ReLU。</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 
@@ -569,12 +586,12 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>2019蓝桥杯 糖果</p>
+  <p><span>本文标题:</span>geomgcn</p>
   <p><span>文章作者:</span>LMissher</p>
-  <p><span>发布时间:</span>2019年05月19日 - 22:35:21</p>
-  <p><span>最后更新:</span>2019年05月19日 - 22:35:21</p>
-  <p><span>原始链接:</span><a href="/2019/05/19/2019lanqiaotangguo/" title="2019蓝桥杯 糖果">https://lmissher.github.io/2019/05/19/2019lanqiaotangguo/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2019/05/19/2019lanqiaotangguo/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年03月06日 - 13:23:44</p>
+  <p><span>最后更新:</span>2020年03月06日 - 13:23:44</p>
+  <p><span>原始链接:</span><a href="/2020/03/06/geomgcn/" title="geomgcn">https://lmissher.github.io/2020/03/06/geomgcn/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://lmissher.github.io/2020/03/06/geomgcn/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -609,7 +626,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/dp/" rel="tag"><i class="fa fa-tag"></i> dp</a>
+            <a href="/tags/gcn/" rel="tag"><i class="fa fa-tag"></i> gcn</a>
           
         </div>
       
@@ -622,8 +639,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/03/uoj103/" rel="next" title="回文自动机">
-                <i class="fa fa-chevron-left"></i> 回文自动机
+              <a href="/2020/03/04/struc2vec/" rel="next" title="struc2vec">
+                <i class="fa fa-chevron-left"></i> struc2vec
               </a>
             
           </div>
@@ -631,10 +648,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/03/digital/" rel="prev" title="digital">
-                digital <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -919,7 +932,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#糖果"><span class="nav-number">1.</span> <span class="nav-text">糖果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#geom-gcn"><span class="nav-number">1.</span> <span class="nav-text">geom-gcn</span></a></li></ol></div>
             
 
           </div>
